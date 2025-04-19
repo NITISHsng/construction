@@ -5,11 +5,11 @@ import { useData } from "../pages/DataContext";
 import { collection, addDoc } from "firebase/firestore"; // ✅ Import addDoc and collection
 import { db } from "../firebase/firebase"; // ✅ Make sure this is already imported
 
-const Testimonials = ({ user }) => {
+const Comments = ({ user }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [comment, setComment] = useState("");
   const [rating, setRating] = useState(0);
-  const testimonialRef = useRef(null);
+  const commentsRef = useRef(null);
   const [userName, setUserName] = useState("");
   const [userImgURL, setUserImgURL] = useState(null);
   const [showCommentBox, setShowCommentBox] = useState(false);
@@ -84,26 +84,26 @@ const Testimonials = ({ user }) => {
   };
   
 
-  // Scroll to next testimonial
+  // Scroll to next comments
   const nextComments = () => {
-    if (testimonialRef.current && comments.length > 0) {
+    if (commentsRef.current && comments.length > 0) {
       const nextIndex = (currentIndex + 1) % comments.length;
       setCurrentIndex(nextIndex);
-      testimonialRef.current.scrollBy({ left: 394, behavior: "smooth" });
+      commentsRef.current.scrollBy({ left: 394, behavior: "smooth" });
     }
   };
 
-  // Scroll to previous testimonial
+  // Scroll to previous comments
   const prevComments = () => {
-    if (testimonialRef.current && comments.length > 0) {
+    if (commentsRef.current && comments.length > 0) {
       const prevIndex = (currentIndex - 1 + comments.length) % comments.length;
       setCurrentIndex(prevIndex);
-      testimonialRef.current.scrollBy({ left: -394, behavior: "smooth" });
+      commentsRef.current.scrollBy({ left: -394, behavior: "smooth" });
     }
   };
 
   return (
-    <section id="testimonials" className="py-16 bg-gray-50">
+    <section id="comments" className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
@@ -137,7 +137,7 @@ const Testimonials = ({ user }) => {
           </p>
         </div>
 
-        {/* Testimonials Carousel */}
+        {/* comments Carousel */}
         <div className="relative flex items-center">
           {/* Left Arrow */}
           <button
@@ -147,9 +147,9 @@ const Testimonials = ({ user }) => {
             ←
           </button>
 
-          {/* Testimonial Cards */}
+          {/* comments Cards */}
           <div
-            ref={testimonialRef}
+            ref={commentsRef}
             className="flex space-x-4 no-scrollbar overflow-x-auto scroll-smooth"
             style={{ scrollbarWidth: "none" }}
           >
@@ -294,4 +294,4 @@ const Testimonials = ({ user }) => {
   );
 };
 
-export default Testimonials;
+export default Comments;

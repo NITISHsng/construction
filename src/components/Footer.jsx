@@ -10,7 +10,7 @@ const Footer = () => {
           <div>
             <div className="flex items-center gap-2 mb-6">
               <Building className="h-8 w-8 text-yellow-500" />
-              <span className="text-xl font-bold">SanBuilds</span>
+              <span className="text-xl font-bold">WowInfra</span>
             </div>
             <p className="text-gray-400 mb-6">
               Building excellence with integrity, quality, and innovative solutions since 2021.
@@ -46,7 +46,7 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-bold mb-6">Quick Links</h3>
             <ul className="space-y-3">
-              {["Home", "About Us", "Projects", "Testimonials", "Contact"].map((link, index) => (
+              {["Home", "About Us", "Projects", "Comments", "Contact"].map((link, index) => (
                 <li key={index}>
                   <a href={`#${link.toLowerCase().replace(/ /g, "")}`} className="text-gray-400 hover:text-yellow-500 transition-colors">
                     {link}
@@ -60,8 +60,8 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-bold mb-4">Contact Info</h3>
             <ul className="space-y-3 text-gray-400">
-              <li>sevoke more,siliguri,west bangal-12345</li>
-              <li>info@sanbuilds-construction.com</li>
+              <li>Rd no 2, Sevoke More,siliguri,west bangal-7340011</li>
+              <li>info@WowInfra-construction.com</li>
               <li>(+91)9635868211</li>
               <li>Mon-Fri: 8am - 6pm</li>
               <li>Suterday: 8am - 2pm</li>
@@ -72,7 +72,7 @@ const Footer = () => {
         {/* Footer Bottom */}
         <div className="border-t border-gray-700 pt-8 mt-8 flex flex-col sm:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">
-            © {new Date().getFullYear()} SanBuilds Construction. All rights reserved.
+            © {new Date().getFullYear()} WowInfra Construction. All rights reserved.
           </p>
           <div className="flex gap-4 mt-4 sm:mt-0">
             <a href="#" className="text-gray-400 hover:text-yellow-500 text-sm">

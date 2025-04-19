@@ -63,7 +63,7 @@ export default function Header() {
               onClick={() => setDropdownOpen(!dropdownOpen)}
               className="h-8 w-8 rounded-full bg-blue-600 text-white text-sm font-bold flex items-center justify-center"
             >
-              JD
+              AD
             </button>
 
             {dropdownOpen && (

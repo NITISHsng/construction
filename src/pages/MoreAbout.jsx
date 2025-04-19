@@ -1,5 +1,7 @@
 import React from "react";
-// import { motion } from 'framer-motion';/
+import { FaWhatsapp } from "react-icons/fa";
+import { Clock } from "lucide-react";
+import Counter from "../components/Counter";
 import {
   CheckCircle,
   Award,
@@ -9,25 +11,37 @@ import {
   Phone,
   Mail,
 } from "lucide-react";
-// import { div } from '@/components/ui/separator';
-
+import { useInView } from "react-intersection-observer";
 const About = () => {
+  const { ref, inView } = useInView({
+    triggerOnce: true, 
+    threshold: 0.1, 
+  });
+
   return (
     <div className="bg-gradient-to-b from-gray-50 to-blue-50 min-h-screen pb-16">
       {/* Hero Section */}
-      <div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-        className="relative h-64 md:h-80 bg-gradient-to-r from-blue-800 to-blue-600 overflow-hidden"
-      >
-        <div className="absolute inset-0 bg-blue-900/20"></div>
-        <div className="container mx-auto px-6 h-full flex items-center justify-center relative z-10">
-          <h1 className="text-4xl md:text-6xl font-bold text-white text-center">
-            About WowInfra
-          </h1>
-        </div>
+      <div className="relative h-[10vh] md:h-[20vh] bg-gradient-to-r from-blue-800 to-blue-600 overflow-hidden flex items-center justify-center">
+        <h1 className="text-4xl md:text-6xl font-bold text-white text-center animate-fade-up">
+          About WowInfra
+        </h1>
       </div>
+      <style>{`
+        @keyframes fadeUp {
+          0% {
+            opacity: 0;
+            transform: translateY(40px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .animate-fade-up {
+          animation: fadeUp 1s ease-out forwards;
+        }
+      `}</style>
 
       <div className="container mx-auto px-6 py-16 max-w-7xl">
         {/* Introduction */}
@@ -44,7 +58,6 @@ const About = () => {
         {/* Vision & Mission */}
         <div
           initial="hidden"
-          
           viewport={{ once: true, amount: 0.3 }}
           className="grid md:grid-cols-2 gap-10 mb-20"
         >
@@ -81,26 +94,47 @@ const About = () => {
         {/* Stats */}
         <div
           initial="hidden"
-          
           viewport={{ once: true, amount: 0.3 }}
           className="grid md:grid-cols-3 gap-6 mb-20"
         >
-          <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition duration-300 text-center border border-blue-100">
-            <h4 className="text-5xl font-bold text-blue-600 mb-3">30+</h4>
+          <div
+            ref={ref}
+            className="justify-center bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition duration-300 text-center border border-blue-100"
+          >
+            <h4 className="flex items-center justify-center text-5xl font-bold text-blue-600 mb-3">
+              <span>
+                {inView ? <Counter target={30} duration={1000} /> : 0}
+              </span>
+              <span className="mb-2">+</span>
+            </h4>
             <p className="text-gray-700 text-lg font-medium">
               Projects Completed
             </p>
           </div>
 
-          <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition duration-300 text-center border border-blue-100">
-            <h4 className="text-5xl font-bold text-blue-600 mb-3">98%</h4>
+          <div
+            ref={ref}
+            className="justify-center bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition duration-300 text-center border border-blue-100"
+          >
+            <h4 className="flex items-center justify-center text-5xl font-bold text-blue-600 mb-3">
+              <span>
+                {inView ? <Counter target={98} duration={1000} /> : 0}
+              </span>
+              <span className="mb-2">%</span>
+            </h4>
             <p className="text-gray-700 text-lg font-medium">
               Client Satisfaction
             </p>
           </div>
 
-          <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition duration-300 text-center border border-blue-100">
-            <h4 className="text-5xl font-bold text-blue-600 mb-3">3+</h4>
+          <div
+            ref={ref}
+            className="justify-center bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition duration-300 text-center border border-blue-100"
+          >
+            <h4 className="flex items-center justify-center text-5xl font-bold text-blue-600 mb-3">
+              <span>{inView ? <Counter target={3} duration={1000} /> : 0}</span>
+              <span className="mb-2">+</span>
+            </h4>
             <p className="text-gray-700 text-lg font-medium">
               Years Experience
             </p>
@@ -110,7 +144,6 @@ const About = () => {
         {/* Services */}
         <div
           initial="hidden"
-          
           viewport={{ once: true, amount: 0.3 }}
           className="mb-20 bg-white p-10 rounded-2xl shadow-md border border-blue-100"
         >
@@ -141,7 +174,6 @@ const About = () => {
         {/* Team Overview */}
         <div
           initial="hidden"
-          
           viewport={{ once: true, amount: 0.3 }}
           className="mb-20 bg-gradient-to-r from-blue-700 to-blue-600 p-10 rounded-2xl shadow-md"
         >
@@ -168,46 +200,78 @@ const About = () => {
         </div>
 
         {/* Location */}
-        <div
-          initial="hidden"
-          
-          viewport={{ once: true, amount: 0.3 }}
-          className="mb-20"
-        >
+        <div className="mb-20">
           <h3 className="text-3xl font-bold mb-8 text-gray-800 text-center">
             Our Location
           </h3>
 
-          <div className="bg-white p-6 md:p-8 rounded-2xl shadow-md border border-blue-100 mb-6">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-6">
-              <div className="flex items-center gap-3">
-                <MapPin className="text-blue-600" size={24} />
-                <p className="text-gray-700">
-                  123 Builder's Avenue, Kolkata, West Bengal, India
-                </p>
+          <div className="bg-white p-6 md:p-8 rounded-2xl shadow-md border border-blue-100">
+            <div className="flex flex-col md:flex-row gap-8">
+              {/* Left Side - Contact Info */}
+              <div className="flex-1 flex flex-col justify-center gap-4">
+                <div>
+                  <h4 className="text-lg font-semibold text-blue-700 mb-1">
+                    Contact Information
+                  </h4>
+                  <p className="text-gray-700">
+                    <span className="font-medium">Phone:</span>{" "}
+                    <a href="tel:+919635868211" className="text-blue-600 ">
+                      (+91) 9635868211
+                    </a>
+                  </p>
+                  <p className="text-gray-700">
+                    <span className="font-medium">WhatsApp:</span>{" "}
+                    <a
+                      href="https://wa.me/919635868211?text=Hello%20WowInfra%0A"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-green-600 "
+                    >
+                      9635868211
+                    </a>
+                  </p>
+                  <p className="text-gray-700">
+                    <span className="font-medium">Email:</span>{" "}
+                    <a
+                      href="mailto:info@WowInfra-construction.com?subject=Inquiry&body=Hello%20WowInfra"
+                      className=" text-blue-600"
+                    >
+                      info@WowInfra-construction.com
+                    </a>
+                  </p>
+                </div>
+
+                <div>
+                  <h4 className="text-lg font-semibold text-blue-700 mb-1">
+                    Office
+                  </h4>
+                  <p className="text-gray-700">
+                    Rd no 2, Rd no 2, Sevoke More, Siliguri, West Bengal -
+                    734001
+                  </p>
+                </div>
+
+                <div>
+                  <h4 className="text-lg font-semibold text-blue-700 mb-1">
+                    Working Hours
+                  </h4>
+                  <p className="text-gray-700">Monday - Friday: 8 AM - 10 PM</p>
+                  <p className="text-gray-700">Saturday: 9 AM - 2 PM</p>
+                </div>
               </div>
 
-              <div className="flex items-center gap-3">
-                <Phone className="text-blue-600" size={24} />
-                <p className="text-gray-700">+91 98765 43210</p>
+              {/* Right Side - Map */}
+              <div className="flex-1 rounded-xl overflow-hidden shadow-md">
+                <iframe
+                  title="WowInfra Office Location"
+                  src="https://www.google.com/maps/embed?pb=!1m21!1m12!1m3!1d628.9341409022167!2d88.42308630478034!3d26.71615983410028!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m6!3e3!4m0!4m3!3m2!1d26.716072552332587!2d88.42392597528611!5e1!3m2!1sen!2sin!4v1744625412620!5m2!1sen!2sin"
+                  width="100%"
+                  height="300"
+                  allowFullScreen=""
+                  loading="lazy"
+                  className="border-0 w-full h-full"
+                ></iframe>
               </div>
-
-              <div className="flex items-center gap-3">
-                <Mail className="text-blue-600" size={24} />
-                <p className="text-gray-700">info@WowInfra.com</p>
-              </div>
-            </div>
-
-            <div className="rounded-xl overflow-hidden shadow-md">
-              <iframe
-                title="WowInfra Office Location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3683.9470752951024!2d88.36389541496168!3d22.57264698517685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x7340011678abcd1234!2sYour+Office+Location!5e0!3m2!1sen!2sin!4v1613541024321"
-                width="100%"
-                height="400"
-                allowFullScreen=""
-                loading="lazy"
-                className="border-0"
-              ></iframe>
             </div>
           </div>
         </div>
@@ -215,7 +279,6 @@ const About = () => {
         {/* Why Trust Us */}
         <div
           initial="hidden"
-          
           viewport={{ once: true, amount: 0.3 }}
           className="mb-16"
         >
@@ -269,7 +332,6 @@ const About = () => {
         {/* Contact Information Section */}
         <div
           initial="hidden"
-          
           viewport={{ once: true, amount: 0.3 }}
           className="bg-blue-900 text-white p-8 md:p-10 rounded-2xl shadow-md mb-16"
         >
@@ -285,7 +347,8 @@ const About = () => {
               </span>
             </li>
             <li className="flex items-start gap-3">
-              <CheckCircle className="text-yellow-400 mt-1" size={20} />
+              <FaWhatsapp className="text-yellow-500 text-2xl" />
+
               <span>
                 <strong>Whatsapp</strong>: 9635868211
               </span>
@@ -299,12 +362,12 @@ const About = () => {
             <li className="flex items-start gap-3">
               <MapPin className="text-yellow-400 mt-1" size={20} />
               <span>
-                <strong>Office</strong>: Rd no 2, Sevoke More, Siliguri, West Bengal -
-                7340011
+                <strong>Office</strong>: Rd no 2, Rd no 2, Sevoke More,
+                Siliguri, West Bengal -734001
               </span>
             </li>
             <li className="flex items-start gap-3">
-              <Award className="text-yellow-400 mt-1" size={20} />
+              <Clock className="text-yellow-400 mt-1" size={20} />
               <span>
                 <strong>Working Hours</strong> <br />
                 Monday - Friday: 8 AM – 10 PM <br />

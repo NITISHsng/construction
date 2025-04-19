@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Building, Menu, X, LogIn } from "lucide-react";
+import { Building, Menu, X, LogIn ,ShieldUser} from "lucide-react";
 import { auth } from "../firebase/firebase"; // Ensure correct path
 
 const Navbar = ({ user }) => {
@@ -25,13 +25,13 @@ const Navbar = ({ user }) => {
       <div className="container-custom flex items-center justify-between px-4 md:px-8">
         {/* Logo */}
         <a href="#" className="flex items-center gap-2">
-          <Building className="h-8 w-8 text-primary text-blue-900" />
-          <span className="text-xl font-bold text-primary">SanBuilds</span>
+          <Building className="h-8 w-8 text-primary" />
+          <span className="text-2xl font-bold text-primary">WowInfra</span>
         </a>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6">
-          {["Home", "Services", "Projects", "About", "Testimonials"].map(
+          {["Home", "Services", "Projects", "About", "Comments","Contact"].map(
             (item) => (
               <a
                 key={item}
@@ -48,11 +48,11 @@ const Navbar = ({ user }) => {
 
         {/* Desktop Contact & Auth Buttons */}
         <div className="hidden md:flex gap-3">
-          <a
-            href="#contact"
-            className="bg-blue-900 text-white font-semibold py-2 px-4 rounded-md shadow-md hover:bg-blue-800"
+        <a
+            href="/admin"
+            className="flex items-center gap-1 bg-blue-900 text-white font-semibold py-2 px-4 rounded-md shadow-md hover:bg-blue-800"
           >
-            Contact
+           <ShieldUser className="h-5"/> Admin
           </a>
           {user ? (
             <button
@@ -89,7 +89,7 @@ const Navbar = ({ user }) => {
 
       {/* Mobile Menu (Right-Side Panel) */}
       <div
-        className={`fixed inset-0 bg-black bg-opacity-50 backdrop-blur-md transition-transform duration-300 ${
+        className={`fixed inset-0  bg-opacity-50 backdrop-blur-md transition-transform duration-300 ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         } md:hidden`}
       >
@@ -103,8 +103,8 @@ const Navbar = ({ user }) => {
           </button>
 
           {/* Mobile Links (Right-Aligned) */}
-          <nav className="flex flex-col gap-4 items-end">
-            {["Home", "Services", "Projects", "About", "Testimonials"].map(
+          <nav className="flex flex-col gap-4">
+            {["Home", "Services", "Projects", "About", "Comments","contact"].map(
               (item) => (
                 <a
                   key={item}
@@ -119,14 +119,13 @@ const Navbar = ({ user }) => {
           </nav>
 
           {/* Contact & Auth Buttons (Right-Aligned) */}
-          <div className="flex flex-col gap-3 mt-auto items-end">
-            <a
-              href="#contact"
-              className="bg-blue-900 text-white text-center py-3 px-6 rounded-md shadow-md hover:bg-blue-800"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Contact
-            </a>
+          <div className="flex flex-col gap-3 mt-auto">
+           <a
+            href="/admin"
+            className="flex items-center gap-1 bg-blue-900 text-white font-semibold py-2 px-4 rounded-md shadow-md hover:bg-blue-800"
+          >
+           <ShieldUser className="h-5"/> Admin
+          </a>
             {user ? (
               <button
                 onClick={() => {

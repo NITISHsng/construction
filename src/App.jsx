@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
+import ProjectDetails from './pages/ProjectDetails';
 
 // Admin layout and components
 import Header from './components/foradmin/Header';
@@ -15,6 +16,7 @@ import RequireAdmin from './components/foradmin/RequireAdmin';
 // Public pages
 import Dashboard from './pages/Dashboard';
 import Login from "./pages/Login";
+import MoreAbout from './pages/MoreAbout';
 import AdminPage from './pages/AdminPage';
 import DataBase from './components/foradmin/DataBase';
 const Layout = () => {
@@ -40,7 +42,10 @@ const App = () => {
         <Route path="/" element={<Dashboard />} />
         <Route path="/login" element={<Login/>} />
         <Route path="/adminpage" element={<AdminPage/>} />
+        <Route path="/about" element={<MoreAbout/>} />
         <Route path="/database" element={<DataBase/>} />
+        <Route path="/project/:title" element={<ProjectDetails />} />
+       <Route path="/project/:title" element={<ProjectDetails />} />
 
         {/* Admin layout & nested routes */}
         <Route

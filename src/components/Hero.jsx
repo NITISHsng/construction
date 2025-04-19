@@ -21,7 +21,7 @@ const Hero = () => {
   const [queryId, setuserId] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  const { setQueries } = useData(); // ✅ Access setQueries from context
+  const { setQueries } = useData();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -105,7 +105,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center p-16"
+      className="relative min-h-screen flex items-center p-10"
       style={{
         backgroundImage:
           "linear-gradient(rgba(0, 0, 0, 0.6) 70%, rgba(255, 255, 255,.3) 100%), url('https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80')",
@@ -148,6 +148,8 @@ const Hero = () => {
                         <option value="Flooring">Flooring</option>
                         <option value="New Construction">New Construction</option>
                         <option value="Electrical">Electrical</option>
+                        <option value="other">Other</option>
+                        
                       </select>
 
                       <textarea
@@ -200,7 +202,7 @@ const Hero = () => {
             </button>
 
             <button className="bg-[rgb(25,25,140)] text-white font-semibold py-2 px-4 rounded-md shadow-md hover:bg-[rgb(25,25,160)] focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 mt-2">
-              <a href="#projects" className="flex items-center gap-2">
+            <a href="#projects" className="flex items-center gap-2 justify-center">
                 View Our Projects <ArrowRight size={16} />
               </a>
             </button>

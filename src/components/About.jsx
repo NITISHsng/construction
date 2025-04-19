@@ -1,7 +1,13 @@
 import { CheckCircle} from "lucide-react";
 import React from "react";
+import Counter from "../components/Counter";
+import { useInView } from "react-intersection-observer";
 
 const About = () => {
+  const { ref, inView } = useInView({
+      triggerOnce: true,
+      threshold: 0.1, 
+    });
   return (
     <section id="about" className="py-16 bg-gray-100 mt-[10px]">
       <div className="container mx-auto px-6">
@@ -11,13 +17,13 @@ const About = () => {
           {/* Text Section */}
           <div className="animate-slide-up">
             <div className="inline-block px-4 py-2 bg-secondary/20 text-secondary-foreground rounded-full mb-6">
-              About SanBuilds
+              About WowInfra
             </div>
             <h2 className="text-3xl font-bold mb-6">
-              Building Excellence Since 2021
+              Building Excellence Since <span className="text-blue-600">2021</span>
             </h2>
             <p className="text-lg text-gray-700 mb-8">
-              SanBuilds Construction is a leading construction company
+              WowInfra Construction is a leading construction company
               specializing in residential and commercial projects. With over two
               decades of experience, we've built a reputation for quality
               craftsmanship, reliability, and customer satisfaction.
@@ -56,37 +62,53 @@ const About = () => {
           >
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
             <div className="absolute bottom-0 left-0 right-0 p-8">
-              <div className="flex flex-col gap-2 sm:flex-row sm:gap-6">
+              <div ref={ref}  className="flex flex-col gap-2 sm:flex-row sm:gap-6">
+
+
                 <div className="bg-primary/90 p-4 rounded-lg backdrop-blur-sm">
-                  <div className="text-4xl font-bold text-white">3+</div>
-                  <div className="text-white/80 text-sm">Years Experience</div>
-                </div>
-                <div className="bg-yellow-300 p-4 rounded-lg backdrop-blur-sm">
-                  <div className="text-4xl font-bold text-primary-foreground">
-                    30+
-                  </div>
-                  <div className="text-primary-foreground/80 text-sm">
-                    Projects Completed
-                  </div>
-                </div>
+  <div className="flex text-white justify-center items-center text-4xl font-bold text-primary-foreground">
+    <span>{inView ? <Counter target={3} duration={1000} /> : 0}</span>
+    <span className="ml-1 ">+</span>
+  </div>
+  <div className="text-primary-foreground/80 text-white text-sm">
+  Years Experience
+  </div>
+</div>
+
+
+                
+                <div className="bg-yellow-300 p-4 rounded-lg backdrop-blur-sm text-center">
+  <div className="flex justify-center items-center text-4xl font-bold text-primary-foreground">
+    <span>{inView ? <Counter target={30} duration={1000} /> : 0}</span>
+    <span className="ml-1">+</span>
+  </div>
+  <div className="text-primary-foreground/80 text-sm">
+    Projects Completed
+  </div>
+</div>
+
                 <div className="bg-white/90 p-4 rounded-lg backdrop-blur-sm">
-                  <div className="text-4xl font-bold text-primary">98%</div>
-                  <div className="text-muted-foreground text-sm">
-                    Client Satisfaction
-                  </div>
-                </div>
+  <div className="flex justify-center items-center text-4xl font-bold text-primary-foreground">
+    <span>{inView ? <Counter target={98} duration={1000} /> : 0}</span>
+    <span className="ml-1">%</span>
+  </div>
+  <div className="text-primary-foreground/80 text-sm">
+  Client Satisfaction
+  </div>
+</div>
+
               </div>
             </div>
           </div>
         </div>
       </div>
       <div className="text-center mt-12">
-              <button
-                className="px-6 py-3 border rounded-md hover:bg-[rgb(25,25,120)] hover:text-white"
-                onClick={() => setShowCommentBox(true)}
-              >
-                More About
-              </button>
+      <a
+            href="/about"
+            className="bg-blue-900 text-white font-semibold py-2 px-4 rounded-md shadow-md hover:bg-blue-800"
+          >
+            More About 
+          </a>
             </div>
     </section>
   );

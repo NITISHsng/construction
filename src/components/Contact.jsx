@@ -137,8 +137,8 @@ const Contact = () => {
                 <Mail className="text-yellow-500" />
                 <div>
                   <span className="font-medium">Email :</span>
-                  <a href="mailto:info@sanbuilds-construction.com">
-                    info@sanbuilds-construction.com
+                  <a href="mailto:info@WowInfra-construction.com">
+                    info@WowInfra-construction.com
                   </a>
                 </div>
               </div>
@@ -146,7 +146,7 @@ const Contact = () => {
                 <MapPin className="text-yellow-500" />
                 <div className="flex">
                   <span className="font-medium">Office :</span>
-                  <p>Sevoke More, Siliguri, West Bengal-12345</p>
+                  <p>Rd no 2, Sevoke More, Siliguri, West Bengal-7340011</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
