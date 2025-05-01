@@ -6,7 +6,7 @@ const DataBase = () => {
   const [users, setUsers] = useState([]);
   const [messages, setMessages] = useState([]);
   const [queries, setQueries] = useState([]);
-  const [comments, setComments] = useState([]);
+  const [Testimonials, setComments] = useState([]);
 
   // Fetch all collections when component mounts
   useEffect(() => {
@@ -24,8 +24,8 @@ const DataBase = () => {
         const queriesSnapshot = await getDocs(collection(db, 'queries'));
         setQueries(queriesSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
 
-        // Comments
-        const commentsSnapshot = await getDocs(collection(db, 'comments'));
+        // Testimonials
+        const commentsSnapshot = await getDocs(collection(db, 'Testimonials'));
         setComments(commentsSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
       } catch (error) {
         console.error("Error fetching data from Firebase:", error);
@@ -55,8 +55,8 @@ const DataBase = () => {
       </section>
 
       <section>
-        <h2 className="font-semibold text-lg">Comments ({comments.length})</h2>
-        <pre>{JSON.stringify(comments, null, 2)}</pre>
+        <h2 className="font-semibold text-lg">Testimonials ({Testimonials.length})</h2>
+        <pre>{JSON.stringify(Testimonials, null, 2)}</pre>
       </section>
     </div>
   );

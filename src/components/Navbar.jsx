@@ -1,17 +1,26 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Building, Menu, X, LogIn ,ShieldUser} from "lucide-react";
+import { Building, Menu, X, LogIn, ShieldUser } from "lucide-react";
 import { auth } from "../firebase/firebase"; // Ensure correct path
 
 const Navbar = ({ user }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const checkViewport = () => {
+      setIsDesktop(window.innerWidth > 1000);
+    };
+    checkViewport();
+    window.addEventListener("resize", checkViewport);
+    return () => window.removeEventListener("resize", checkViewport);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -26,135 +35,132 @@ const Navbar = ({ user }) => {
         {/* Logo */}
         <a href="#" className="flex items-center gap-2">
           <Building className="h-8 w-8 text-primary" />
-          <span className="text-2xl font-bold text-primary">WowInfra</span>
+          <span className="text-4xl font-bold text-primary">WowInfra</span>
         </a>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-6">
-          {["Home", "Services", "Projects", "About", "Comments","Contact"].map(
-            (item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className={`hover:scale-105 transition ${
-                  isScrolled ? "hover:text-black" : "hover:text-white"
-                }`}
-              >
-                {item}
-              </a>
-            )
-          )}
-        </nav>
-
-        {/* Desktop Contact & Auth Buttons */}
-        <div className="hidden md:flex gap-3">
-        <a
-            href="/admin"
-            className="flex items-center gap-1 bg-blue-900 text-white font-semibold py-2 px-4 rounded-md shadow-md hover:bg-blue-800"
-          >
-           <ShieldUser className="h-5"/> Admin
-          </a>
-          {user ? (
-            <button
-              onClick={() => {
-                auth.signOut().then(() => {
-                  console.log("User logged out successfully!");
-                });
-              }}
-              className="bg-red-600 text-white font-semibold py-2 px-4 rounded-md shadow-md hover:bg-red-500"
-            >
-              <Link to="/login" className="flex items-center gap-1">
-                <LogIn className="h-4 w-4" />
-                Logout
-              </Link>
-            </button>
-          ) : (
-            <button className="bg-green-600 text-white font-semibold py-2 px-4 rounded-md shadow-md hover:bg-green-500">
-              <Link to="/login" className="flex items-center gap-1">
-                <LogIn className="h-4 w-4" />
-                Login
-              </Link>
-            </button>
-          )}
-        </div>
-
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden text-foreground"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
-
-      {/* Mobile Menu (Right-Side Panel) */}
-      <div
-        className={`fixed inset-0  bg-opacity-50 backdrop-blur-md transition-transform duration-300 ${
-          isMenuOpen ? "translate-x-0" : "translate-x-full"
-        } md:hidden`}
-      >
-        <div className="w-2/3 h-full bg-white p-6 shadow-lg flex flex-col gap-6 ml-auto">
-          {/* Close Button (Right-Aligned) */}
-          <button
-            className="self-end text-gray-600"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            <X size={28} />
-          </button>
-
-          {/* Mobile Links (Right-Aligned) */}
-          <nav className="flex flex-col gap-4">
-            {["Home", "Services", "Projects", "About", "Comments","contact"].map(
-              (item) => (
+        {/* Navigation & Buttons */}
+        {isDesktop ? (
+          <div className="flex items-center gap-8 w-[100%]">
+            <nav className="flex items-center gap-6 justify-center  w-[100%]">
+              {["Home", "Services", "Projects", "About", "Comments", "Contact"].map((item) => (
                 <a
                   key={item}
                   href={`#${item.toLowerCase()}`}
-                  className="text-lg font-medium text-gray-800 hover:text-blue-600"
-                  onClick={() => setIsMenuOpen(false)}
+                  className={`hover:scale-105 transition ${
+                    isScrolled ? "hover:text-black" : "hover:text-white"
+                  }`}
                 >
                   {item}
                 </a>
-              )
-            )}
-          </nav>
-
-          {/* Contact & Auth Buttons (Right-Aligned) */}
-          <div className="flex flex-col gap-3 mt-auto">
-           <a
-            href="/admin"
-            className="flex items-center gap-1 bg-blue-900 text-white font-semibold py-2 px-4 rounded-md shadow-md hover:bg-blue-800"
+              ))}
+            </nav>
+            <div className="flex gap-3">
+     
+              {user ? (
+                <button
+                  onClick={() => {
+                    auth.signOut().then(() => console.log("User logged out successfully!"));
+                  }}
+                  className="bg-red-600 text-white font-semibold py-2 px-4 rounded-md shadow-md hover:bg-red-500"
+                >
+                  <Link to="/login" className="flex items-center gap-1">
+                    <LogIn className="h-4 w-4" />
+                    Logout
+                  </Link>
+                </button>
+              ) : (
+                <Link to="/login">
+                  <button className="bg-green-600 text-white font-semibold py-2 px-4 rounded-md shadow-md hover:bg-green-500">
+                    <div className="flex items-center gap-1">
+                      <LogIn className="h-4 w-4" />
+                      Login
+                    </div>
+                  </button>
+                </Link>
+              )}
+            </div>
+          </div>
+        ) : (
+          // Mobile Menu Toggle
+          <button
+            className="text-foreground"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-           <ShieldUser className="h-5"/> Admin
-          </a>
-            {user ? (
-              <button
-                onClick={() => {
-                  auth.signOut().then(() => {
-                    console.log("User logged out successfully!");
-                  });
-                  setIsMenuOpen(false);
-                }}
-                className="bg-red-600 text-white py-3 px-6 rounded-md shadow-md hover:bg-red-500"
-              >
-                <Link to="/login" className="flex items-center gap-1">
-                  <LogIn className="h-4 w-4" />
-                  Logout
-                </Link>
-              </button>
-            ) : (
-              <button
-                onClick={() => setIsMenuOpen(false)}
-                className="bg-green-600 text-white py-3 px-6 rounded-md shadow-md hover:bg-green-500"
-              >
-                <Link to="/login" className="flex items-center gap-1">
-                  <LogIn className="h-4 w-4" />
-                  Login
-                </Link>
-              </button>
-            )}
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        )}
+      </div>
+
+      {/* Mobile Sidebar */}
+      {!isDesktop && (
+        <div
+          className={`fixed inset-0  bg-opacity-50 backdrop-blur-md transition-transform duration-300 ${
+          isMenuOpen ? "translate-x-0" : "translate-x-full"
+        } `}
+          onClick={() => setIsMenuOpen(false)}
+        >
+          <div
+            className={`fixed right-0 top-0 h-full w-2/3 sm:w-2/5 bg-white shadow-lg transform transition-transform duration-300 ${
+              isMenuOpen ? "translate-x-0" : "translate-x-full"
+            }`}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="p-6 flex flex-col h-full">
+              {/* Close button */}
+              <div className="flex justify-end">
+                <button onClick={() => setIsMenuOpen(false)}>
+                  <X size={28} className="text-gray-600" />
+                </button>
+              </div>
+
+              {/* Mobile Links */}
+              <nav className="flex flex-col gap-5 mt-6">
+                {["Home", "Services", "Projects", "About", "Comments", "Contact"].map((item) => (
+                  <a
+                    key={item}
+                    href={`#${item.toLowerCase()}`}
+                    className=" text-2xl p-2 bg-gray-100 rounded-2xl px-3"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item}
+                  </a>
+                ))}
+              </nav>
+
+              {/* Auth Buttons */}
+              <div className="mt-auto flex flex-col gap-3">
+
+                {user ? (
+                  <button
+                    onClick={() => {
+                      auth.signOut().then(() => console.log("User logged out successfully!"));
+                      setIsMenuOpen(false);
+                    }}
+                    className="bg-red-600 text-white py-3 px-6 rounded-md shadow-md hover:bg-red-500"
+                  >
+                    <Link to="/login" className="flex items-center gap-1">
+                      <LogIn className="h-4 w-4" />
+                      Logout
+                    </Link>
+                  </button>
+                ) : (
+                  <Link to="/login">
+                    <button
+                      onClick={() => setIsMenuOpen(false)}
+                      className="bg-green-600 text-white py-3 px-6 rounded-md shadow-md hover:bg-green-500"
+                    >
+                      <div className="flex items-center gap-1">
+                        <LogIn className="h-4 w-4" />
+                        Login
+                      </div>
+                    </button>
+                  </Link>
+                )}
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </header>
   );
 };

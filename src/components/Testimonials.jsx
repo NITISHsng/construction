@@ -5,7 +5,7 @@ import { useData } from "../pages/DataContext";
 import { collection, addDoc } from "firebase/firestore"; // ✅ Import addDoc and collection
 import { db } from "../firebase/firebase"; // ✅ Make sure this is already imported
 
-const Comments = ({ user }) => {
+const Testimonials = ({ user }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [comment, setComment] = useState("");
   const [rating, setRating] = useState(0);
@@ -294,4 +294,4 @@ const Comments = ({ user }) => {
   );
 };
 
-export default Comments;
+export default Testimonials;

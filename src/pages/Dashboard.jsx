@@ -6,7 +6,7 @@ import Services from '../components/Services';
 import Projects from '../components/Projects';
 import About from '../components/About';
 import Footer from '../components/Footer';
-import Comments from '../components/Comments';
+import Testimonials from '../components/Testimonials';
 import Contact from '../components/Contact';
 import { useNavigate } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth"; 
@@ -34,7 +34,7 @@ function Dashboard() {
       <Services/>
       <Projects/>
       <About/>
-      <Comments user={user} setUser={setUser}/>
+      <Testimonials user={user} setUser={setUser}/>
       <Contact/>
       <Footer/>
     </>

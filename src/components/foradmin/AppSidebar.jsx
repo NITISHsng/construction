@@ -61,7 +61,7 @@ export default function AppSidebar() {
         <NavItem to="/admin/services" icon={Users2} label="Team Management" collapsed={collapsed} />
         <NavItem to="/admin/services" icon={BarChart2} label="Analytics" collapsed={collapsed} />
         <NavItem to="/admin/services" icon={Activity} label="Admin Logs" collapsed={collapsed} />
-        <NavItem to="/admin/services" icon={Star} label="Comments" collapsed={collapsed} />
+        <NavItem to="/admin/services" icon={Star} label="Testimonials" collapsed={collapsed} />
         <NavItem to="/admin/services" icon={Bell} label="Notifications" collapsed={collapsed} />
         <NavItem to="/admin/services" icon={Download} label="Export & Backup" collapsed={collapsed} />
       </nav>
