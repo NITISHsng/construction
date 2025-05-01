@@ -14,6 +14,7 @@ const ProjectDetails = () => {
   const mountRef = useRef(null);
   const [selectedImage, setSelectedImage] = useState(null);
   const [currentView, setCurrentView] = useState("front");
+  const [spinner, setSpinner] = useState(true);
 
   useEffect(() => {
     if (project?.images?.length > 0) {
@@ -30,9 +31,7 @@ const ProjectDetails = () => {
 
     const mount = mountRef.current;
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0xffffff); // Pure blue
-
-
+    scene.background = new THREE.Color(0xffffff);
 
     const camera = new THREE.PerspectiveCamera(
       75,
@@ -49,7 +48,6 @@ const ProjectDetails = () => {
     const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
     directionalLight.position.set(1, 1, 1);
     scene.add(directionalLight);
-
     scene.add(new THREE.AmbientLight(0x404040));
 
     const controls = new OrbitControls(camera, renderer.domElement);
@@ -57,15 +55,21 @@ const ProjectDetails = () => {
     controls.dampingFactor = 0.05;
 
     const loader = new OBJLoader();
+    setSpinner(true); // Start loading
+
     loader.load(
       project.modelPath || "/model.obj",
       (object) => {
         object.scale.set(4, 4, 4);
         object.position.set(0, 0, 0);
         scene.add(object);
+        setSpinner(false); // Stop loading after success
       },
       undefined,
-      (error) => console.error("Error loading model:", error)
+      (error) => {
+        console.error("Error loading model:", error);
+        setSpinner(false); // Stop loading on error too
+      }
     );
 
     const animate = () => {
@@ -92,7 +96,7 @@ const ProjectDetails = () => {
     return <div className="p-6 text-center text-red-500">Project not found.</div>;
   }
 
-  const { title: projectTitle, fullDescription, place, ownerName, category, images } = project;
+  const { title: projectTitle, fullDescription, place, ownerName, images, imageDetails } = project;
 
   return (
     <div className="min-h-screen bg-white text-gray-800">
@@ -154,62 +158,66 @@ const ProjectDetails = () => {
                 </div>
               </div>
             )}
-            <div className="bg-red">
-            <div className="mb-4">
-        <img
-          src={project.imageDetails[currentView]}
-          alt={`${currentView} view`}
-          className="w-full h-96 object-cover rounded-xl shadow-lg"
-        />
-      </div>
 
-      {/* Thumbnail Views */}
-      <div className="flex gap-4 justify-center">
-        {Object.entries(project.imageDetails).map(([key, url]) => (
-          <div
-            key={key}
-            onClick={() => setCurrentView(key)}
-            className={`cursor-pointer border rounded-xl overflow-hidden shadow ${
-              currentView === key ? "ring-4 ring-blue-500" : ""
-            }`}
-          >
-           <div className="relative md:w-40 md:h-50 sm:w-25 sm:h-30 w-16 h-20 overflow-hidden">
-              <img src={url} alt="img" className="absolute h-full w-full " /> 
-              <div className="absolute  left-0 w-full justify-center flex text-white capitalize text-bold hover:bg-black/80 bg-black/50 py-1  bottom-0">{key}
+            {/* Perspective Views */}
+            <div>
+              <div className="mb-4">
+                <img
+                  src={imageDetails[currentView]}
+                  alt={`${currentView} view`}
+                  className="w-full h-96 object-cover rounded-xl shadow-lg"
+                />
+              </div>
+
+              <div className="flex gap-4 justify-center">
+                {Object.entries(imageDetails).map(([key, url]) => (
+                  <div
+                    key={key}
+                    onClick={() => setCurrentView(key)}
+                    className={`cursor-pointer border rounded-xl overflow-hidden shadow ${
+                      currentView === key ? "ring-4 ring-blue-500" : ""
+                    }`}
+                  >
+                    <div className="relative md:w-40 md:h-50 sm:w-25 sm:h-30 w-16 h-20 overflow-hidden">
+                      <img src={url} alt={key} className="absolute h-full w-full object-cover" />
+                      <div className="absolute left-0 w-full flex justify-center text-white capitalize text-bold hover:bg-black/80 bg-black/50 py-1 bottom-0">
+                        {key}
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
-          </div>
-        ))}
-      </div>
-            </div>
 
+            {/* Description */}
+            <div>
               <h2 className="text-2xl font-semibold mb-4">Location & Details</h2>
-            {/* Building Details */}
-            <div className="space-y-6 border p-6 rounded-lg shadow-md">
-              <div>
-                <h3 className="text-xl font-semibold mb-3">About this Building</h3>
-                <p className="text-gray-600 leading-relaxed">{fullDescription}</p>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="flex items-center space-x-3 bg-gray-100 p-4 rounded-md">
-                  <User className="h-5 w-5 text-blue-600" />
-                  <div>
-                    <p className="text-sm text-gray-500">Owner</p>
-                    <p className="font-medium">{ownerName}</p>
-                  </div>
+              <div className="space-y-6 border p-6 rounded-lg shadow-md">
+                <div>
+                  <h3 className="text-xl font-semibold mb-3">About this Building</h3>
+                  <p className="text-gray-600 leading-relaxed">{fullDescription}</p>
                 </div>
-                <div className="flex items-center space-x-3 bg-gray-100 p-4 rounded-md">
-                  <MapPin className="h-5 w-5 text-blue-600" />
-                  <div>
-                    <p className="text-sm text-gray-500">Location</p>
-                    <p className="font-medium">{place}</p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="flex items-center space-x-3 bg-gray-100 p-4 rounded-md">
+                    <User className="h-5 w-5 text-blue-600" />
+                    <div>
+                      <p className="text-sm text-gray-500">Owner</p>
+                      <p className="font-medium">{ownerName}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center space-x-3 bg-gray-100 p-4 rounded-md">
+                    <MapPin className="h-5 w-5 text-blue-600" />
+                    <div>
+                      <p className="text-sm text-gray-500">Location</p>
+                      <p className="font-medium">{place}</p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Right Side - 3D Viewer */}
+          {/* Right Side - 3D Model */}
           <div className="space-y-4">
             <div>
               <h2 className="text-2xl font-semibold mb-2">3D Model View</h2>
@@ -218,12 +226,19 @@ const ProjectDetails = () => {
               </p>
               <hr />
             </div>
-            <div
-              ref={mountRef}
-              className="w-full h-[400px] rounded-lgw-full  rounded-lg overflow-hidden shadow-md"
-            />
+
+            <div className="relative w-full h-[400px] rounded-lg overflow-hidden shadow-md">
+              {spinner && (
+                <div className="absolute inset-0 z-10 flex items-center justify-center bg-white/70 backdrop-blur-sm">
+                  <span className="text-sm text-gray-600 animate-pulse">
+                    Loading 3D model...
+                  </span>
+                </div>
+              )}
+              Coming soon real 3D model
+              <div ref={mountRef} className="w-full h-full" />
+            </div>
           </div>
-          {/* <div class="sketchfab-embed-wrapper"> <iframe title="Детский сад 3" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/46b5facac5aa4afea6edb6421b32e8a1/embed"> </iframe> <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://sketchfab.com/3d-models/3-46b5facac5aa4afea6edb6421b32e8a1?utm_medium=embed&utm_campaign=share-popup&utm_content=46b5facac5aa4afea6edb6421b32e8a1" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> Детский сад 3 </a> by <a href="https://sketchfab.com/witalindoz?utm_medium=embed&utm_campaign=share-popup&utm_content=46b5facac5aa4afea6edb6421b32e8a1" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> witalindoz </a> on <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=46b5facac5aa4afea6edb6421b32e8a1" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a></p></div> */}
         </div>
       </div>
     </div>

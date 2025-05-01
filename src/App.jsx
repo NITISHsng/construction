@@ -45,7 +45,6 @@ const App = () => {
         <Route path="/about" element={<MoreAbout/>} />
         <Route path="/database" element={<DataBase/>} />
         <Route path="/project/:title" element={<ProjectDetails />} />
-       <Route path="/project/:title" element={<ProjectDetails />} />
 
         {/* Admin layout & nested routes */}
         <Route

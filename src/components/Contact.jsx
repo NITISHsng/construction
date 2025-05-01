@@ -29,7 +29,7 @@ const Contact = () => {
         phone,
         subject,
         message,
-        status:true,
+        status: true,
         timestamp: new Date(),
       });
 
@@ -55,7 +55,8 @@ const Contact = () => {
         <div className="text-center mb-10">
           <h2 className="text-4xl font-bold mb-2">Get In Touch</h2>
           <p className="text-lg">
-            Contact us today for a free consultation and quote for your next construction project.
+            Contact us today for a free consultation and quote for your next
+            construction project.
           </p>
         </div>
 
@@ -118,7 +119,7 @@ const Contact = () => {
           {/* Contact Info */}
           <div className="space-y-2">
             <h1 className="text-2xl font-bold">Contact Information</h1>
-            <div className="space-y-5 pt-8">
+            <div className="space-y-5 pt-2">
               <div className="flex items-center gap-4">
                 <Phone className="text-yellow-500" />
                 <div>
@@ -129,9 +130,17 @@ const Contact = () => {
               <div className="flex items-center gap-4">
                 <FaWhatsapp className="text-yellow-500 text-2xl" />
                 <div>
-                  <span className="font-medium">Whatsapp :</span>
-                  <a href="tel:+919635868211">9635868211 </a>
-                </div>
+  <span className="font-medium">WhatsApp :</span>
+  <a
+    href="https://wa.me/919635868211?text=Hello!"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="ml-2 text-white no-underline"
+  >
+    9635868211
+  </a>
+</div>
+
               </div>
               <div className="flex items-center gap-4">
                 <Mail className="text-yellow-500" />
@@ -160,8 +169,16 @@ const Contact = () => {
             </div>
             <div className="mt-3">
               <span className="text-2xl font-bold">Emergency Service :</span>{" "}
-              <span className="text-2xl font-bold text-yellow-500">(+91) 7679526642</span>
-              <p>Need urgent construction support? Our emergency team is available 24/7.</p>
+              <span className="text-xl font-bold text-yellow-500">
+                {" "}
+                <a href="tel:+917679526642" className="ml-2">
+                  (+91) 7679526642
+                </a>
+              </span>
+              <p>
+                Need urgent construction support? Our emergency team is
+                available 24/7.
+              </p>
             </div>
           </div>
         </div>
