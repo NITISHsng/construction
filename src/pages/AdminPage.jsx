@@ -24,7 +24,7 @@ const About = () => {
         <div className="absolute inset-0 bg-blue-900/20"></div>
         <div className="container mx-auto px-6 h-full flex items-center justify-center relative z-10">
           <h1 className="text-4xl md:text-6xl font-bold text-white text-center">
-            About WowInfra
+            About Singhainfra
           </h1>
         </div>
       </div>
@@ -33,7 +33,7 @@ const About = () => {
         {/* Introduction */}
         <div initial="hidden" animate="visible" className="mb-16">
           <p className="text-lg md:text-xl text-gray-700 mb-8 text-center max-w-4xl mx-auto leading-relaxed">
-            WowInfra Construction is committed to delivering modern, safe, and
+            Singhainfra Construction is committed to delivering modern, safe, and
             sustainable buildings across India. With a foundation built on
             integrity and expertise, we transform visions into reality through
             innovative construction solutions.
@@ -194,13 +194,13 @@ const About = () => {
 
               <div className="flex items-center gap-3">
                 <Mail className="text-blue-600" size={24} />
-                <p className="text-gray-700">info@WowInfra.com</p>
+                <p className="text-gray-700">info@Singhainfra.com</p>
               </div>
             </div>
 
             <div className="rounded-xl overflow-hidden shadow-md">
               <iframe
-                title="WowInfra Office Location"
+                title="Singhainfra Office Location"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3683.9470752951024!2d88.36389541496168!3d22.57264698517685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x7340011678abcd1234!2sYour+Office+Location!5e0!3m2!1sen!2sin!4v1613541024321"
                 width="100%"
                 height="400"
@@ -220,7 +220,7 @@ const About = () => {
           className="mb-16"
         >
           <h3 className="text-3xl font-bold mb-8 text-gray-800 text-center">
-            Why Trust WowInfra?
+            Why Trust Singhainfra?
           </h3>
 
           <div className="grid md:grid-cols-3 gap-6">
@@ -293,7 +293,7 @@ const About = () => {
             <li className="flex items-start gap-3">
               <Mail className="text-yellow-400 mt-1" size={20} />
               <span>
-                <strong>Email</strong>: info@WowInfra-construction.com
+                <strong>Email</strong>: info@Singhainfra-construction.com
               </span>
             </li>
             <li className="flex items-start gap-3">

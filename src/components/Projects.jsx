@@ -31,14 +31,14 @@ const Projects = () => {
 
       <div className="container mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl font-bold mb-4">Our Featured Projects</h2>
-          <p className="text-lg text-gray-600">
+          <h1 className="text-4xl font-bold mb-4">Our Featured Projects</h1>
+          <p className="text-3xl text-gray-600">
             Take a look at some of our recent construction projects showcasing our commitment to quality
           </p>
         </div>
 
         {/* Filter Buttons */}
-        <div className="flex justify-center gap-4 mb-12">
+        <div className="flex text-xl lg:text-xl justify-center gap-4 mb-12">
           {["all", "residential", "commercial"].map((category) => (
             <button key={category} onClick={() => setFilter(category)} className={`px-4 py-2 border rounded-md ${filter === category ? "bg-primary text-gray-600" : "hover:scale-105"}`}>
               {category.charAt(0).toUpperCase() + category.slice(1)}
@@ -47,14 +47,14 @@ const Projects = () => {
         </div>
 
         {/* Project Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3  gap-4">
           {filteredProjects.map((project, index) => (
             <ProjectCard key={index} project={project} />
           ))}
         </div>
 
         <div className="text-center mt-12">
-          <button className="px-6 py-3 border rounded-md transition-colors hover:bg-[rgb(25,25,120)] hover:text-white">
+          <button className="px-6 py-3 text-3xl border rounded-md transition-colors hover:bg-[rgb(25,25,120)] hover:text-white">
             <a href="#contact">Request a Custom Project</a>
           </button>
         </div>

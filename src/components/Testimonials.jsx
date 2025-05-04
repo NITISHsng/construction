@@ -57,7 +57,7 @@ const Testimonials = ({ user }) => {
       alert("Please provide a valid rating (1–5 stars).");
       return;
     }
-  
+
     const newComment = {
       comment,
       userName,
@@ -65,14 +65,14 @@ const Testimonials = ({ user }) => {
       rating,
       timestamp: new Date(),
     };
-  
+
     try {
       // ✅ Add comment to Firestore
       await addDoc(collection(db, "comments"), newComment);
-  
+
       // ✅ Add comment to local state
       setComments([...comments, newComment]);
-  
+
       // ✅ Reset form
       setComment("");
       setRating(0);
@@ -82,14 +82,13 @@ const Testimonials = ({ user }) => {
       alert("Something went wrong while saving your comment.");
     }
   };
-  
 
   // Scroll to next comments
   const nextComments = () => {
     if (commentsRef.current && comments.length > 0) {
       const nextIndex = (currentIndex + 1) % comments.length;
       setCurrentIndex(nextIndex);
-      commentsRef.current.scrollBy({ left: 394, behavior: "smooth" });
+      commentsRef.current.scrollBy({ left: 754, behavior: "smooth" });
     }
   };
 
@@ -98,7 +97,7 @@ const Testimonials = ({ user }) => {
     if (commentsRef.current && comments.length > 0) {
       const prevIndex = (currentIndex - 1 + comments.length) % comments.length;
       setCurrentIndex(prevIndex);
-      commentsRef.current.scrollBy({ left: -394, behavior: "smooth" });
+      commentsRef.current.scrollBy({ left: -754, behavior: "smooth" });
     }
   };
 
@@ -108,12 +107,12 @@ const Testimonials = ({ user }) => {
         {/* Header */}
         <div className="text-center mb-16">
           <div className="mb-4">
-            <h2 className="text-lg font-semibold">EXCELLENT</h2>
-            <div className="flex justify-center text-yellow-500">
+            <h2 className="text-5xl sm:text-3xl font-semibold">EXCELLENT</h2>
+            <div className="flex justify-center  text-yellow-500">
               {Array.from({ length: 5 }).map((_, index) => (
                 <span
                   key={index}
-                  className={`text-xl ${
+                  className={`text-4xl ${
                     index < Math.round(averageRating)
                       ? "opacity-100"
                       : "opacity-30"
@@ -123,15 +122,15 @@ const Testimonials = ({ user }) => {
                 </span>
               ))}
             </div>
-            <p className="text-gray-600">
+            <p className="text-gray-600 text-4xl sm:text-xl">
               {averageRating}/5 Based on {comments.length} reviews
             </p>
           </div>
 
-          <h2 className="text-3xl font-semibold text-gray-800 mb-4">
+          <h1 className="text-4xl font-semibold sm:text-3xl text-gray-800 mb-4">
             What Our Clients Say
-          </h2>
-          <p className="text-lg text-gray-600">
+          </h1>
+          <p className="text-3xl text-gray-600">
             Don't just take our word for it — hear what our satisfied clients
             have to say.
           </p>
@@ -141,7 +140,7 @@ const Testimonials = ({ user }) => {
         <div className="relative flex items-center">
           {/* Left Arrow */}
           <button
-            className="absolute left-0 bg-white p-3 rounded-full shadow-md cursor-pointer text-gray-700"
+            className="absolute text-4xl left-[-50px] bg-white p-3 rounded-full shadow-md cursor-pointer text-gray-700"
             onClick={prevComments}
           >
             ←
@@ -150,7 +149,7 @@ const Testimonials = ({ user }) => {
           {/* comments Cards */}
           <div
             ref={commentsRef}
-            className="flex space-x-4 no-scrollbar overflow-x-auto scroll-smooth"
+            className="flex space-x-4 no-scrollbar  overflow-x-auto scroll-smooth"
             style={{ scrollbarWidth: "none" }}
           >
             {comments
@@ -159,22 +158,22 @@ const Testimonials = ({ user }) => {
               .map((commentItem, index) => (
                 <div
                   key={index}
-                  className="bg-white p-4 m-4 ml-7 rounded-lg shadow-lg border-t-4 border-primary min-w-[350px]"
+                  className=" p-4 m-4 ml-7 rounded-lg shadow-lg border-t-4 border-primary  min-w-[500px] min-h-[300px]"
                 >
                   <div className="flex items-center space-x-3">
                     <img
-                      className="h-10 w-10 rounded-full border border-gray-300"
+                      className="size-16 lg:size-20 md:size-18 rounded-full border border-gray-300"
                       src={commentItem.userImgURL}
                       alt="user"
                     />
-                    <span className="text-lg font-semibold text-gray-800">
+                    <span className="text-2xl font-semibold text-gray-800">
                       <div>{commentItem.userName || "Anonymous"}</div>
-                      <div className="text-sm font-normal text-gray-500">
-                      {commentItem.timestamp?.seconds
-  ? new Date(commentItem.timestamp.seconds * 1000).toLocaleString()
-  : "just now"}
-
-
+                      <div className="text-xl font-normal text-gray-500">
+                        {commentItem.timestamp?.seconds
+                          ? new Date(
+                              commentItem.timestamp.seconds * 1000
+                            ).toLocaleString()
+                          : "just now"}
                       </div>
                     </span>
                   </div>
@@ -183,7 +182,7 @@ const Testimonials = ({ user }) => {
                     {Array.from({ length: 5 }).map((_, starIndex) => (
                       <span
                         key={starIndex}
-                        className={`text-yellow-500 text-[25px] ${
+                        className={`text-yellow-500 sm:text-xl lg:text-2xl ${
                           starIndex < commentItem.rating
                             ? "opacity-100"
                             : "opacity-30"
@@ -202,7 +201,7 @@ const Testimonials = ({ user }) => {
                       scrollbarWidth: "none",
                       msOverflowStyle: "none",
                     }}
-                    className="mt-2 text-gray-600 italic custom-scrollbar"
+                    className="mt-2 sm:text-xl md:2xl text-gray-600 italic custom-scrollbar"
                   >
                     {commentItem.comment.split("\n").map((line, i) => (
                       <React.Fragment key={i}>
@@ -217,7 +216,7 @@ const Testimonials = ({ user }) => {
 
           {/* Right Arrow */}
           <button
-            className="absolute right-0 bg-white p-3 rounded-full shadow-md cursor-pointer text-gray-700"
+            className="absolute text-4xl right-[-50px] bg-white p-3 rounded-full shadow-md cursor-pointer text-gray-700"
             onClick={nextComments}
           >
             →
@@ -229,7 +228,7 @@ const Testimonials = ({ user }) => {
           {!showCommentBox && (
             <div className="text-center mt-12">
               <button
-                className="px-6 py-3 border border-gray-300 rounded-md transition-all duration-300 hover:bg-[rgb(25,25,120)] hover:text-white"
+                className="px-6 text-4xl py-3 border border-gray-300 rounded-md transition-all duration-300 hover:bg-[rgb(25,25,120)] hover:text-white"
                 onClick={() => {
                   if (user) {
                     setShowCommentBox(true);
@@ -256,7 +255,7 @@ const Testimonials = ({ user }) => {
                 {[1, 2, 3, 4, 5].map((star) => (
                   <span
                     key={star}
-                    className={`text-3xl cursor-pointer ${
+                    className={`text-5xl cursor-pointer ${
                       star <= rating ? "text-yellow-500" : "text-gray-300"
                     }`}
                     onClick={() => setRating(star)}
@@ -268,21 +267,21 @@ const Testimonials = ({ user }) => {
 
               <textarea
                 value={comment}
-                className="w-full p-2 border rounded"
+                className="w-full p-2 h-50 border rounded text-3xl"
                 onChange={(e) => setComment(e.target.value)}
                 placeholder="Add a comment..."
                 rows="3"
               />
 
               <button
-                className="mt-4 mr-4 bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600"
+                className="mt-2 bg-gray-500 text-4xl text-white px-4 py-3 rounded hover:bg-gray-600"
                 onClick={handleCancel}
               >
                 Cancel
               </button>
               <button
                 onClick={handleAddComment}
-                className="mt-2 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
+                className="m-2 bg-green-500 text-4xl text-white px-4 py-3 rounded hover:bg-green-600"
               >
                 Post Comment
               </button>

@@ -1,34 +1,39 @@
 import React from "react";
-import { Building, Home, Hammer, Truck, Wrench } from "lucide-react";
+import { Building, Home, Hammer, Truck, Wrench ,ShieldCheck} from "lucide-react";
 import { CheckCircle, Award, Users } from 'lucide-react';
-
 const servicesData = [
   {
     icon: <Home className="h-12 w-12 text-primary" />,
     title: "Residential Construction",
-    description: "Custom homes, renovations, and remodeling services tailored to your unique vision and lifestyle needs."
+    description: "We specialize in building high-quality custom homes, complete home renovations, and personalized remodeling services that reflect your lifestyle, vision, and long-term needs."
   },
   {
     icon: <Building className="h-12 w-12 text-primary" />,
     title: "Commercial Construction",
-    description: "From office buildings to retail spaces, we deliver commercial projects on time and within budget."
+    description: "Our team delivers office buildings, retail spaces, and commercial complexes with a strong focus on quality, compliance, and timely delivery while staying within budget constraints."
   },
   {
     icon: <Hammer className="h-12 w-12 text-primary" />,
     title: "Renovation & Remodeling",
-    description: "Transform your existing space with our expert renovation and remodeling services."
+    description: "Whether it’s a kitchen upgrade or a full-scale home transformation, we revitalize spaces with expert craftsmanship and attention to every design detail."
   },
   {
     icon: <Truck className="h-12 w-12 text-primary" />,
     title: "Design & Build",
-    description: "Comprehensive design and build solutions that take your project from concept to completion."
+    description: "Our integrated design-build approach streamlines your project from concept to completion, ensuring clarity, cost control, and consistent communication throughout."
   },
   {
     icon: <Wrench className="h-12 w-12 text-primary" />,
     title: "Project Management",
-    description: "Professional project management ensuring your construction project runs smoothly from start to finish."
+    description: "We offer end-to-end project management services, coordinating all stakeholders and schedules to ensure that your construction goals are achieved seamlessly."
+  },
+  {
+    icon: <ShieldCheck className="h-12 w-12 text-primary" />,
+    title: "Safety & Compliance",
+    description: "We prioritize safety and adhere to strict industry regulations, ensuring that every project meets legal standards and provides a secure environment for all workers and occupants."
   }
 ];
+
 
 const Services = () => {
   return (
@@ -36,13 +41,13 @@ const Services = () => {
       <div className="container mx-auto">
         {/* Services Section */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl font-bold mb-4">Our Construction Services</h2>
-          <p className="text-lg text-gray-600">
+          <h1 className="md:text-5xl text-4xl font-bold mb-4">Our Construction Services</h1>
+          <p className="text-3xl text-gray-600">
             We offer a comprehensive range of construction services to meet all your building needs
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
           {servicesData.map((service, index) => (
             <div key={index} className="p-6 bg-white rounded-2xl hover:shadow-lg transition-shadow group">
               <div className="mb-4">{service.icon}</div>
@@ -54,11 +59,11 @@ const Services = () => {
 
         {/* Why Trust Section */}
         <div className="mt-24 mb-16">
-          <h3 className="text-3xl mt-5 font-bold mb-8 text-gray-800 text-center">
-            Why Trust WowInfra?
-          </h3>
+          <h1 className="text-4xl mt-5 font-bold mb-8 text-gray-800 text-center">
+            Why Trust Singhainfra?
+          </h1>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
             <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-blue-100">
               <div className="mb-4 inline-block p-3 bg-blue-100 rounded-xl">
                 <Award size={24} />

@@ -39,7 +39,7 @@ export default function AppSidebar() {
             <div className="h-8 w-8 bg-blue-600 rounded flex items-center justify-center">
               <span className="text-white font-bold">WI</span>
             </div>
-            <h1 className="font-bold text-xl text-blue-600">WowInfra</h1>
+            <h1 className="font-bold text-xl text-blue-600">Singhainfra</h1>
           </div>
         )}
         <button

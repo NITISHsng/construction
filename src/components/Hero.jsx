@@ -113,8 +113,8 @@ const Hero = () => {
         backgroundPosition: "center",
       }}
     >
-      <div className="container text-white">
-        <div className="max-w-2xl animate-fade-in">
+      <div className="container text-white w-[100%]">
+        <div className=" animate-fade-in">
           {/* Popup */}
           {showPopup && (
             <div className="fixed inset-0 bg-[rgba(10,10,10,0.6)] backdrop-blur-sm flex items-center justify-center z-50 px-4">
@@ -181,16 +181,16 @@ const Hero = () => {
           )}
 
           {/* Hero Text */}
-          <h1 className="text-4xl font-bold mb-6">
+          <h1 className="text-4xl md:text-4xl sm:text-3xl font-bold mb-6">
             Building <span className="text-yellow-500">Excellence</span>,
             Crafting Futures
           </h1>
-          <p className="text-lg md:text-xl mb-8 opacity-90">
+          <p className="text-3xl md:text-3xl mb-8 opacity-90">
             With 3+ years of experience in the construction industry, we deliver
             quality craftsmanship and innovative solutions for residential and
             commercial projects.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex w-[100%] md:text-2xl lg:text-3xl flex-col sm:flex-row gap-4">
             <button
               onClick={handleQueryClick}
               className="bg-[rgb(25,25,140)] text-white font-semibold py-2 px-4 rounded-md shadow-md hover:bg-[rgb(25,25,160)] focus:outline-none focus:ring-2 focus:ring-opacity-50 mt-2"

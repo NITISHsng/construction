@@ -11,20 +11,20 @@ const About = () => {
   return (
     <section id="about" className="py-16 bg-gray-100 mt-[10px]">
       <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+        <div className="grid text-3xl grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
      
 
           {/* Text Section */}
           <div className="animate-slide-up">
-            <div className="inline-block px-4 py-2 bg-secondary/20 text-secondary-foreground rounded-full mb-6">
-              About WowInfra
+            <div className="inline-block text-4xl font-semibold py-2 bg-secondary/20 text-secondary-foreground rounded-full mb-6">
+              About  <span className=" lg:text-4xl md:text-4xl sm:text-4xl font-bold text-primary">Singha<span className="text-blue-600">infra</span></span>
+
             </div>
-            <h2 className="text-3xl font-bold mb-6">
-              Building Excellence Since <span className="text-blue-600">2021</span>
-            </h2>
-            <p className="text-lg text-gray-700 mb-8">
-              WowInfra Construction is a leading construction company
-              specializing in residential and commercial projects. With over two
+
+            <p className="text-3xl text-gray-700 mb-8">
+            <span className=" font-bold text-primary">Singha<span className="text-blue-600">infra  </span></span>
+             Construction is a leading construction company
+              specializing in residential and commercial projects              Building Excellence Since <span className="text-blue-600">2021</span>. With over two
               decades of experience, we've built a reputation for quality
               craftsmanship, reliability, and customer satisfaction.
             </p>
@@ -105,10 +105,11 @@ const About = () => {
       <div className="text-center mt-12">
       <a
             href="/about"
-            className="bg-blue-900 text-white font-semibold py-2 px-4 rounded-md shadow-md hover:bg-blue-800"
+            className="px-6 py-2 text-3xl border rounded-md transition-colors hover:bg-[rgb(25,25,120)] hover:text-white"
           >
             More About 
           </a>
+
             </div>
     </section>
   );

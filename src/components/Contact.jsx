@@ -53,14 +53,14 @@ const Contact = () => {
     <section id="contact" className="bg-blue-900 text-white py-16 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-10">
-          <h2 className="text-4xl font-bold mb-2">Get In Touch</h2>
-          <p className="text-lg">
+          <h1 className="text-5xl font-bold mb-2">Get In Touch</h1>
+          <p className="text-3xl">
             Contact us today for a free consultation and quote for your next
             construction project.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 text-3xl lg:grid-cols-2 gap-12">
           {/* Contact Form */}
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -118,48 +118,47 @@ const Contact = () => {
 
           {/* Contact Info */}
           <div className="space-y-2">
-            <h1 className="text-2xl font-bold">Contact Information</h1>
-            <div className="space-y-5 pt-2">
+            <h1 className=" font-bold">Contact Information</h1>
+            <div className="space-y-5 pt-2 sm:text-2xl">
               <div className="flex items-center gap-4">
-                <Phone className="text-yellow-500" />
+              <Phone className="text-yellow-500 size={40}"  />
                 <div>
                   <span className="font-medium">Phone :</span>
                   <a href="tel:+919635868211"> (+91) 9635868211 </a>
                 </div>
               </div>
               <div className="flex items-center gap-4">
-                <FaWhatsapp className="text-yellow-500 text-2xl" />
+                <FaWhatsapp className="text-yellow-500 size={40}"  />
                 <div>
-  <span className="font-medium">WhatsApp :</span>
-  <a
-    href="https://wa.me/919635868211?text=Hello!"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="ml-2 text-white no-underline"
-  >
-    9635868211
-  </a>
-</div>
-
-              </div>
-              <div className="flex items-center gap-4">
-                <Mail className="text-yellow-500" />
-                <div>
-                  <span className="font-medium">Email :</span>
-                  <a href="mailto:info@WowInfra-construction.com">
-                    info@WowInfra-construction.com
+                  <span className="font-medium">WhatsApp :</span>
+                  <a
+                    href="https://wa.me/919635868211?text=Hello!"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="ml-2 text-white no-underline"
+                  >
+                    9635868211
                   </a>
                 </div>
               </div>
               <div className="flex items-center gap-4">
-                <MapPin className="text-yellow-500" />
+                <Mail className="text-yellow-500 size={40}" />
+                <div>
+                  <span className="font-medium">Email :</span>
+                  <a href="mailto:info@Singhainfra-construction.com">
+                    info@Singhainfra-construction.com
+                  </a>
+                </div>
+              </div>
+              <div className="flex items-center gap-4">
+                <MapPin className="text-yellow-500 "size={30}/>
                 <div className="flex">
                   <span className="font-medium">Office :</span>
                   <p>Rd no 2, Sevoke More, Siliguri, West Bengal-7340011</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
-                <Clock className="text-yellow-500" />
+                <Clock className="text-yellow-500 size={40}" />
                 <div className="flex flex-col">
                   <span className="font-medium">Working Hours :</span>
                   <p>Monday - Friday: 8 AM - 10 PM</p>
@@ -168,8 +167,8 @@ const Contact = () => {
               </div>
             </div>
             <div className="mt-3">
-              <span className="text-2xl font-bold">Emergency Service :</span>{" "}
-              <span className="text-xl font-bold text-yellow-500">
+              <span className=" font-semibold">Emergency Service :</span>{" "}
+              <span className=" font-bold text-yellow-500">
                 {" "}
                 <a href="tel:+917679526642" className="ml-2">
                   (+91) 7679526642

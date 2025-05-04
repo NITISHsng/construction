@@ -10,7 +10,7 @@ const Navbar = ({ user }) => {
 
   useEffect(() => {
     const checkViewport = () => {
-      setIsDesktop(window.innerWidth > 1000);
+      setIsDesktop(window.innerWidth > 1200);
     };
     checkViewport();
     window.addEventListener("resize", checkViewport);
@@ -20,7 +20,7 @@ const Navbar = ({ user }) => {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
-      //wjekdfhkewjhfverj
+
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -32,17 +32,17 @@ const Navbar = ({ user }) => {
         isScrolled ? "bg-white shadow-md py-2" : "bg-transparent py-4"
       }`}
     >
-      <div className="container-custom flex items-center justify-between px-4 md:px-8">
+      <div className="container-custom flex items-center justify-between px-4 md:px-8 sm:px-6">
         {/* Logo */}
         <a href="#" className="flex items-center gap-2">
-          <Building className="h-8 w-8 text-primary" />
-          <span className="text-4xl font-bold text-primary">WowInfra</span>
+          <Building className="text-primary" size={40}/>
+          <span className=" lg:text-4xl md:text-5xl sm:text-3xl font-bold text-primary">Singha<span className="text-blue-900">infra</span></span>
         </a>
 
         {/* Navigation & Buttons */}
         {isDesktop ? (
           <div className="flex items-center gap-8 w-[100%]">
-            <nav className="flex items-center gap-6 justify-center  w-[100%]">
+            <nav className="flex items-center gap-6 justify-center font-semibold text-2xl w-[100%]">
               {["Home", "Services", "Projects", "About", "Comments", "Contact"].map((item) => (
                 <a
                   key={item}
@@ -87,7 +87,7 @@ const Navbar = ({ user }) => {
             className="text-foreground"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMenuOpen ? <X size={38} /> : <Menu size={38} />}
           </button>
         )}
       </div>
@@ -110,7 +110,7 @@ const Navbar = ({ user }) => {
               {/* Close button */}
               <div className="flex justify-end">
                 <button onClick={() => setIsMenuOpen(false)}>
-                  <X size={28} className="text-gray-600" />
+                  <X size={38} className="text-gray-600" />
                 </button>
               </div>
 
@@ -120,7 +120,7 @@ const Navbar = ({ user }) => {
                   <a
                     key={item}
                     href={`#${item.toLowerCase()}`}
-                    className=" text-2xl p-2 bg-gray-100 rounded-2xl px-3"
+                    className=" text-4xl p-2 bg-gray-100 rounded-2xl px-3"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item}
