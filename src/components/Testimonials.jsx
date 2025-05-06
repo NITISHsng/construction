@@ -102,7 +102,7 @@ const Testimonials = ({ user }) => {
   };
 
   return (
-    <section id="comments" className="py-16 bg-gray-50">
+    <section id="testimonials" className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">

@@ -43,7 +43,7 @@ const Navbar = ({ user }) => {
         {isDesktop ? (
           <div className="flex items-center gap-8 w-[100%]">
             <nav className="flex items-center gap-6 justify-center font-semibold text-2xl w-[100%]">
-              {["Home", "Services", "Projects", "About", "Comments", "Contact"].map((item) => (
+              {["Home", "Services", "Projects", "About", "Testimonials", "Contact"].map((item) => (
                 <a
                   key={item}
                   href={`#${item.toLowerCase()}`}
@@ -116,7 +116,7 @@ const Navbar = ({ user }) => {
 
               {/* Mobile Links */}
               <nav className="flex flex-col gap-5 mt-6">
-                {["Home", "Services", "Projects", "About", "Comments", "Contact"].map((item) => (
+                {["Home", "Services", "Projects", "About", "Testimonials", "Contact"].map((item) => (
                   <a
                     key={item}
                     href={`#${item.toLowerCase()}`}
