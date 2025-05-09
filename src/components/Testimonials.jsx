@@ -2,8 +2,9 @@ import React, { useState, useEffect, useRef } from "react";
 import { auth } from "../firebase/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import { useData } from "../pages/DataContext";
-import { collection, addDoc } from "firebase/firestore"; // ✅ Import addDoc and collection
+import { collection, addDoc, updateDoc } from "firebase/firestore";
 import { db } from "../firebase/firebase"; // ✅ Make sure this is already imported
+import {  doc } from "firebase/firestore";
 
 const Testimonials = ({ user }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -16,6 +17,8 @@ const Testimonials = ({ user }) => {
   const [animateBox, setAnimateBox] = useState(false);
 
   const { comments, setComments } = useData();
+ const [editingCommentId, setEditingCommentId] = useState(null);
+const [editedComment, setEditedComment] = useState("");
 
   // Show animation when comment box appears
   useEffect(() => {
@@ -42,64 +45,89 @@ const Testimonials = ({ user }) => {
     return () => unsubscribe();
   }, []);
 
+
+// edit funtion 
+
+const handleEditClick = (commentItem) => {
+  setEditingCommentId(commentItem.id);
+  setEditedComment(commentItem.comment);
+};
+
+const handleSaveClick = async (commentItem) => {
+  try {
+    const commentRef = doc(db, "comments", commentItem.id);
+    await updateDoc(commentRef, { comment: editedComment });
+
+    const updatedComments = comments.map((c) =>
+      c.id === commentItem.id ? { ...c, comment: editedComment } : c
+    );
+    setComments(updatedComments);
+    setEditingCommentId(null);
+    setEditedComment("");
+  } catch (error) {
+    console.error("Error updating comment:", error);
+    alert("Failed to update the comment.");
+  }
+};
+
+
+
   // Calculate average rating
   const totalRating = comments.reduce((acc, t) => acc + (t.rating || 0), 0);
   const averageRating =
     comments.length > 0 ? (totalRating / comments.length).toFixed(1) : "0.0";
 
-  // Handle new comment submission
-  const handleAddComment = async () => {
-    if (!comment.trim()) {
-      alert("Please enter a comment.");
-      return;
-    }
-    if (rating < 1 || rating > 5) {
-      alert("Please provide a valid rating (1–5 stars).");
-      return;
-    }
+const handleAddComment = async () => {
+  if (rating < 1 || rating > 5) {
+    alert("Please provide a valid rating (1–5 stars).");
+    return;
+  }
 
-    const newComment = {
-      comment,
-      userName,
-      userImgURL,
-      rating,
-      timestamp: new Date(),
-    };
-
-    try {
-      // ✅ Add comment to Firestore
-      await addDoc(collection(db, "comments"), newComment);
-
-      // ✅ Add comment to local state
-      setComments([...comments, newComment]);
-
-      // ✅ Reset form
-      setComment("");
-      setRating(0);
-      setShowCommentBox(false);
-    } catch (error) {
-      console.error("Error adding comment:", error);
-      alert("Something went wrong while saving your comment.");
-    }
+  const newComment = {
+    comment,
+    userName,
+    userImgURL,
+    rating,
+    timestamp: new Date(),
   };
 
-  // Scroll to next comments
-  const nextComments = () => {
-    if (commentsRef.current && comments.length > 0) {
-      const nextIndex = (currentIndex + 1) % comments.length;
-      setCurrentIndex(nextIndex);
-      commentsRef.current.scrollBy({ left: 754, behavior: "smooth" });
-    }
-  };
+  try {
+    const docRef = await addDoc(collection(db, "comments"), newComment);
 
-  // Scroll to previous comments
-  const prevComments = () => {
-    if (commentsRef.current && comments.length > 0) {
-      const prevIndex = (currentIndex - 1 + comments.length) % comments.length;
-      setCurrentIndex(prevIndex);
-      commentsRef.current.scrollBy({ left: -754, behavior: "smooth" });
-    }
-  };
+    // ✅ Add the document ID to the Firestore document
+    await updateDoc(docRef, { id: docRef.id });
+
+    // ✅ Add to local state
+    setComments([...comments, { ...newComment, id: docRef.id }]);
+
+    // ✅ Reset form
+    setComment("");
+    setRating(0);
+    setShowCommentBox(false);
+  } catch (error) {
+    console.error("Error adding comment:", error);
+    alert("Something went wrong while saving your comment.");
+  }
+};
+
+
+  // // Scroll to next comments
+  // const nextComments = () => {
+  //   if (commentsRef.current && comments.length > 0) {
+  //     const nextIndex = (currentIndex + 1) % comments.length;
+  //     setCurrentIndex(nextIndex);
+  //     commentsRef.current.scrollBy({ left: 754, behavior: "smooth" });
+  //   }
+  // };
+
+  // // Scroll to previous comments
+  // const prevComments = () => {
+  //   if (commentsRef.current && comments.length > 0) {
+  //     const prevIndex = (currentIndex - 1 + comments.length) % comments.length;
+  //     setCurrentIndex(prevIndex);
+  //     commentsRef.current.scrollBy({ left: -754, behavior: "smooth" });
+  //   }
+  // };
 
   return (
     <section id="testimonials" className="py-16 bg-gray-50">
@@ -139,88 +167,128 @@ const Testimonials = ({ user }) => {
         {/* comments Carousel */}
         <div className="relative flex items-center">
           {/* Left Arrow */}
-          <button
-            className="absolute text-4xl left-[-50px] bg-white p-3 rounded-full shadow-md cursor-pointer text-gray-700"
+          {/* <button
+            className="absolute text-4xl left-0 bg-white rounded-full shadow-md cursor-pointer text-gray-700"
             onClick={prevComments}
           >
             ←
-          </button>
+          </button> */}
 
           {/* comments Cards */}
           <div
-            ref={commentsRef}
-            className="flex space-x-4 no-scrollbar  overflow-x-auto scroll-smooth"
-            style={{ scrollbarWidth: "none" }}
-          >
-            {comments
-              .slice()
-              .reverse()
-              .map((commentItem, index) => (
-                <div
-                  key={index}
-                  className=" p-4 m-4 ml-7 rounded-lg shadow-lg border-t-4 border-primary  min-w-[500px] min-h-[300px]"
-                >
-                  <div className="flex items-center space-x-3">
-                    <img
-                      className="size-16 lg:size-20 md:size-18 rounded-full border border-gray-300"
-                      src={commentItem.userImgURL}
-                      alt="user"
-                    />
-                    <span className="text-2xl font-semibold text-gray-800">
-                      <div>{commentItem.userName || "Anonymous"}</div>
-                      <div className="text-xl font-normal text-gray-500">
-                        {commentItem.timestamp?.seconds
-                          ? new Date(
-                              commentItem.timestamp.seconds * 1000
-                            ).toLocaleString()
-                          : "just now"}
-                      </div>
-                    </span>
-                  </div>
+  ref={commentsRef}
+  className="flex space-x-4 no-scrollbar overflow-x-auto scroll-smooth"
+  style={{ scrollbarWidth: "none" }}
+>
+  {comments
+    .slice()
+    .reverse()
+    .filter((commentItem) => commentItem.comment) // <-- Only include comments with text
+    .map((commentItem, index) => (
+      <div
+        key={index}
+        className="relative p-4 m-4 ml-7 rounded-lg shadow-lg border-t-4 border-primary min-w-[500px] min-h-[300px]"
+      >
+        <div className="flex items-center space-x-3">
+          <img
+            className="size-16 lg:size-20 md:size-18 rounded-full border border-gray-300"
+            src={commentItem.userImgURL}
+            alt="user"
+          />
+          <span className="text-2xl font-semibold text-gray-800">
+            <div>{commentItem.userName || "Anonymous"}</div>
+            <div className="text-xl font-normal text-gray-500">
+              {commentItem.timestamp?.seconds
+                ? new Date(commentItem.timestamp.seconds * 1000).toLocaleString()
+                : "just now"}
+            </div>
+          </span>
+        </div>
 
-                  <div className="flex mt-2">
-                    {Array.from({ length: 5 }).map((_, starIndex) => (
-                      <span
-                        key={starIndex}
-                        className={`text-yellow-500 sm:text-xl lg:text-2xl ${
-                          starIndex < commentItem.rating
-                            ? "opacity-100"
-                            : "opacity-30"
-                        }`}
-                      >
-                        ★
-                      </span>
-                    ))}
-                  </div>
+        <div className="flex mt-2">
+          {Array.from({ length: 5 }).map((_, starIndex) => (
+            <span
+              key={starIndex}
+              className={`text-yellow-500 sm:text-xl lg:text-2xl ${
+                starIndex < commentItem.rating ? "opacity-100" : "opacity-30"
+              }`}
+            >
+              ★
+            </span>
+          ))}
+        </div>
 
-                  <blockquote
-                    style={{
-                      display: "block",
-                      maxHeight: "120px",
-                      overflowY: "auto",
-                      scrollbarWidth: "none",
-                      msOverflowStyle: "none",
-                    }}
-                    className="mt-2 sm:text-xl md:2xl text-gray-600 italic custom-scrollbar"
-                  >
-                    {commentItem.comment.split("\n").map((line, i) => (
-                      <React.Fragment key={i}>
-                        {line}
-                        <br />
-                      </React.Fragment>
-                    ))}
-                  </blockquote>
-                </div>
-              ))}
-          </div>
+{editingCommentId === commentItem.id ? (
+  <>
+<textarea
+  className="w-full p-2 h-25  border rounded text-xl overflow-hidden resize-none overflow-y-scroll no-scrollbar"
+  value={editedComment}
+  onChange={(e) => setEditedComment(e.target.value)}
+/>
+
+
+    <div className="flex space-x-2 mt-2">
+      <button
+        onClick={() => handleSaveClick(commentItem)}
+        className="bg-green-500 text-white px-4 py-2 rounded"
+      >
+        Save
+      </button>
+      <button
+        onClick={() => setEditingCommentId(null)}
+        className="bg-gray-400 text-white px-4 py-2 rounded"
+      >
+        Cancel
+      </button>
+    </div>
+  </>
+) : (
+  <>
+<blockquote
+  style={{
+    display: "block",
+    maxHeight: "120px",
+    overflowY: "scroll", // use scroll for consistent behavior
+    overflowX: "hidden",
+    scrollbarWidth: "none", // Firefox
+    msOverflowStyle: "none", // IE/Edge
+  }}
+  className="no-scrollbar mt-2 sm:text-xl md:text-2xl text-gray-600 italic"
+>
+  {commentItem.comment.split("\n").map((line, i) => (
+    <React.Fragment key={i}>
+      {line}
+      <br />
+    </React.Fragment>
+  ))}
+</blockquote>
+
+    {userName === commentItem.userName && (
+
+  <button
+    onClick={() => handleEditClick(commentItem)}
+    className=" absolute bottom-4 right-4 text-gray-950 hover:text-white-600 hover:bg-gray-500 text-xl font-medium border bg-gray-300 rounded-xl px-3 py-1 mr-2"
+  >
+    Edit
+  </button>
+
+
+    )}
+  </>
+)}
+
+      </div>
+    ))}
+</div>
+
 
           {/* Right Arrow */}
-          <button
+          {/* <button
             className="absolute text-4xl right-[-50px] bg-white p-3 rounded-full shadow-md cursor-pointer text-gray-700"
             onClick={nextComments}
           >
             →
-          </button>
+          </button> */}
         </div>
 
         {/* Add Comment Section */}
@@ -245,7 +313,7 @@ const Testimonials = ({ user }) => {
           {/* Comment Input Box */}
           {showCommentBox && (
             <div
-              className={`mt-4 transform transition-all duration-1000 ease-in-out ${
+              className={`mt-4 transform transition-all duration-1000 ease-in-out max-w-[1300px] m-auto ${
                 animateBox
                   ? "translate-y-0 opacity-100"
                   : "-translate-y-10 opacity-0"
@@ -269,7 +337,7 @@ const Testimonials = ({ user }) => {
                 value={comment}
                 className="w-full p-2 h-50 border rounded text-3xl"
                 onChange={(e) => setComment(e.target.value)}
-                placeholder="Add a comment..."
+                placeholder="Share your thoughts..."
                 rows="3"
               />
 
