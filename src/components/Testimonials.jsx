@@ -104,6 +104,12 @@ const handleAddComment = async () => {
     setComment("");
     setRating(0);
     setShowCommentBox(false);
+if (comment && comment.trim() !== "") {
+  alert("We appreciate your feedback!");
+} else {
+  alert("Thanks for rating us!");
+}
+
   } catch (error) {
     console.error("Error adding comment:", error);
     alert("Something went wrong while saving your comment.");
