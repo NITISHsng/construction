@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Building, Menu, X, LogIn } from "lucide-react";
-import { auth } from "../firebase/firebase"; // Adjust path as needed
+import { auth } from "../firebase/firebase"; 
 import gsap from "gsap";
 
 const Navbar = ({ user }) => {
