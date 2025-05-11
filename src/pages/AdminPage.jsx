@@ -101,7 +101,7 @@ const About = () => {
 
           <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition duration-300 text-center border border-blue-100">
             <h4 className="text-5xl font-bold text-blue-600 mb-3">3+</h4>
-            <p className="text-gray-700 text-lg font-medium">
+            <p className="flex justify-center text-gray-700 text-lg font-medium">
               Years Experience
             </p>
           </div>

@@ -70,7 +70,7 @@ const About = () => {
     <span>{inView ? <Counter target={3} duration={1000} /> : 0}</span>
     <span className="ml-1 ">+</span>
   </div>
-  <div className="text-primary-foreground/80 text-white text-sm">
+  <div className="flex justify-center text-primary-foreground/80 text-white text-sm">
   Years Experience
   </div>
 </div>
@@ -92,7 +92,7 @@ const About = () => {
     <span>{inView ? <Counter target={98} duration={1000} /> : 0}</span>
     <span className="ml-1">%</span>
   </div>
-  <div className="text-primary-foreground/80 text-sm">
+  <div className="flex justify-center text-primary-foreground/80 text-sm">
   Client Satisfaction
   </div>
 </div>
