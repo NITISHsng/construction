@@ -12,7 +12,7 @@ const Navber = ({ user }) => {
   const ulRef = useRef(null);
   const modelOption = useRef(null);
   // const menuButton = useRef(null);
-  
+
   // Scroll effect for navbar background
   useEffect(() => {
     const handleScroll = () => {
@@ -29,22 +29,19 @@ const Navber = ({ user }) => {
     tl.to(navRef.current, {
       y: 60,
       opacity: 1,
-      duration: 0.6,
-      delay: 0.3,
-      ease: "power3.out",
+      duration: 0.2,
+ease: "elastic.out(1,0.1)",
     });
 
     tl.to(ulRef.current.querySelectorAll("li"), {
       y: 50,
       opacity: 1,
-      stagger: 0.2,
-      duration: 0.4,
+      stagger: 0.1,
+      duration: 0.2,
+ ease: "elastic.out(1,0.1)",
     });
-
-  
-  
   }, []);
-  const modelTl = useRef(null); 
+  const modelTl = useRef(null);
   useEffect(() => {
     modelTl.current = gsap.timeline({ paused: true }); // start paused
 
@@ -52,7 +49,20 @@ const Navber = ({ user }) => {
       x: "-100%",
       opacity: 1,
       duration: 0.4,
-      ease: "power3.out",
+
+    });
+    modelTl.current.to(modelOption.current.querySelectorAll("#options"), {
+      x: "-100%",
+      opacity: 1,
+      duration: .1,
+
+    });
+    modelTl.current.to(modelOption.current.querySelectorAll("#options li"), {
+      x: "-100%",
+      opacity: 1,
+      duration: .1,
+      stagger:.1,
+     ease: "expoScale(0.5,7,none)",
     });
   }, []);
 
@@ -64,12 +74,18 @@ const Navber = ({ user }) => {
     modelTl.current && modelTl.current.reverse();
   };
 
-
-
-  const navLinks = ["Home", "Services", "Projects", "About", "Testimonials", "Contact"];
+  const navLinks = [
+    "Home",
+    "Services",
+    "Projects",
+    "About",
+    "Testimonials",
+    "Contact",
+  ];
   // const navLinkClass = "hover:scale-120 transition text-black relative top-[-50px] no-underline";
 
-  const buttonStyles = "text-white font-semibold py-2 px-4 rounded-md shadow-md";
+  const buttonStyles =
+    "text-white font-semibold py-2 px-4 rounded-md shadow-md";
 
   return (
     <div
@@ -79,7 +95,7 @@ const Navber = ({ user }) => {
       }`}
     >
       {/* Logo */}
-      
+
       <div>
         <a href="#" className="flex items-center gap-2">
           <Building className="text-primary" size={40} />
@@ -90,30 +106,31 @@ const Navber = ({ user }) => {
       </div>
 
       {/* Desktop Menu */}
- <ul ref={ulRef} className="hidden lg:flex gap-6 font-semibold text-2xl">
-  {navLinks.map((item) => (
-    <li
-      key={item}
-      className="relative group px-3 py-1 rounded-md transition-transform duration-300 hover:scale-105"
-    >
-      <a
-        href={`#${item.toLowerCase()}`}
-        className="text-black no-underline transition-colors duration-300 relative top-[-50px]"
-      >
-        {item}
-      </a>
-      <span className="absolute left-0 bottom-[50px] w-0 h-[2px] bg-[#081104] transition-all duration-300 group-hover:w-full"></span>
-    </li>
-  ))}
-</ul>
-
+      <ul ref={ulRef} className="hidden lg:flex gap-6 font-semibold text-2xl">
+        {navLinks.map((item) => (
+          <li
+            key={item}
+            className="relative group px-3 py-1 opacity-0 rounded-md transition-transform duration-300 hover:scale-105"
+          >
+            <a
+              href={`#${item.toLowerCase()}`}
+              className="text-black no-underline transition-colors duration-300 relative top-[-50px]"
+            >
+              {item}
+            </a>
+            <span className="absolute left-0 bottom-[50px] w-0 h-[2px] bg-[#081104] transition-all duration-300 group-hover:w-full"></span>
+          </li>
+        ))}
+      </ul>
 
       {/* Desktop Login/Logout */}
       <div className="gap-3 hidden lg:flex">
         {user ? (
           <button
             onClick={() => {
-              auth.signOut().then(() => console.log("User logged out successfully!"));
+              auth
+                .signOut()
+                .then(() => console.log("User logged out successfully!"));
             }}
             className={`${buttonStyles} bg-red-600 hover:bg-red-500`}
           >
@@ -124,7 +141,9 @@ const Navber = ({ user }) => {
           </button>
         ) : (
           <Link to="/login">
-            <button className={`${buttonStyles} bg-green-600 hover:bg-green-500`}>
+            <button
+              className={`${buttonStyles} bg-green-600 hover:bg-green-500`}
+            >
               <div className="flex items-center gap-1">
                 <LogIn className="h-4 w-4" />
                 Login
@@ -135,7 +154,11 @@ const Navber = ({ user }) => {
       </div>
 
       {/* Hamburger Icon */}
-      <div className={`flex lg:hidden text-3xl cursor-pointer ${isScrolled ? "text-black" : "text-white"}`}>
+      <div
+        className={`flex lg:hidden text-3xl cursor-pointer ${
+          isScrolled ? "text-black" : "text-white"
+        }`}
+      >
         <button
           className="text-foreground"
           onClick={() => {
@@ -144,74 +167,87 @@ const Navber = ({ user }) => {
             handlePlay();
           }}
         >
-         <Menu size={38} /> 
+          <Menu size={38} />
         </button>
       </div>
 
       {/* Mobile Menu */}
+      <div
+        onClick={() => setIsOpen(false)}
+        ref={modelOption}
+        className="lg:hidden fixed top-0 left-[100%] h-screen w-screen bg-black/40 backdrop-blur-md z-40 flex"
+      >
         <div
-        
-          onClick={() => setIsOpen(false)}
-          ref={modelOption}
-          className="fixed top-0 left-[100%] h-screen w-screen bg-black/40 backdrop-blur-md z-40 flex"
+        id="options"
+          className=" absolute top-0 left-[100%] h-full w-2/3 bg-white px-6 py-6 flex flex-col justify-between z-50 transition-transform duration-300 ease-in-out transform"
+          onClick={(e) => e.stopPropagation()}
         >
-          
-          <div
-            className="absolute top-0 right-0 h-full w-2/3 bg-white px-6 py-6 flex flex-col justify-between z-50 transition-transform duration-300 ease-in-out transform"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div>
-              <button className="absolute top-5 right-6 text-black" onClick={() => {
-  setIsOpen(false);
-  handleReverse();
-}}>
-                <X size={38} />
-              </button>
+          <div>
+            <button
+              className="absolute top-5 right-6 text-black"
+              onClick={() => {
+                setIsOpen(false);
+                handleReverse();
+              }}
+            >
+              <X size={38} />
+            </button>
 
-              <ul  className="mt-16 flex flex-col gap-6 font-semibold text-black text-2xl">
-      
-                {navLinks.map((item) => (
-                  <li onClick={()=> handleReverse()} key={item} className="p-3 bg-gray-100 rounded-xl hover:bg-gray-200 transition">
-                    <a
-                      href={`#${item.toLowerCase()}`}
-                      className="block no-underline transition-colors duration-200 hover:scale-105"
-                    >
-                      {item}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="gap-3 flex">
-              {user ? (
-                <button
-                  onClick={() => {
-                    auth.signOut().then(() => console.log("User logged out successfully!"));
-                  }}
-                  className={`${buttonStyles} bg-red-600 hover:bg-red-500 w-full`}
+            <ul className="mt-16 flex flex-col gap-6 font-semibold text-black text-2xl">
+              {navLinks.map((item) => (
+                <li
+                  onClick={() => handleReverse()}
+                  key={item}
+                  className=" relative top-0 left-[100%] p-3 opacity-0 bg-gray-100 rounded-xl hover:bg-gray-200 transition"
                 >
-                  <Link to="/login" className="flex items-center justify-center gap-1">
-                    <LogIn className="h-4 w-4" />
-                    Logout
-                  </Link>
-                </button>
-              ) : (
-                <Link to="/login" className="w-full">
-                  <button className={`${buttonStyles} bg-green-600 hover:bg-green-500 w-full`}>
-                    <div className="flex items-center justify-center gap-1">
-                      <LogIn className="h-4 w-4" />
-                      Login
-                    </div>
-                  </button>
+                  <a
+                    href={`#${item.toLowerCase()}`}
+                    className="block no-underline transition-colors duration-200 hover:scale-105"
+                  >
+                    {item}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="gap-3 flex">
+            {user ? (
+              <button
+                onClick={() => {
+                  auth
+                    .signOut()
+                    .then(() => console.log("User logged out successfully!"));
+                }}
+                className={`${buttonStyles} bg-red-600 hover:bg-red-500 w-full`}
+              >
+                <Link
+                  to="/login"
+                  className="flex items-center justify-center gap-1"
+                >
+                  <LogIn className="h-4 w-4" />
+                  Logout
                 </Link>
-              )}
-            </div>
+              </button>
+            ) : (
+              <Link to="/login" className="w-full">
+                <button
+                  className={`${buttonStyles} bg-green-600 hover:bg-green-500 w-full`}
+                >
+                  <div className="flex items-center justify-center gap-1">
+                    <LogIn className="h-4 w-4" />
+                    Login
+                  </div>
+                </button>
+              </Link>
+            )}
           </div>
         </div>
+
+
+      </div>
     </div>
   );
 };
 
 export default Navber;
-
