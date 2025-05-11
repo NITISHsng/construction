@@ -51,23 +51,26 @@ const Testimonials = ({ user }) => {
     setEditingCommentId(commentItem.id);
     setEditedComment(commentItem.comment);
   };
+const handleDeleteClick = async (commentItem) => {
+  const confirmDelete = window.confirm("Are you sure you want to delete this comment?");
+  if (!confirmDelete) return;
 
-  const handleDeleteClick = async (commentItem) => {
-    try {
-      // Delete from Firestore
-      await deleteDoc(doc(db, "comments", commentItem.id));
+  try {
+    // Delete from Firestore
+    await deleteDoc(doc(db, "comments", commentItem.id));
 
-      // Update local state
-      setComments((prevComments) =>
-        prevComments.filter((comment) => comment.id !== commentItem.id)
-      );
+    // Update local state
+    setComments((prevComments) =>
+      prevComments.filter((comment) => comment.id !== commentItem.id)
+    );
 
-      alert("Comment deleted successfully.");
-    } catch (error) {
-      console.error("Error deleting comment:", error);
-      alert("Failed to delete the comment.");
-    }
-  };
+    alert("Comment deleted successfully.");
+  } catch (error) {
+    console.error("Error deleting comment:", error);
+    alert("Failed to delete the comment.");
+  }
+};
+
 
   const handleSaveClick = async (commentItem) => {
     try {
@@ -248,16 +251,16 @@ const Testimonials = ({ user }) => {
                         onChange={(e) => setEditedComment(e.target.value)}
                       />
 
-                      <div className="flex space-x-2 mt-2">
+                      <div className="flex space-x-2 mt-2 h-[35px]">
                         <button
                           onClick={() => handleSaveClick(commentItem)}
-                          className="bg-green-500 text-white px-4 rounded-2xl"
+                          className="bg-green-500 text-white px-4 rounded-xl"
                         >
                           Save
                         </button>
                         <button
                           onClick={() => setEditingCommentId(null)}
-                          className="bg-gray-400 text-white px-4 rounded-2xl"
+                          className="bg-gray-400 text-white px-4 rounded-xl"
                         >
                           Cancel
                         </button>
@@ -269,7 +272,7 @@ const Testimonials = ({ user }) => {
                         style={{
                           display: "block",
                           maxHeight: "120px",
-                          overflowY: "scroll", // use scroll for consistent behavior
+                          overflowY: "scroll", 
                           overflowX: "hidden",
                           scrollbarWidth: "none", // Firefox
                           msOverflowStyle: "none", // IE/Edge

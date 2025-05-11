@@ -53,19 +53,19 @@ const Contact = () => {
     <section id="contact" className="bg-blue-900 text-white py-16 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-10">
-          <h1 className="text-5xl font-bold mb-2">Get In Touch</h1>
+          <h1 className="text-4xl font-bold mb-2">Get In Touch</h1>
           <p className="text-3xl">
             Contact us today for a free consultation and quote for your next
             construction project.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 text-3xl lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 text-xl lg:grid-cols-2 gap-12">
           {/* Contact Form */}
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <input
-                className="p-2 pl-3 bg-blue-800 border border-blue-700 rounded-md w-full"
+                className="p-1 pl-3 bg-blue-800 border border-blue-700 rounded-md w-full"
                 type="text"
                 name="name"
                 placeholder="Your Name"
@@ -74,7 +74,7 @@ const Contact = () => {
                 required
               />
               <input
-                className="p-2 pl-3 bg-blue-800 border border-blue-700 rounded-md w-full"
+                className="p-1 pl-3 bg-blue-800 border border-blue-700 rounded-md w-full"
                 type="email"
                 name="email"
                 placeholder="Your Email"
@@ -83,7 +83,7 @@ const Contact = () => {
                 required
               />
               <input
-                className="p-2 pl-3 bg-blue-800 border border-blue-700 rounded-md w-full"
+                className="p-1 pl-3 bg-blue-800 border border-blue-700 rounded-md w-full"
                 type="tel"
                 name="phone"
                 placeholder="Phone Number"
@@ -91,7 +91,7 @@ const Contact = () => {
                 onChange={(e) => setPhone(e.target.value)}
               />
               <input
-                className="p-2 pl-3 bg-blue-800 border border-blue-700 rounded-md w-full"
+                className="p-1 pl-3 bg-blue-800 border border-blue-700 rounded-md w-full"
                 type="text"
                 name="subject"
                 placeholder="Subject"
@@ -100,7 +100,7 @@ const Contact = () => {
               />
             </div>
             <textarea
-              className="p-3 bg-blue-800 border border-blue-700 rounded-md w-full h-32"
+              className="p-2 bg-blue-800 border border-blue-700 rounded-md w-full h-32"
               name="message"
               placeholder="Your Message"
               value={message}
@@ -119,7 +119,7 @@ const Contact = () => {
           {/* Contact Info */}
           <div className="space-y-2">
             <h1 className=" font-bold">Contact Information</h1>
-            <div className="space-y-5 pt-2 sm:text-2xl">
+            <div className="space-y-5 pt-2 sm:text-xl">
               <div className="flex items-center gap-4">
               <Phone className="text-yellow-500 size={40}"  />
                 <div>

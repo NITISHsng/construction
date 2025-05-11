@@ -8,3 +8,7 @@
     scrollbar-width: none;    /* Firefox */
   }
   @import "tailwindcss";
+
+  html {
+  scroll-behavior: smooth;
+}
