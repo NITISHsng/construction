@@ -2,10 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import { auth } from "../firebase/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import { useData } from "../pages/DataContext";
-import { collection, addDoc, updateDoc } from "firebase/firestore";
-import { db } from "../firebase/firebase"; // ✅ Make sure this is already imported
-import { doc } from "firebase/firestore";
-import { deleteDoc } from "firebase/firestore";
+import { collection, addDoc, updateDoc, deleteDoc,db,doc} from "firebase/firestore";
+
 const Testimonials = ({ user }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [comment, setComment] = useState("");

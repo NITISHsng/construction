@@ -28,7 +28,7 @@ const Navbar = ({ user }) => {
     tl.to(navRef.current, {
       y: 60,
       opacity: 1,
-      duration: 0.2,
+      duration: 0.1,
       ease: "elastic.out(1,0.1)",
     });
 
@@ -50,12 +50,12 @@ const Navbar = ({ user }) => {
     modelTl.current.to(modelOption.current, {
       x: "-100%",
       opacity: 1,
-      duration: 0.4,
+      duration: 0.3,
     });
     modelTl.current.to(modelOption.current.querySelectorAll("#options"), {
       x: "-100%",
       opacity: 1,
-      duration: 0.1,
+      duration: 0.2,
     });
     modelTl.current.to(modelOption.current.querySelectorAll("#options li"), {
       x: "-100%",
