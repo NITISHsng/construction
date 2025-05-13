@@ -10,9 +10,33 @@ import {
   Mail,
 } from "lucide-react";
 // import { div } from '@/components/ui/separator';
-
+import { Helmet } from "react-helmet-async";
 const About = () => {
   return (
+    <div className="admin-dashboard">
+          <Helmet>
+        <meta charSet="utf-8" />
+        <title>Admin Dashboard | Singhainfra</title>
+        <meta
+          name="description"
+          content="Singhainfra Admin Dashboard - Manage all construction projects, view client data, track progress, and oversee company operations."
+        />
+        <meta
+          name="keywords"
+          content="Singhainfra, admin dashboard, construction management, client data, project tracking, construction company, project reports"
+        />
+        <meta name="author" content="Singhainfra Admin" />
+        <meta property="og:title" content="Singhainfra Admin Dashboard" />
+        <meta
+          property="og:description"
+          content="The admin panel for Singhainfra allows easy management of construction projects, client interaction, and progress tracking."
+        />
+        <meta
+          property="og:image"
+          content="https://www.singhainfra.in"
+        />
+        <meta property="og:url" content="https://www.singhainfra.com/admin" />
+      </Helmet>
     <div className="bg-gradient-to-b from-gray-50 to-blue-50 min-h-screen pb-16">
       {/* Hero Section */}
       <div
@@ -325,6 +349,7 @@ const About = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

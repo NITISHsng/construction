@@ -5,7 +5,7 @@ import * as THREE from "three";
 import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { MapPin, User } from "lucide-react";
-
+import { Helmet } from "react-helmet-async";
 const ProjectDetails = () => {
   const { projects } = useData();
   const { title } = useParams();
@@ -99,6 +99,23 @@ const ProjectDetails = () => {
   const { title: projectTitle, fullDescription, place, ownerName, images, imageDetails } = project;
 
   return (
+<>
+   <Helmet>
+            <Helmet>
+        <meta charSet="utf-8" />
+        <title>projects details Singhainfra | Best Construction Company in Siliguri & Islampur</title>
+        <meta
+          name="description"
+          content="Singhainfra Construction is a leading company in Siliguri and Islampur specializing in residential, commercial, and infrastructure projects. Over 30+ completed projects and 3+ years of experience."
+        />
+        <meta
+          name="keywords"
+          content="Singhainfra, construction company, infrastructure, Siliguri, Islampur, residential construction, commercial construction, infrastructure projects, building services, best construction company in Siliguri, best construction company in Islampur"
+        />
+        <meta name="author" content="Singhainfra" />
+              <meta property="og:url" content="https://www.singhainfra.in/project" />
+      </Helmet>
+   </Helmet>
     <div className="min-h-screen bg-white text-gray-800">
       {/* Hero Section */}
       <div className="relative w-full lg:h-[30vh] md:h-[50vw] overflow-hidden">
@@ -245,6 +262,7 @@ const ProjectDetails = () => {
         </div>
       </div>
     </div>
+</>
   );
 };
 

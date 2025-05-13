@@ -2,6 +2,7 @@ import React from "react";
 import { FaWhatsapp } from "react-icons/fa";
 import { Clock } from "lucide-react";
 import Counter from "../components/Counter";
+import { Helmet } from "react-helmet-async";
 import {
   CheckCircle,
   Award,
@@ -19,7 +20,22 @@ const About = () => {
   });
 
   return (
-    <div className="bg-gradient-to-b from-gray-50 to-blue-50 min-h-screen pb-16">
+    <>
+          <Helmet>
+        <meta charSet="utf-8" />
+        <title>About Singhainfra | Best Construction Company in Siliguri & Islampur</title>
+        <meta
+          name="description"
+          content="Singhainfra Construction is a leading company in Siliguri and Islampur specializing in residential, commercial, and infrastructure projects. Over 30+ completed projects and 3+ years of experience."
+        />
+        <meta
+          name="keywords"
+          content="Singhainfra, construction company, infrastructure, Siliguri, Islampur, residential construction, commercial construction, infrastructure projects, building services, best construction company in Siliguri, best construction company in Islampur"
+        />
+        <meta name="author" content="Singhainfra" />
+              <meta property="og:url" content="https://www.singhainfra.in/about" />
+      </Helmet>
+     <div className="bg-gradient-to-b from-gray-50 to-blue-50 min-h-screen pb-16">
       {/* Hero Section */}
       <div className="relative h-[10vh] md:h-[20vh] bg-gradient-to-r from-blue-800 to-blue-600 overflow-hidden flex items-center justify-center">
         <h1 className="text-4xl md:text-6xl font-bold text-white text-center animate-fade-up">
@@ -389,6 +405,7 @@ const About = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

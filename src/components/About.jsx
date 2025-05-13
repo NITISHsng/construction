@@ -2,14 +2,38 @@ import { CheckCircle } from "lucide-react";
 import React from "react";
 import Counter from "../components/Counter";
 import { useInView } from "react-intersection-observer";
+import { Helmet } from "react-helmet-async"; 
 
 const About = () => {
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
+
   return (
     <section id="about" className="py-16 bg-gray-100 mt-[10px]">
+      {/* Helmet for SEO */}
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>About Us | SinghaInfra</title>
+        <meta
+          name="description"
+          content="SinghaInfra is a leading construction company specializing in residential and commercial projects. Building Excellence Since 2021."
+        />
+        <meta
+          name="keywords"
+          content="SinghaInfra, construction company, residential projects, commercial projects, quality craftsmanship, client satisfaction"
+        />
+        <meta name="author" content="Singhainfra" />
+        <meta property="og:title" content="About Us | SinghaInfra" />
+        <meta
+          property="og:description"
+          content="SinghaInfra is a trusted construction company with a proven track record for delivering quality projects on time and within budget."
+        />
+
+        <meta property="og:url" content="https://www.singhainfra.in/#about" />
+      </Helmet>
+
       <div className="container mx-auto px-6">
         <div className="grid text-2xl grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
           {/* Text Section */}
@@ -26,7 +50,7 @@ const About = () => {
                 Singha<span className="text-blue-600">infra </span>
               </span>
               Construction is a leading construction company specializing in
-              residential and commercial projects Building Excellence Since{" "}
+              residential and commercial projects. Building Excellence Since{" "}
               <span className="text-blue-600">2021</span>. With over two decades
               of experience, we've built a reputation for quality craftsmanship,
               reliability, and customer satisfaction.
@@ -54,6 +78,7 @@ const About = () => {
               <a href="#contact">Get In Touch</a>
             </button>
           </div>
+
           {/* Image Section */}
           <div
             className="relative rounded-xl overflow-hidden h-[500px] transition-all duration-500 opacity-100"
@@ -109,6 +134,7 @@ const About = () => {
           </div>
         </div>
       </div>
+
       <div className="text-center mt-12">
         <a
           href="/about"

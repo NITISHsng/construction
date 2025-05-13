@@ -4,6 +4,7 @@ import { db } from "../firebase/firebase";
 import { collection, addDoc } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 import { FaWhatsapp } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 
 const Contact = () => {
   const [name, setName] = useState("");
@@ -21,7 +22,6 @@ const Contact = () => {
       const auth = getAuth();
       const user = auth.currentUser;
 
-      // Store form data in Firestore
       await addDoc(collection(db, "messages"), {
         userId: user ? user.uid : null,
         name,
@@ -34,8 +34,6 @@ const Contact = () => {
       });
 
       alert("Your message has been sent successfully!");
-
-      // Clear form after submit
       setName("");
       setEmail("");
       setPhone("");
@@ -51,6 +49,15 @@ const Contact = () => {
 
   return (
     <section id="contact" className="bg-blue-900 text-white py-16 px-6">
+      <Helmet>
+        <title>Contact | Singhainfra</title>
+        <meta
+          name="description"
+          content="Get in touch with Singhainfra Construction for your next residential or commercial building project. Contact us via phone, email, or WhatsApp."
+        />
+              <meta property="og:url" content="https://www.singhainfra.in/#contact" />
+      </Helmet>
+
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-10">
           <h1 className="text-4xl font-bold mb-2">Get In Touch</h1>
@@ -118,17 +125,17 @@ const Contact = () => {
 
           {/* Contact Info */}
           <div className="space-y-2">
-            <h1 className=" font-bold">Contact Information</h1>
+            <h1 className="font-bold">Contact Information</h1>
             <div className="space-y-5 pt-2 sm:text-xl">
               <div className="flex items-center gap-4">
-              <Phone className="text-yellow-500 size={40}"  />
+                <Phone className="text-yellow-500" size={40} />
                 <div>
                   <span className="font-medium">Phone :</span>
                   <a href="tel:+919635868211"> (+91) 9635868211 </a>
                 </div>
               </div>
               <div className="flex items-center gap-4">
-                <FaWhatsapp className="text-yellow-500 size={40}"  />
+                <FaWhatsapp className="text-yellow-500" size={40} />
                 <div>
                   <span className="font-medium">WhatsApp :</span>
                   <a
@@ -142,7 +149,7 @@ const Contact = () => {
                 </div>
               </div>
               <div className="flex items-center gap-4">
-                <Mail className="text-yellow-500 size={40}" />
+                <Mail className="text-yellow-500" size={40} />
                 <div>
                   <span className="font-medium">Email :</span>
                   <a href="mailto:info@Singhainfra-construction.com">
@@ -151,14 +158,14 @@ const Contact = () => {
                 </div>
               </div>
               <div className="flex items-center gap-4">
-                <MapPin className="text-yellow-500 "size={30}/>
+                <MapPin className="text-yellow-500" size={30} />
                 <div className="flex">
                   <span className="font-medium">Office :</span>
                   <p>Rd no 2, Sevoke More, Siliguri, West Bengal-7340011</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
-                <Clock className="text-yellow-500 size={40}" />
+                <Clock className="text-yellow-500" size={40} />
                 <div className="flex flex-col">
                   <span className="font-medium">Working Hours :</span>
                   <p>Monday - Friday: 8 AM - 10 PM</p>
@@ -167,9 +174,8 @@ const Contact = () => {
               </div>
             </div>
             <div className="mt-3">
-              <span className=" font-semibold">Emergency Service :</span>{" "}
-              <span className=" font-bold text-yellow-500">
-                {" "}
+              <span className="font-semibold">Emergency Service :</span>{" "}
+              <span className="font-bold text-yellow-500">
                 <a href="tel:+917679526642" className="ml-2">
                   (+91) 7679526642
                 </a>

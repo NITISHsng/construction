@@ -1,9 +1,21 @@
 import React from "react";
 import { Building, Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
-
+import { Helmet } from "react-helmet-async";
 const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white pt-16 pb-8 text-3xl">
+          <Helmet>
+        <title>footer | Singhinfra | Leading Construction & Infrastructure Company in Siliguri & Islampur</title>
+        <meta
+          name="description"
+          content="SinghInfra is a top construction and infrastructure company operating in Siliguri and Islampur, offering residential, commercial, and emergency construction services."
+        />
+        <meta
+          name="keywords"
+          content="SinghInfra, construction company, infrastructure, Siliguri, Islampur, residential construction, commercial construction, infrastructure projects, building services, best construction company in Siliguri, best construction company in Islampur"
+        />
+        <meta name="author" content="SinghInfra" />
+      </Helmet>
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Company Info */}

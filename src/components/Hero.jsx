@@ -10,7 +10,7 @@ import {
 } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
 import { useData } from "../pages/DataContext"; // ✅ Import context hook
-
+import { Helmet } from "react-helmet-async";
 const Hero = () => {
   const [phoneNumber, setPhoneNumber] = useState(null);
   const [message, setMessage] = useState(null);
@@ -113,6 +113,16 @@ const Hero = () => {
         backgroundPosition: "center",
       }}
     >
+          <Helmet>
+              <title> home page | Singhinfra | Leading Construction & Infrastructure Company in Siliguri & Islampur</title>
+              <meta
+                name="description"
+                content="SinghInfra is a premier construction and infrastructure company offering high-quality services in Siliguri, Islampur, and surrounding areas. Specializing in residential, commercial, and industrial projects."
+              />
+              <meta name="keywords" content="SinghInfra, construction company, infrastructure, Siliguri, Islampur, residential construction, commercial construction, infrastructure projects, building services , best construction company in siliguri ,commercial construction, infrastructure projects, building services , best construction company in islampur" />
+              <meta name="author" content="SinghInfra" />
+                    <meta property="og:url" content="https://www.singhainfra.in" />
+            </Helmet>
       <div className="container text-white w-[100%]">
         <div className=" animate-fade-in">
           {/* Popup */}

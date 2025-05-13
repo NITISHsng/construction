@@ -19,9 +19,10 @@ import Login from "./pages/Login";
 import MoreAbout from './pages/MoreAbout';
 import AdminPage from './pages/AdminPage';
 import DataBase from './components/foradmin/DataBase';
+import { Helmet } from 'react-helmet-async';
+
 const Layout = () => {
   return (
-    // <AdminLayout/>
     <div className="flex h-screen w-full bg-gray-50">
       <AppSidebar />
       <main className="flex-1 flex flex-col overflow-hidden">
@@ -36,34 +37,45 @@ const Layout = () => {
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <Routes>
-        {/* Public route */}
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/login" element={<Login/>} />
-        <Route path="/adminpage" element={<AdminPage/>} />
-        <Route path="/about" element={<MoreAbout/>} />
-        <Route path="/database" element={<DataBase/>} />
-        <Route path="/project/:title" element={<ProjectDetails />} />
+    <>
+      <Helmet>
+        <title>SinghInfra | Leading Construction & Infrastructure Company in Siliguri & Islampur</title>
+        <meta
+          name="description"
+          content="SinghInfra is a leading construction and infrastructure company with offices in Siliguri (Sevok More) and Islampur. We specialize in residential, commercial, and industrial projects."
+        />
+              <meta property="og:url" content="https://www.singhainfra.in" />
+      </Helmet>
 
-        {/* Admin layout & nested routes */}
-        <Route
-          path="/admin"
-          element={
-            <RequireAdmin>
-              <Layout />
-            </RequireAdmin>
-          }
-        >
-          <Route index element={<AdminDashboard />} />
-          <Route path="usermanagement" element={<UserManagement />} />
-          <Route path="queries" element={<QueryManagement />} />
-          <Route path="contacts" element={<ContactMessages />} />
-          <Route path="projects" element={<ProjectManagement />} />
-          <Route path="services" element={<ServiceManagement />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+      <BrowserRouter>
+        <Routes>
+          {/* Public routes */}
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/adminpage" element={<AdminPage />} />
+          <Route path="/about" element={<MoreAbout />} />
+          <Route path="/database" element={<DataBase />} />
+          <Route path="/project/:title" element={<ProjectDetails />} />
+
+          {/* Admin layout & nested routes */}
+          <Route
+            path="/admin"
+            element={
+              <RequireAdmin>
+                <Layout />
+              </RequireAdmin>
+            }
+          >
+            <Route index element={<AdminDashboard />} />
+            <Route path="usermanagement" element={<UserManagement />} />
+            <Route path="queries" element={<QueryManagement />} />
+            <Route path="contacts" element={<ContactMessages />} />
+            <Route path="projects" element={<ProjectManagement />} />
+            <Route path="services" element={<ServiceManagement />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 };
 

@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Building, Menu, X, LogIn } from "lucide-react";
 import { auth } from "../firebase/firebase"; 
 import gsap from "gsap";
-
+import { Helmet } from "react-helmet-async";
 const Navbar = ({ user }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -102,6 +102,19 @@ const Navbar = ({ user }) => {
         isScrolled ? "bg-white shadow-md py-2" : "bg-transparent py-4"
       }`}
     >
+            <Helmet>
+        <title>SinghInfra | Leading Construction Company in Siliguri & Islampur</title>
+        <meta
+          name="description"
+          content="SinghInfra is a top construction company offering quality residential, commercial, and infrastructure services in Siliguri and Islampur."
+        />
+        <meta
+          name="keywords"
+          content="SinghInfra, construction company, infrastructure, Siliguri, Islampur, residential projects, commercial projects, best construction services"
+        />
+        <meta name="author" content="SinghInfra" />
+              <meta property="og:url" content="https://www.singhainfra.in/" />
+      </Helmet>
       {/* Logo */}
       <div>
         <a href="#" className="flex items-center gap-2 ">

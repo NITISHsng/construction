@@ -4,6 +4,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { useData } from "../pages/DataContext";
 import { collection, addDoc, updateDoc, deleteDoc,doc} from "firebase/firestore";
 import { db } from "../firebase/firebase"; // ✅ Make sure this is already imported
+import { Helmet } from "react-helmet-async";
 const Testimonials = ({ user }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [comment, setComment] = useState("");
@@ -150,6 +151,20 @@ const handleDeleteClick = async (commentItem) => {
 
   return (
     <section id="testimonials" className="py-16 bg-gray-50">
+      <Helmet>
+  <title>Testimonials | SinghInfra | Client Reviews on Construction Projects</title>
+  <meta
+    name="description"
+    content="Read what our clients have to say about their experience with SinghInfra. Trusted construction and infrastructure services with high satisfaction across Siliguri and Islampur."
+  />
+  <meta
+    name="keywords"
+    content="SinghInfra testimonials, client reviews, customer satisfaction, construction feedback, Siliguri builder reviews, Islampur construction company, infrastructure reviews, best builder reviews Siliguri"
+  />
+  <meta name="author" content="SinghInfra" />
+        <meta property="og:url" content="https://www.singhainfra.in/#testimonials" />
+</Helmet>
+
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">

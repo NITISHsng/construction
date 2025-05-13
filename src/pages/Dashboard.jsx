@@ -10,6 +10,8 @@ import Testimonials from '../components/Testimonials';
 import Contact from '../components/Contact';
 import { useNavigate } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth"; 
+import { Helmet } from 'react-helmet-async';
+
 function Dashboard() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true); // New loading state
@@ -42,6 +44,17 @@ function Dashboard() {
 
   return (
     <>
+      <Helmet>
+        <title>SinghInfra | Leading Construction & Infrastructure Company in Siliguri & Islampur</title>
+        <meta
+          name="description"
+          content="SinghInfra is a premier construction and infrastructure company offering high-quality services in Siliguri, Islampur, and surrounding areas. Specializing in residential, commercial, and industrial projects."
+        />
+        <meta name="keywords" content="SinghInfra, construction company, infrastructure, Siliguri, Islampur, residential construction, commercial construction, infrastructure projects, building services , best construction company in siliguri ,commercial construction, infrastructure projects, building services , best construction company in islampur" />
+        <meta name="author" content="SinghInfra" />
+              <meta property="og:url" content="https://www.singhainfra.in" />
+      </Helmet>
+
       <Navbar user={user} setUser={setUser} />
       <Hero user={user} />
       <Services />
