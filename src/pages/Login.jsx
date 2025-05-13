@@ -113,7 +113,7 @@ const Login = () => {
   return (
     <>
       <Helmet>
-        <title>{isSignUp ? "Create a New Account" : "Login to Your Account"} | Singhinfra</title>
+        <title>{isSignUp ? "Create a New Account" : "Login to Your Account"} | SinghInfra</title>
         <meta
           name="description"
           content={`${

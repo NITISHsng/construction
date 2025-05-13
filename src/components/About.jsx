@@ -47,7 +47,7 @@ const About = () => {
 
             <p className="text-2xl text-gray-700 mb-8">
               <span className=" font-bold text-primary">
-                Singha<span className="text-blue-600">infra </span>
+                Singha<span className="text-blue-600">Infra </span>
               </span>
               Construction is a leading construction company specializing in
               residential and commercial projects. Building Excellence Since{" "}

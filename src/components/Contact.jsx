@@ -50,10 +50,10 @@ const Contact = () => {
   return (
     <section id="contact" className="bg-blue-900 text-white py-16 px-6">
       <Helmet>
-        <title>Contact | Singhainfra</title>
+        <title>Contact | SinghaInfra</title>
         <meta
           name="description"
-          content="Get in touch with Singhainfra Construction for your next residential or commercial building project. Contact us via phone, email, or WhatsApp."
+          content="Get in touch with SinghaInfra Construction for your next residential or commercial building project. Contact us via phone, email, or WhatsApp."
         />
               <meta property="og:url" content="https://www.singhainfra.in/#contact" />
       </Helmet>

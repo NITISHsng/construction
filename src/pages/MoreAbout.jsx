@@ -23,16 +23,16 @@ const About = () => {
     <>
           <Helmet>
         <meta charSet="utf-8" />
-        <title>About Singhainfra | Best Construction Company in Siliguri & Islampur</title>
+        <title>About | SinghaInfra | Best Construction Company in Siliguri & Islampur</title>
         <meta
           name="description"
-          content="Singhainfra Construction is a leading company in Siliguri and Islampur specializing in residential, commercial, and infrastructure projects. Over 30+ completed projects and 3+ years of experience."
+          content="SinghaInfra Construction is a leading company in Siliguri and Islampur specializing in residential, commercial, and infrastructure projects. Over 30+ completed projects and 3+ years of experience."
         />
         <meta
           name="keywords"
-          content="Singhainfra, construction company, infrastructure, Siliguri, Islampur, residential construction, commercial construction, infrastructure projects, building services, best construction company in Siliguri, best construction company in Islampur"
+          content="SinghaInfra, construction company, infrastructure, Siliguri, Islampur, residential construction, commercial construction, infrastructure projects, building services, best construction company in Siliguri, best construction company in Islampur"
         />
-        <meta name="author" content="Singhainfra" />
+        <meta name="author" content="SinghaInfra" />
               <meta property="og:url" content="https://www.singhainfra.in/about" />
       </Helmet>
      <div className="bg-gradient-to-b from-gray-50 to-blue-50 min-h-screen pb-16">

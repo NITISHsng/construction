@@ -16,26 +16,26 @@ const About = () => {
     <div className="admin-dashboard">
           <Helmet>
         <meta charSet="utf-8" />
-        <title>Admin Dashboard | Singhainfra</title>
+        <title>Admin Dashboard | SinghaInfra</title>
         <meta
           name="description"
-          content="Singhainfra Admin Dashboard - Manage all construction projects, view client data, track progress, and oversee company operations."
+          content="SinghaInfra Admin Dashboard - Manage all construction projects, view client data, track progress, and oversee company operations."
         />
         <meta
           name="keywords"
-          content="Singhainfra, admin dashboard, construction management, client data, project tracking, construction company, project reports"
+          content="SinghaInfra, admin dashboard, construction management, client data, project tracking, construction company, project reports"
         />
-        <meta name="author" content="Singhainfra Admin" />
-        <meta property="og:title" content="Singhainfra Admin Dashboard" />
+        <meta name="author" content="SinghaInfra Admin" />
+        <meta property="og:title" content="SinghaInfra Admin Dashboard" />
         <meta
           property="og:description"
-          content="The admin panel for Singhainfra allows easy management of construction projects, client interaction, and progress tracking."
+          content="The admin panel for SinghaInfra allows easy management of construction projects, client interaction, and progress tracking."
         />
         <meta
           property="og:image"
           content="https://www.singhainfra.in"
         />
-        <meta property="og:url" content="https://www.singhainfra.com/admin" />
+        <meta property="og:url" content="https://www.singhainfra.in/admin" />
       </Helmet>
     <div className="bg-gradient-to-b from-gray-50 to-blue-50 min-h-screen pb-16">
       {/* Hero Section */}
@@ -218,13 +218,13 @@ const About = () => {
 
               <div className="flex items-center gap-3">
                 <Mail className="text-blue-600" size={24} />
-                <p className="text-gray-700">info@Singhainfra.com</p>
+                <p className="text-gray-700">info@Singhainfra.in</p>
               </div>
             </div>
 
             <div className="rounded-xl overflow-hidden shadow-md">
               <iframe
-                title="Singhainfra Office Location"
+                title="SinghaInfra Office Location"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3683.9470752951024!2d88.36389541496168!3d22.57264698517685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x7340011678abcd1234!2sYour+Office+Location!5e0!3m2!1sen!2sin!4v1613541024321"
                 width="100%"
                 height="400"
