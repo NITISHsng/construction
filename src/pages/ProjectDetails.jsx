@@ -101,7 +101,7 @@ const ProjectDetails = () => {
   return (
     <div className="min-h-screen bg-white text-gray-800">
       {/* Hero Section */}
-      <div className="relative w-full h-[70vh] overflow-hidden">
+      <div className="relative w-full lg:h-[30vh] md:h-[50vw] overflow-hidden">
         <img
           src={project.image}
           alt={projectTitle}
@@ -215,6 +215,7 @@ const ProjectDetails = () => {
                 </div>
               </div>
             </div>
+        
           </div>
 
           {/* Right Side - 3D Model */}
@@ -239,6 +240,8 @@ const ProjectDetails = () => {
               <div ref={mountRef} className="w-full h-full" />
             </div>
           </div>
+
+          
         </div>
       </div>
     </div>

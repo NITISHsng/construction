@@ -50,12 +50,12 @@ const Navbar = ({ user }) => {
     modelTl.current.to(modelOption.current, {
       x: "-100%",
       opacity: 1,
-      duration: 0.3,
+      duration: 0.1,
     });
     modelTl.current.to(modelOption.current.querySelectorAll("#options"), {
       x: "-100%",
       opacity: 1,
-      duration: 0.2,
+      duration: 0.1,
     });
     modelTl.current.to(modelOption.current.querySelectorAll("#options li"), {
       x: "-100%",
@@ -98,15 +98,15 @@ const Navbar = ({ user }) => {
   return (
     <nav
       ref={navRef}
-      className={`fixed left-0 top-[-60px] w-full px-4 sm:px-8 lg:px-[3%] transition-all duration-300 flex justify-between items-center z-50 ${
+      className={`fixed left-0 top-[-60px] w-full px-4  sm:px-8 lg:px-[3%] lg:p-1 md:p-3 md:min-h-[70px] lg:min-h-[60px] transition-all duration-300 flex justify-between items-center z-50 ${
         isScrolled ? "bg-white shadow-md py-2" : "bg-transparent py-4"
       }`}
     >
       {/* Logo */}
       <div>
-        <a href="#" className="flex items-center gap-2">
-          <Building className="text-primary" size={40} />
-          <span className="text-3xl font-bold text-primary">
+        <a href="#" className="flex items-center gap-2 ">
+          <Building className="text-primary" size={44} />
+          <span className="lg:text-4xl md:text-6xl text-4xl font-bold text-primary">
             Singha<span className="text-blue-900">infra</span>
           </span>
         </a>
@@ -173,7 +173,7 @@ const Navbar = ({ user }) => {
             handlePlay();
           }}
         >
-          <Menu size={38} />
+          <Menu size={44} />
         </button>
       </div>
 
@@ -193,7 +193,7 @@ const Navbar = ({ user }) => {
               className="absolute top-5 right-6 text-black"
               onClick={handleReverse}
             >
-              <X size={38} />
+              <X size={44} />
             </button>
 
             <ul className="mt-16 flex flex-col gap-6 font-semibold text-black text-2xl">
@@ -214,7 +214,7 @@ const Navbar = ({ user }) => {
             </ul>
           </div>
 
-          <div className="gap-3 flex">
+          <div className="gap-3 flex relative top-[-40px]">
             {user ? (
               <Link to="/login" className="w-full">
                 <button
