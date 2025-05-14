@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useData } from "../pages/DataContext";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+
 const ProjectCard = ({ project }) => (
   <div className="overflow-hidden group h-full bg-white shadow-lg rounded-lg">
     <div className="relative h-64 overflow-hidden">
@@ -29,19 +29,7 @@ const Projects = () => {
 
   return (
     <section id="projects" className="py-16 bg-gray-100 mt-[10px] p-8">
-<Helmet>
-  <title>Projects | SinghInfra | Residential & Commercial Construction in Siliguri & Islampur</title>
-  <meta
-    name="description"
-    content="View our portfolio of completed and ongoing construction projects across Siliguri and Islampur. SinghInfra delivers excellence in residential, commercial, and infrastructure development."
-  />
-  <meta
-    name="keywords"
-    content="SinghInfra projects, construction projects Siliguri, infrastructure Siliguri, residential construction Islampur, commercial projects, building portfolio, SinghInfra construction examples, infrastructure development"
-  />
-  <meta name="author" content="SinghInfra" />
-        <meta property="og:url" content="https://www.singhainfra.in/#projects" />
-</Helmet>
+
 
       <div className="container mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-16">

@@ -1,7 +1,7 @@
 import React from "react";
 import { Building, Home, Hammer, Truck, Wrench ,ShieldCheck} from "lucide-react";
 import { CheckCircle, Award, Users } from 'lucide-react';
-import { Helmet } from "react-helmet-async";
+
 const servicesData = [
   {
     icon: <Home className="h-12 w-12 text-primary" />,
@@ -39,19 +39,7 @@ const servicesData = [
 const Services = () => {
   return (
     <section id="services" className="py-16 bg-gray-100 p-7">
-      <Helmet>
-  <title>Services | SinghInfra | Construction & Infrastructure Services in Siliguri & Islampur</title>
-  <meta
-    name="description"
-    content="Discover SinghInfra's wide range of construction and infrastructure services including residential buildings, commercial projects, road development, and more across Siliguri and Islampur."
-  />
-  <meta
-    name="keywords"
-    content="SinghInfra services, construction services Siliguri, infrastructure services Islampur, residential construction, commercial development, building services, road construction, real estate Siliguri, Siliguri construction company"
-  />
-  <meta name="author" content="SinghInfra" />
-        <meta property="og:url" content="https://www.singhainfra.in/#services" />
-</Helmet>
+
 
       <div className="container mx-auto">
         {/* Services Section */}

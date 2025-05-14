@@ -3,8 +3,8 @@ import { auth } from "../firebase/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import { useData } from "../pages/DataContext";
 import { collection, addDoc, updateDoc, deleteDoc,doc} from "firebase/firestore";
-import { db } from "../firebase/firebase"; // ✅ Make sure this is already imported
-import { Helmet } from "react-helmet-async";
+import { db } from "../firebase/firebase"; 
+
 const Testimonials = ({ user }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [comment, setComment] = useState("");
@@ -131,39 +131,10 @@ const handleDeleteClick = async (commentItem) => {
     }
   };
 
-  // // Scroll to next comments
-  // const nextComments = () => {
-  //   if (commentsRef.current && comments.length > 0) {
-  //     const nextIndex = (currentIndex + 1) % comments.length;
-  //     setCurrentIndex(nextIndex);
-  //     commentsRef.current.scrollBy({ left: 754, behavior: "smooth" });
-  //   }
-  // };
 
-  // // Scroll to previous comments
-  // const prevComments = () => {
-  //   if (commentsRef.current && comments.length > 0) {
-  //     const prevIndex = (currentIndex - 1 + comments.length) % comments.length;
-  //     setCurrentIndex(prevIndex);
-  //     commentsRef.current.scrollBy({ left: -754, behavior: "smooth" });
-  //   }
-  // };Years Experience
 
   return (
     <section id="testimonials" className="py-16 bg-gray-50">
-      <Helmet>
-  <title>Testimonials | SinghInfra | Client Reviews on Construction Projects</title>
-  <meta
-    name="description"
-    content="Read what our clients have to say about their experience with SinghInfra. Trusted construction and infrastructure services with high satisfaction across Siliguri and Islampur."
-  />
-  <meta
-    name="keywords"
-    content="SinghInfra testimonials, client reviews, customer satisfaction, construction feedback, Siliguri builder reviews, Islampur construction company, infrastructure reviews, best builder reviews Siliguri"
-  />
-  <meta name="author" content="SinghInfra" />
-        <meta property="og:url" content="https://www.singhainfra.in/#testimonials" />
-</Helmet>
 
       <div className="container mx-auto px-4">
         {/* Header */}
@@ -200,13 +171,7 @@ const handleDeleteClick = async (commentItem) => {
 
         {/* comments Carousel */}
         <div className="relative flex items-center">
-          {/* Left Arrow */}
-          {/* <button
-            className="absolute text-4xl left-0 bg-white rounded-full shadow-md cursor-pointer text-gray-700"
-            onClick={prevComments}
-          >
-            ←
-          </button> */}
+
 
           {/* comments Cards */}
           <div
@@ -322,13 +287,6 @@ const handleDeleteClick = async (commentItem) => {
               ))}
           </div>
 
-          {/* Right Arrow */}
-          {/* <button
-            className="absolute text-4xl right-[-50px] bg-white p-3 rounded-full shadow-md cursor-pointer text-gray-700"
-            onClick={nextComments}
-          >
-            →
-          </button> */}
         </div>
 
         {/* Add Comment Section */}

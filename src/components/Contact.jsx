@@ -4,7 +4,7 @@ import { db } from "../firebase/firebase";
 import { collection, addDoc } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 import { FaWhatsapp } from "react-icons/fa";
-import { Helmet } from "react-helmet-async";
+
 
 const Contact = () => {
   const [name, setName] = useState("");
@@ -49,14 +49,6 @@ const Contact = () => {
 
   return (
     <section id="contact" className="bg-blue-900 text-white py-16 px-6">
-      <Helmet>
-        <title>Contact | SinghaInfra</title>
-        <meta
-          name="description"
-          content="Get in touch with SinghaInfra Construction for your next residential or commercial building project. Contact us via phone, email, or WhatsApp."
-        />
-              <meta property="og:url" content="https://www.singhainfra.in/#contact" />
-      </Helmet>
 
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-10">

@@ -96,18 +96,19 @@ const ProjectDetails = () => {
     return <div className="p-6 text-center text-red-500">Project not found.</div>;
   }
 
-  const { title: projectTitle, fullDescription, place, ownerName, images, imageDetails } = project;
+  const { title: projectTitle, fullDescription, place, ownerName, images, imageDetails,category } = project;
 
   return (
 <>
 
             <Helmet>
         <meta charSet="utf-8" />
-        <title>projects details|SinghaInfra | Best Construction Company in Siliguri & Islampur</title>
-        <meta
-          name="description"
-          content="SinghaInfra Construction is a leading company in Siliguri and Islampur specializing in residential, commercial, and infrastructure projects. Over 30+ completed projects and 3+ years of experience."
-        />
+        <title>{projectTitle} || {category} | SinghaInfra | Best Construction Company in Siliguri & Islampur</title>
+       <meta
+  name="description"
+  content={fullDescription}
+/>
+
         <meta
           name="keywords"
           content="SinghaInfra, construction company, infrastructure, Siliguri, Islampur, residential construction, commercial construction, infrastructure projects, building services, best construction company in Siliguri, best construction company in Islampur"
