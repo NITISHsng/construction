@@ -100,7 +100,7 @@ const ProjectDetails = () => {
 
   return (
 <>
-   <Helmet>
+
             <Helmet>
         <meta charSet="utf-8" />
         <title>projects details|SinghaInfra | Best Construction Company in Siliguri & Islampur</title>
@@ -115,7 +115,7 @@ const ProjectDetails = () => {
         <meta name="author" content="SinghaInfra" />
               <meta property="og:url" content="https://www.singhainfra.in/project" />
       </Helmet>
-   </Helmet>
+
     <div className="min-h-screen bg-white text-gray-800">
       {/* Hero Section */}
       <div className="relative w-full lg:h-[30vh] md:h-[50vw] overflow-hidden">

@@ -128,14 +128,14 @@ const Contact = () => {
             <h1 className="font-bold">Contact Information</h1>
             <div className="space-y-5 pt-2 sm:text-xl">
               <div className="flex items-center gap-4">
-                <Phone className="text-yellow-500" size={40} />
+                <Phone className="text-yellow-500" size={35} />
                 <div>
                   <span className="font-medium">Phone :</span>
                   <a href="tel:+919635868211"> (+91) 9635868211 </a>
                 </div>
               </div>
               <div className="flex items-center gap-4">
-                <FaWhatsapp className="text-yellow-500" size={40} />
+                <FaWhatsapp className="text-yellow-500" size={35} />
                 <div>
                   <span className="font-medium">WhatsApp :</span>
                   <a
@@ -149,7 +149,7 @@ const Contact = () => {
                 </div>
               </div>
               <div className="flex items-center gap-4">
-                <Mail className="text-yellow-500" size={40} />
+                <Mail className="text-yellow-500" size={35} />
                 <div>
                   <span className="font-medium">Email :</span>
                   <a href="mailto:info@Singhainfra-construction.com">
@@ -158,14 +158,14 @@ const Contact = () => {
                 </div>
               </div>
               <div className="flex items-center gap-4">
-                <MapPin className="text-yellow-500" size={30} />
+                <MapPin className="text-yellow-500" size={35} />
                 <div className="flex">
                   <span className="font-medium">Office :</span>
                   <p>Rd no 2, Sevoke More, Siliguri, West Bengal-7340011</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
-                <Clock className="text-yellow-500" size={40} />
+                <Clock className="text-yellow-500" size={35} />
                 <div className="flex flex-col">
                   <span className="font-medium">Working Hours :</span>
                   <p>Monday - Friday: 8 AM - 10 PM</p>

@@ -11,6 +11,7 @@ import {
 import { onAuthStateChanged } from "firebase/auth";
 import { useData } from "../pages/DataContext"; // ✅ Import context hook
 import { Helmet } from "react-helmet-async";
+import Logo from "./Logo";
 const Hero = () => {
   const [phoneNumber, setPhoneNumber] = useState(null);
   const [message, setMessage] = useState(null);
