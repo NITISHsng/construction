@@ -1,7 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
 import ProjectDetails from './pages/ProjectDetails';
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 // Admin layout and components
 import Header from './components/foradmin/Header';
 import AppSidebar from './components/foradmin/AppSidebar';
@@ -25,6 +26,7 @@ const Layout = () => {
   return (
     <div className="flex h-screen w-full bg-gray-50">
       <AppSidebar />
+
       <main className="flex-1 flex flex-col overflow-hidden">
         <Header />
         <div className="flex-1 overflow-auto p-6">
@@ -75,6 +77,15 @@ const App = () => {
           </Route>
         </Routes>
       </BrowserRouter>
+        <ToastContainer
+    position="top-right"
+    autoClose={3000}
+    hideProgressBar={false}
+    newestOnTop={false}
+    closeOnClick
+    pauseOnHover
+    draggable
+  />
     </>
   );
 };

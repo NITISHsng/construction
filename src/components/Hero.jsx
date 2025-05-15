@@ -10,7 +10,7 @@ import {
 } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
 import { useData } from "../pages/DataContext"; // ✅ Import context hook
-
+import { toast } from "react-toastify";
 const Hero = () => {
   const [phoneNumber, setPhoneNumber] = useState(null);
   const [message, setMessage] = useState(null);
@@ -41,7 +41,7 @@ const Hero = () => {
     const user = auth.currentUser;
 
     if (!user) {
-      alert("Please log in to submit a query.");
+      toast.warning("Please log in to submit a query.");
       return;
     }
 
@@ -56,7 +56,7 @@ const Hero = () => {
   const querySubmit = async () => {
     setLoading(true);
     if (!message || !service || !phoneNumber) {
-      alert("Please fill in all fields before submitting.");
+      toast.warning("Please fill in all fields before submitting.");
       setLoading(false);
       return;
     }
@@ -93,11 +93,11 @@ const Hero = () => {
       ]);
 
       setLoading(false);
-      alert("Query submitted successfully!");
+      toast.success("Query submitted successfully!");
       setShowPopup(false);
     } catch (error) {
       console.error("Error submitting query:", error);
-      alert("Something went wrong. Please try again.");
+      toast.error("Something went wrong. Please try again.");
       setLoading(false);
     }
   };
@@ -182,11 +182,11 @@ const Hero = () => {
           )}
 
           {/* Hero Text */}
-          <h1 className="text-4xl md:text-4xl sm:text-3xl font-bold mb-6">
+          <h1 className="text-3xl md:text-3xl sm:text-3xl font-bold mb-6">
             Building <span className="text-yellow-500">Excellence</span>,
             Crafting Futures
           </h1>
-          <p className="text-3xl md:text-3xl mb-8 opacity-90">
+          <p className="text-xl md:text-xl mb-8 opacity-90">
             With 3+ years of experience in the construction industry, we deliver
             quality craftsmanship and innovative solutions for residential and
             commercial projects.

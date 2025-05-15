@@ -4,7 +4,7 @@ import { db } from "../firebase/firebase";
 import { collection, addDoc } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 import { FaWhatsapp } from "react-icons/fa";
-
+import { toast } from "react-toastify";
 
 const Contact = () => {
   const [name, setName] = useState("");
@@ -33,7 +33,7 @@ const Contact = () => {
         timestamp: new Date(),
       });
 
-      alert("Your message has been sent successfully!");
+      toast.success("Your message has been sent successfully!");
       setName("");
       setEmail("");
       setPhone("");
@@ -41,7 +41,7 @@ const Contact = () => {
       setMessage("");
     } catch (error) {
       console.error("Error submitting form:", error);
-      alert("Failed to send message. Please try again.");
+      toast.error("Failed to send message. Please try again.");
     } finally {
       setLoading(false);
     }

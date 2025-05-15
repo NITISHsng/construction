@@ -3,19 +3,15 @@ import { useNavigate } from "react-router-dom";
 import { Building, LogIn, LogOut, Loader2 } from "lucide-react";
 import { FcGoogle } from "react-icons/fc";
 import { auth, googleProvider } from "../firebase/firebase";
+import { toast } from "react-toastify";
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   signInWithPopup,
 } from "firebase/auth";
-import {
-  doc,
-  setDoc,
-  getDoc,
-  serverTimestamp,
-} from "firebase/firestore";
+import { doc, setDoc, getDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "../firebase/firebase";
-import { Helmet } from 'react-helmet-async'; // Import Helmet
+import { Helmet } from "react-helmet-async"; // Import Helmet
 
 const Login = () => {
   const [user, setUser] = useState(null);
@@ -39,26 +35,34 @@ const Login = () => {
   const handleEmailAuth = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-  
+
     try {
       let userCredential;
-  
+
       if (isSignUp) {
-        userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        userCredential = await createUserWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
       } else {
-        userCredential = await signInWithEmailAndPassword(auth, email, password);
+        userCredential = await signInWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
       }
-  
+
       const user = userCredential.user;
       const userRef = doc(db, "users", user.uid);
       const userSnap = await getDoc(userRef);
-  
+
       if (!userSnap.exists()) {
         let userName = user.displayName;
         if (!userName) {
           userName = prompt("Please enter your name:");
         }
-  
+
         await setDoc(userRef, {
           email: user.email,
           name: userName || "Not set Name",
@@ -72,16 +76,23 @@ const Login = () => {
           { merge: true }
         );
       }
-  
+
       navigate("/");
     } catch (error) {
-      alert(`${isSignUp ? "Sign Up" : "Login"} failed: ${error.message}`);
-      console.error(error);
+      if (error) {
+        toast.error(
+          `${isSignUp ? "Sign Up" : "Login"} failed: ${error.message}`
+        );
+        console.error(error);
+      } else {
+        toast.success(`${isSignUp ? "Sign Up" : "Login"} successful!`);
+        console.log(`${isSignUp ? "Sign Up" : "Login"} successful`);
+      }
     } finally {
       setIsLoading(false);
     }
   };
-  
+
   const handleGoogleSignIn = async () => {
     try {
       const result = await signInWithPopup(auth, googleProvider);
@@ -99,28 +110,36 @@ const Login = () => {
           lastLogin: new Date(),
         });
       } else {
-        await setDoc(userRef, {
-          lastLogin: new Date(),
-        }, { merge: true });
+        await setDoc(
+          userRef,
+          {
+            lastLogin: new Date(),
+          },
+          { merge: true }
+        );
       }
 
       navigate("/");
+      toast.success("successfully login");
     } catch (error) {
-      alert("Google Sign-In failed: " + error.message);
+      toast.error("Google Sign-In failed: " + error.message);
     }
   };
 
   return (
     <>
       <Helmet>
-        <title>{isSignUp ? "Create a New Account" : "Login to Your Account"} | SinghInfra</title>
+        <title>
+          {isSignUp ? "Create a New Account" : "Login to Your Account"} |
+          SinghInfra
+        </title>
         <meta
           name="description"
           content={`${
             isSignUp ? "Create" : "Login"
           } to your SinghInfra account to access construction and infrastructure services.`}
         />
-              <meta property="og:url" content="https://www.singhainfra.in/login" />
+        <meta property="og:url" content="https://www.singhainfra.in/login" />
       </Helmet>
 
       <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
@@ -137,7 +156,10 @@ const Login = () => {
           <form className="space-y-6" onSubmit={handleEmailAuth}>
             <div className="space-y-4">
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-gray-700"
+                >
                   Email Address
                 </label>
                 <input
@@ -152,7 +174,10 @@ const Login = () => {
               </div>
 
               <div>
-                <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+                <label
+                  htmlFor="password"
+                  className="block text-sm font-medium text-gray-700"
+                >
                   Password
                 </label>
                 <input
@@ -172,7 +197,13 @@ const Login = () => {
               className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition duration-200 disabled:opacity-50"
               disabled={isLoading}
             >
-              {isLoading ? <Loader2 className="h-5 w-5 animate-spin" /> : isSignUp ? <LogOut className="h-5 w-5" /> : <LogIn className="h-5 w-5" />}
+              {isLoading ? (
+                <Loader2 className="h-5 w-5 animate-spin" />
+              ) : isSignUp ? (
+                <LogOut className="h-5 w-5" />
+              ) : (
+                <LogIn className="h-5 w-5" />
+              )}
               {isLoading ? "Processing..." : isSignUp ? "Sign Up" : "Sign In"}
             </button>
           </form>

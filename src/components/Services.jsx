@@ -44,10 +44,9 @@ const Services = () => {
       <div className="container mx-auto">
         {/* Services Section */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h1 className="md:text-5xl text-4xl font-bold mb-4">Our Construction Services</h1>
-          <p className="text-3xl text-gray-600">
-            We offer a comprehensive range of construction services to meet all your building needs
-          </p>
+          <h1 className="md:text-5xl text-4xl font-bold mb-4">Our Services</h1>
+          <p className="text-gray-600 md:text-2xl md:whitespace-nowrap">
+ We offer a comprehensive range of construction services to meet all your building needs</p>
         </div>
 
         <div className="grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
@@ -62,7 +61,7 @@ const Services = () => {
 
         {/* Why Trust Section */}
         <div className="mt-24 mb-16">
-          <h1 className="text-4xl mt-5 font-bold mb-8 text-gray-800 text-center">
+          <h1 className="text-2xl md:text-4xl mt-5 font-bold mb-8 text-gray-800 text-center">
             Why Trust Singhainfra?
           </h1>
 

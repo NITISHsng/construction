@@ -21,7 +21,7 @@ const About = () => {
             <div className="inline-block text-4xl font-semibold py-2 bg-secondary/20 text-secondary-foreground rounded-full mb-6">
               About{" "}
               <span className=" lg:text-4xl md:text-4xl sm:text-4xl font-bold text-primary">
-                Singha<span className="text-blue-600">infra</span>
+                Singha<span className="text-blue-600">Infra</span>
               </span>
             </div>
 

@@ -34,7 +34,7 @@ const Projects = () => {
       <div className="container mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h1 className="text-4xl font-bold mb-4">Our Projects</h1>
-          <p className="text-3xl text-gray-600">
+            <p className="text-gray-600 md:text-2xl md:whitespace-nowrap m-auto">
             Take a look at some of our recent construction projects showcasing our commitment to quality
           </p>
         </div>
@@ -56,7 +56,7 @@ const Projects = () => {
         </div>
 
         <div className="text-center mt-12">
-          <button className="px-6 py-3 text-3xl border rounded-md transition-colors hover:bg-[rgb(25,25,120)] hover:text-white">
+          <button className="px-6 py-3 text-xl md:text-2xl border rounded-md transition-colors hover:bg-[rgb(25,25,120)] hover:text-white">
             <a href="#contact">Request a Custom Project</a>
           </button>
         </div>

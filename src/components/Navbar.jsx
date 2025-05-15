@@ -107,7 +107,7 @@ const Navbar = ({ user }) => {
         <a href="#" className="flex items-center gap-2 ">
           <Building className="text-primary" size={44} />
           <span className="lg:text-4xl md:text-6xl text-4xl font-bold text-primary">
-            Singha<span className="text-blue-900">infra</span>
+            Singha<span className="text-blue-900">Infra</span>
           </span>
         </a>
       </div>

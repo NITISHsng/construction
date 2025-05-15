@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 import {
   MessageSquare,
   CheckCircle,
@@ -54,14 +55,14 @@ export default function QueryManagement() {
     try {
       const userDocRef = doc(db, "queries", queryId);
       await updateDoc(userDocRef, { status: false });
-      alert("Query marked as solved!");
+      toast.success("Query marked as solved!");
 
       setQueries((prev) =>
         prev.map((q) => (q.id === queryId ? { ...q, status: false } : q))
       );
     } catch (error) {
       console.error("Error updating query:", error);
-      alert("Something went wrong. Please try again.");
+      toast.error("Something went wrong. Please try again.");
     }
   };
 

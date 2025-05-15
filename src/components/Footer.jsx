@@ -11,7 +11,7 @@ const Footer = () => {
           <div>
             <div className="flex items-center gap-2 mb-6">
               <Building className="size-12 text-yellow-500" />
-              <span className="  font-bold text-primary">Singha<span className="text-blue-900">infra</span></span>
+              <span className="  font-bold text-primary">Singha<span className="text-blue-900">Infra</span></span>
 
             </div>
             <p className="text-gray-400 mb-6">
@@ -73,7 +73,7 @@ const Footer = () => {
         {/* Footer Bottom */}
         <div className="border-t border-gray-700 pt-8 mt-8 flex flex-col sm:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">
-            © {new Date().getFullYear()} Singhainfra Construction. All rights reserved.
+            © {new Date().getFullYear()} SinghaInfra Construction. All rights reserved.
           </p>
           <div className="flex gap-4 mt-4 sm:mt-0">
             <a href="#" className="text-gray-400 hover:text-yellow-500 text-sm">

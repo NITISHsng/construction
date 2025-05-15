@@ -4,7 +4,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { useData } from "../pages/DataContext";
 import { collection, addDoc, updateDoc, deleteDoc,doc} from "firebase/firestore";
 import { db } from "../firebase/firebase"; 
-
+import { toast } from "react-toastify";
 const Testimonials = ({ user }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [comment, setComment] = useState("");
@@ -63,10 +63,10 @@ const handleDeleteClick = async (commentItem) => {
       prevComments.filter((comment) => comment.id !== commentItem.id)
     );
 
-    alert("Comment deleted successfully.");
+    toast.success("Comment deleted successfully.");
   } catch (error) {
     console.error("Error deleting comment:", error);
-    alert("Failed to delete the comment.");
+    toast.error("Failed to delete the comment.");
   }
 };
 
@@ -84,7 +84,7 @@ const handleDeleteClick = async (commentItem) => {
       setEditedComment("");
     } catch (error) {
       console.error("Error updating comment:", error);
-      alert("Failed to update the comment.");
+      toast.error("Failed to update the comment.");
     }
   };
 
@@ -95,7 +95,7 @@ const handleDeleteClick = async (commentItem) => {
 
   const handleAddComment = async () => {
     if (rating < 1 || rating > 5) {
-      alert("Please provide a valid rating (1–5 stars).");
+      toast.warning("Please provide a valid rating (1–5 stars).");
       return;
     }
 
@@ -121,13 +121,13 @@ const handleDeleteClick = async (commentItem) => {
       setRating(0);
       setShowCommentBox(false);
       if (comment && comment.trim() !== "") {
-        alert("We appreciate your feedback!");
+        toast.success("We appreciate your feedback!");
       } else {
-        alert("Thanks for rating us!");
+        toast.success("Thanks for rating us!");
       }
     } catch (error) {
       console.error("Error adding comment:", error);
-      alert("Something went wrong while saving your comment.");
+      toast.error("Something went wrong while saving your comment.");
     }
   };
 
@@ -163,7 +163,7 @@ const handleDeleteClick = async (commentItem) => {
           <h1 className="text-4xl font-semibold sm:text-3xl text-gray-800 mb-4">
             What Our Clients Say
           </h1>
-          <p className="text-3xl text-gray-600">
+          <p className="text-xl md:text-2xl text-gray-600">
             Don't just take our word for it — hear what our satisfied clients
             have to say.
           </p>
@@ -186,17 +186,17 @@ const handleDeleteClick = async (commentItem) => {
               .map((commentItem, index) => (
                 <div
                   key={index}
-                  className="relative p-4 m-4 ml-7 rounded-lg shadow-lg border-t-4 border-primary min-w-[500px] min-h-[300px]"
+                  className="relative p-4 m-4 ml-7 rounded-lg shadow-lg border-t-4 border-primary min-w-[300px] min-h-[240px] md:min-w-[400px] max-w-[400px] lg:min-w-[450px] max-h-[500px]"
                 >
                   <div className="flex items-center space-x-3">
                     <img
-                      className="size-16 lg:size-20 md:size-18 rounded-full border border-gray-300"
+                      className="size-14 lg:size-20 md:size-18 rounded-full border border-gray-300"
                       src={commentItem.userImgURL}
                       alt="user"
                     />
-                    <span className="text-2xl font-semibold text-gray-800">
+                    <span className="text-xl md:text-2xl font-semibold text-gray-800">
                       <div>{commentItem.userName || "Anonymous"}</div>
-                      <div className="text-xl font-normal text-gray-500">
+                      <div className="text-[16px] font-normal text-gray-500">
                         {commentItem.timestamp?.seconds
                           ? new Date(
                               commentItem.timestamp.seconds * 1000
@@ -299,7 +299,7 @@ const handleDeleteClick = async (commentItem) => {
                   if (user) {
                     setShowCommentBox(true);
                   } else {
-                    alert("Please create an account first!");
+                    toast.warning("Please create an account first!");
                   }
                 }}
               >

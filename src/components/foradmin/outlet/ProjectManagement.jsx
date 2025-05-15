@@ -3,6 +3,7 @@ import { useData } from '../../../pages/DataContext';
 import { db } from '../../../firebase/firebase';
 import { doc, deleteDoc } from "firebase/firestore";
 import { addDoc, collection, updateDoc } from 'firebase/firestore';
+import { toast } from 'react-toastify';
 export default function ConstructionProjectManagement() {
   const { project, setProject } = useData();
 
@@ -23,12 +24,12 @@ export default function ConstructionProjectManagement() {
     try {
       const projectDocRef = doc(db, "projects", projectId);
       await deleteDoc(projectDocRef); 
-      alert("Project deleted successfully.");
+      toast.success("Project deleted successfully.");
       setProject((prev) => prev.filter((p) => p.projectId !== projectId));
 
     } catch (error) {
       console.error("Error deleting project:", error);
-      alert("Something went wrong. Please try again.");
+      toast.error("Something went wrong. Please try again.");
     }
   };
   const handleInputChange = (e) => {
@@ -37,7 +38,7 @@ export default function ConstructionProjectManagement() {
   };
   const handleAddProject = async () => {
     if (!formData.name || !formData.owner || !formData.type || !formData.status) {
-      alert('Please fill in all required fields.');
+     toast.error('Please fill in all required fields.');
       return;
     }
   

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { toast } from "react-toastify";
 import {
   MessageSquare,
   CheckCircle,
@@ -49,10 +50,10 @@ export default function ContactMessages() {
       const userDocRef = doc(db, "messages", messageId);
       if (status === "solved") {
         await updateDoc(userDocRef, { status: false, solvedTime: new Date() });
-        alert("Query marked as solved!");
+        toast.success("Query marked as solved!");
       } else {
         await updateDoc(userDocRef, { status: true });
-        alert("Query marked as Unsolved!");
+        toast.warning("Query marked as Unsolved!");
       }
 
       setQueries((prev) =>
@@ -60,7 +61,7 @@ export default function ContactMessages() {
       );
     } catch (error) {
       console.error("Error updating query:", error);
-      alert("Something went wrong. Please try again.");
+     toast.error("Something went wrong. Please try again.");
     }
   };
 
