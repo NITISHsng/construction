@@ -152,16 +152,13 @@ const Contact = () => {
               <div className="flex items-center gap-4">
                 <MapPin className="text-yellow-500" size={35} />
                 <div className="flex">
-                  <span className="font-medium">Office :</span>
-                  <p>Rd no 2, Sevoke More, Siliguri, West Bengal-7340011</p>
+                  <span className="font-medium">Office :Rd no 2, Sevoke More, Siliguri, West Bengal-7340011</span>
                 </div>
               </div>
               <div className="flex items-center gap-4">
                 <Clock className="text-yellow-500" size={35} />
                 <div className="flex flex-col">
-                  <span className="font-medium">Working Hours :</span>
-                  <p>Monday - Friday: 8 AM - 10 PM</p>
-                  <p>Saturday: 9 AM - 2 PM</p>
+                  <span className="font-medium">Working Hours : 9:30 AM - 9:30 PM</span>   
                 </div>
               </div>
             </div>

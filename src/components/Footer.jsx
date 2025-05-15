@@ -11,7 +11,7 @@ const Footer = () => {
           <div>
             <div className="flex items-center gap-2 mb-6">
               <Building className="size-12 text-yellow-500" />
-              <span className=" lg:text-4xl md:text-5xl sm:text-6xl font-bold text-primary">Singha<span className="text-blue-900">infra</span></span>
+              <span className="  font-bold text-primary">Singha<span className="text-blue-900">infra</span></span>
 
             </div>
             <p className="text-gray-400 mb-6">
@@ -32,7 +32,7 @@ const Footer = () => {
           
           {/* Services */}
           <div>
-            <h3 className="text-4xl font-bold mb-6">Our Services</h3>
+            <h3 className=" font-bold mb-6">Our Services</h3>
             <ul className="space-y-3">
               {["Residential Construction", "Commercial Construction", "Renovation & Remodeling", "Design & Build", "Project Management"].map((service, index) => (
                 <li key={index}>
@@ -46,7 +46,7 @@ const Footer = () => {
           
           {/* Quick Links */}
           <div>
-            <h3 className="text-4xl font-bold mb-6">Quick Links</h3>
+            <h3 className=" font-bold mb-6">Quick Links</h3>
             <ul className="space-y-3">
               {["Home", "About Us", "Projects", "Testimonials", "Contact"].map((link, index) => (
                 <li key={index}>
@@ -60,13 +60,12 @@ const Footer = () => {
           
           {/* Contact Info */}
           <div>
-            <h3 className="text-4xl font-bold mb-4">Contact Info</h3>
+            <h3 className=" font-bold mb-4">Contact Info</h3>
             <ul className="space-y-3 text-gray-400">
-              <li>Rd no 2, Sevoke More,siliguri,west bangal-7340011</li>
+              <li> Asian Highway 02, Kamrangaguri, Siliguri, Fulbari, West Bengal 734015</li>
               <li>info@Singhainfra-construction.com</li>
               <li>(+91)9635868211</li>
-              <li>Mon-Fri: 8am - 6pm</li>
-              <li>Suterday: 8am - 2pm</li>
+              <li>Mon-Fri: 9:30am - 9:30pm</li>
             </ul>
           </div>
         </div>

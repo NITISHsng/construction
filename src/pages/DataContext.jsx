@@ -7,76 +7,113 @@ const projects = [
   {
     category: "residential",
     title: "Modern Family Home",
-    place: "New York, USA",
+    place: "Fulbari, Siliguri, India",
     ownerName: "John Anderson",
-    fullDescription: "Orion Heights is a modern 25-story commercial building located in the heart of the city. Designed with innovation and sustainability in mind, it offers premium office spaces, advanced security, high-speed elevators, and energy-efficient systems. The building features a spacious lobby, rooftop lounge, fitness center, conference halls, and ample parking. With LEED Gold certification and eco-friendly infrastructure, Orion Heights is a landmark of smart design and business excellence, providing easy access to metro, highways, and major hubs.",
+    fullDescription:
+      "A beautiful and spacious modern home located in Fulbari. Designed with smart living features, energy-efficient utilities, and aesthetic interiors perfect for families seeking comfort and class.",
     imageDetails: {
-      front: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      left: "https://images.unsplash.com/photo-1496307653780-42ee777d4833?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      right: "https://images.unsplash.com/photo-1459767129954-1b1c1f9b9ace?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      back: "https://images.unsplash.com/photo-1519337265831-281ec6cc8514?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      front:
+        "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=800&q=80",
+      left: "https://images.unsplash.com/photo-1496307653780-42ee777d4833?auto=format&fit=crop&w=800&q=80",
+      right:
+        "https://images.unsplash.com/photo-1459767129954-1b1c1f9b9ace?auto=format&fit=crop&w=800&q=80",
+      back: "https://images.unsplash.com/photo-1519337265831-281ec6cc8514?auto=format&fit=crop&w=800&q=80",
     },
-    image: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=800&q=80",
   },
   {
     category: "commercial",
-    title: "Office Tower Complex",
-    place: "San Francisco, USA",
+    title: "Orion Business Park",
+    place: "Sevoke Road, Siliguri, India",
     ownerName: "Skyline Corp",
-    fullDescription: "A 15-story smart office tower equipped with green technology, open workspaces, and advanced security. Located in the heart of the business district.",
+    fullDescription:
+      "A modern commercial complex in the heart of Sevoke Road with state-of-the-art facilities, green building design, ample parking, and connectivity to all city hubs.",
     imageDetails: {
-      front: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      left: "https://images.unsplash.com/photo-1496307653780-42ee777d4833?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      right: "https://images.unsplash.com/photo-1459767129954-1b1c1f9b9ace?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      back: "https://images.unsplash.com/photo-1519337265831-281ec6cc8514?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      front:
+        "https://images.unsplash.com/photo-1496307653780-42ee777d4833?auto=format&fit=crop&w=800&q=80",
+      left: "https://images.unsplash.com/photo-1459767129954-1b1c1f9b9ace?auto=format&fit=crop&w=800&q=80",
+      right:
+        "https://images.unsplash.com/photo-1519337265831-281ec6cc8514?auto=format&fit=crop&w=800&q=80",
+      back: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=800&q=80",
     },
-    image: "https://images.unsplash.com/photo-1496307653780-42ee777d4833?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1496307653780-42ee777d4833?auto=format&fit=crop&w=800&q=80",
   },
   {
     category: "residential",
     title: "Luxury Apartment Renovation",
-    place: "Los Angeles, USA",
+    place: "Matigara, Siliguri, India",
     ownerName: "Sarah Thompson",
-    fullDescription: "High-end renovation of a city apartment, featuring Italian marble flooring, smart lighting, and a minimalist design theme with premium finishes.",
+    fullDescription:
+      "High-end renovation of a luxury apartment in Matigara. Features include smart home integration, imported marble finishes, and ambient lighting to reflect elegance.",
     imageDetails: {
-      front: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      left: "https://images.unsplash.com/photo-1496307653780-42ee777d4833?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      right: "https://images.unsplash.com/photo-1459767129954-1b1c1f9b9ace?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      back: "https://images.unsplash.com/photo-1519337265831-281ec6cc8514?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      front:
+        "https://images.unsplash.com/photo-1459767129954-1b1c1f9b9ace?auto=format&fit=crop&w=800&q=80",
+      left: "https://images.unsplash.com/photo-1496307653780-42ee777d4833?auto=format&fit=crop&w=800&q=80",
+      right:
+        "https://images.unsplash.com/photo-1519337265831-281ec6cc8514?auto=format&fit=crop&w=800&q=80",
+      back: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=800&q=80",
     },
-    image: "https://images.unsplash.com/photo-1459767129954-1b1c1f9b9ace?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1459767129954-1b1c1f9b9ace?auto=format&fit=crop&w=800&q=80",
   },
   {
     category: "commercial",
-    title: "Retail Shopping Center",
-    place: "Houston, USA",
+    title: "City Mall Complex",
+    place: "Hill Cart Road, Siliguri, India",
     ownerName: "RetailHub Inc.",
-    fullDescription: "A large shopping plaza with modern architecture, ample parking, and landscaped open areas, housing 12 retail units for national and local brands.",
+    fullDescription:
+      "A multi-level shopping center on Hill Cart Road featuring branded outlets, food courts, and entertainment zones with elegant architecture and greenery.",
     imageDetails: {
-      front: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      left: "https://images.unsplash.com/photo-1496307653780-42ee777d4833?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      right: "https://images.unsplash.com/photo-1459767129954-1b1c1f9b9ace?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      back: "https://images.unsplash.com/photo-1519337265831-281ec6cc8514?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      front:
+        "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=800&q=80",
+      left: "https://images.unsplash.com/photo-1496307653780-42ee777d4833?auto=format&fit=crop&w=800&q=80",
+      right:
+        "https://images.unsplash.com/photo-1459767129954-1b1c1f9b9ace?auto=format&fit=crop&w=800&q=80",
+      back: "https://images.unsplash.com/photo-1519337265831-281ec6cc8514?auto=format&fit=crop&w=800&q=80",
     },
-    image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=800&q=80",
   },
   {
     category: "commercial",
-    title: "Tech Startup Hub",
-    place: "Austin, USA",
-    ownerName: "InnovateSpace LLC",
-    fullDescription: "A co-working and collaboration hub for tech startups featuring open desks, private pods, conference rooms, and an in-house cafe with outdoor seating.",
+    title: "Tech Innovation Center",
+    place: "Uttarayon Township, Siliguri, India",
+    ownerName: "InnovateSpace LLP",
+    fullDescription:
+      "A tech startup co-working space in Uttarayon with collaborative zones, green balconies, cafes, and event spaces for young entrepreneurs and IT companies.",
     imageDetails: {
-      front: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      left: "https://images.unsplash.com/photo-1496307653780-42ee777d4833?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      right: "https://images.unsplash.com/photo-1459767129954-1b1c1f9b9ace?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      back: "https://images.unsplash.com/photo-1519337265831-281ec6cc8514?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      front:
+        "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=800&q=80",
+      left: "https://images.unsplash.com/photo-1496307653780-42ee777d4833?auto=format&fit=crop&w=800&q=80",
+      right:
+        "https://images.unsplash.com/photo-1459767129954-1b1c1f9b9ace?auto=format&fit=crop&w=800&q=80",
+      back: "https://images.unsplash.com/photo-1519337265831-281ec6cc8514?auto=format&fit=crop&w=800&q=80",
     },
-    image: "https://images.unsplash.com/photo-1519337265831-281ec6cc8514?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1519337265831-281ec6cc8514?auto=format&fit=crop&w=800&q=80",
   },
+  {
+    category: "residential",
+    title: "Green Valley Villas",
+    place: "Dagapur, Siliguri, India",
+    ownerName: "GreenLife Developers",
+    fullDescription:
+      "A luxurious villa community offering eco-friendly homes with private gardens, solar panels, and community amenities surrounded by scenic hills in Dagapur.",
+    imageDetails: {
+      front:
+        "https://images.unsplash.com/photo-1523217582562-09d0def993a6?auto=format&fit=crop&w=800&q=80",
+      left: "https://images.unsplash.com/photo-1496307653780-42ee777d4833?auto=format&fit=crop&w=800&q=80",
 
+      right:
+        "https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=800&q=80",
+      back: "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=800&q=80",
+    },
+    image:
+      "https://images.unsplash.com/photo-1523217582562-09d0def993a6?auto=format&fit=crop&w=800&q=80",
+  },
 ];
-
 
 export const DataProvider = ({ children }) => {
   const [queries, setQueries] = useState([]);
@@ -89,7 +126,10 @@ export const DataProvider = ({ children }) => {
   useEffect(() => {
     const fetchQueries = async () => {
       const snapshot = await getDocs(collection(db, "queries"));
-      const fetchedQuery = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+      const fetchedQuery = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
       setQueries(fetchedQuery);
     };
     fetchQueries();
@@ -99,7 +139,10 @@ export const DataProvider = ({ children }) => {
   useEffect(() => {
     const fetchMessages = async () => {
       const snapshot = await getDocs(collection(db, "messages"));
-      const fetchedMessages = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+      const fetchedMessages = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
       setMessages(fetchedMessages);
     };
     fetchMessages();
@@ -109,7 +152,10 @@ export const DataProvider = ({ children }) => {
   useEffect(() => {
     const fetchUsers = async () => {
       const snapshot = await getDocs(collection(db, "users"));
-      const fetchedUsers = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+      const fetchedUsers = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
       setUsers(fetchedUsers);
     };
     fetchUsers();
@@ -119,7 +165,10 @@ export const DataProvider = ({ children }) => {
   useEffect(() => {
     const fetchComments = async () => {
       const snapshot = await getDocs(collection(db, "comments"));
-      const fetchedComments = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+      const fetchedComments = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
       setComments(fetchedComments);
     };
     fetchComments();
@@ -129,7 +178,10 @@ export const DataProvider = ({ children }) => {
   useEffect(() => {
     const fetchProjects = async () => {
       const snapshot = await getDocs(collection(db, "projects"));
-      const fetchedProjects = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+      const fetchedProjects = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
       setProject(fetchedProjects);
     };
     fetchProjects();
@@ -138,12 +190,17 @@ export const DataProvider = ({ children }) => {
   return (
     <DataContext.Provider
       value={{
-        queries, setQueries,
-        messages, setMessages,
-        comments, setComments,
-        project, setProject,
-        users, setUsers,
-        projects
+        queries,
+        setQueries,
+        messages,
+        setMessages,
+        comments,
+        setComments,
+        project,
+        setProject,
+        users,
+        setUsers,
+        projects,
       }}
     >
       {children}
