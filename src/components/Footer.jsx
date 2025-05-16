@@ -10,11 +10,11 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <div className="flex items-center gap-2 mb-6">
-              <Building className="size-12 text-yellow-500" />
+              <Building className=" text-yellow-500" size={12}/>
               <span className="  font-bold text-primary">Singha<span className="text-blue-900">Infra</span></span>
 
             </div>
-            <p className="text-gray-400 mb-6">
+            <p className="text-gray-400 mb-6 text-xl md:2xl">
               Building excellence with integrity, quality, and innovative solutions since 2021.
             </p>
             <div className="flex gap-4">
@@ -24,7 +24,7 @@ const Footer = () => {
                   href="#"
                   className="bg-gray-700 p-2 rounded-full hover:bg-yellow-500 hover:text-black transition-colors"
                 >
-                  <Icon size={40} />
+                  <Icon size={30} />
                 </a>
               ))}
             </div>
@@ -33,7 +33,7 @@ const Footer = () => {
           {/* Services */}
           <div>
             <h3 className=" font-bold mb-6">Our Services</h3>
-            <ul className="space-y-3">
+            <ul className="space-y-3 text-xl md:2xl">
               {["Residential Construction", "Commercial Construction", "Renovation & Remodeling", "Design & Build", "Project Management"].map((service, index) => (
                 <li key={index}>
                   <a href="#" className="text-gray-400 hover:text-yellow-500 transition-colors">
@@ -47,7 +47,7 @@ const Footer = () => {
           {/* Quick Links */}
           <div>
             <h3 className=" font-bold mb-6">Quick Links</h3>
-            <ul className="space-y-3">
+            <ul className="space-y-3 text-xl md:2xl">
               {["Home", "About Us", "Projects", "Testimonials", "Contact"].map((link, index) => (
                 <li key={index}>
                   <a href={`#${link.toLowerCase().replace(/ /g, "")}`} className="text-gray-400 hover:text-yellow-500 transition-colors">
@@ -61,7 +61,7 @@ const Footer = () => {
           {/* Contact Info */}
           <div>
             <h3 className=" font-bold mb-4">Contact Info</h3>
-            <ul className="space-y-3 text-gray-400">
+            <ul className="space-y-3 text-gray-400 text-xl md:2xl">
               <li> Asian Highway 02, Kamrangaguri, Siliguri, Fulbari, West Bengal 734015</li>
               <li>info@Singhainfra-construction.com</li>
               <li>(+91)9635868211</li>
