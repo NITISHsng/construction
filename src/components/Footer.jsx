@@ -71,7 +71,7 @@ const Footer = () => {
         </div>
         
         {/* Footer Bottom */}
-        <div className="border-t border-gray-700 pt-8 mt-8 flex flex-col sm:flex-row justify-between items-center">
+        <div className="border-t border-gray-700 py-4 flex flex-col sm:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">
             © {new Date().getFullYear()} SinghaInfra Construction. All rights reserved.
           </p>
@@ -83,6 +83,30 @@ const Footer = () => {
               Terms of Service
             </a>
           </div>
+        </div>
+         <div className="border-t justify-center border-gray-700 pt-4 flex flex-col sm:flex-row items-center">
+<span className="text-gray-400 text-[12px] font-medium transition-colors duration-300">
+  Developed by
+  <span className="relative inline-block group ml-2">
+    <a
+      href="https://devnitishx.vercel.app/"
+      className="no-underline text-white font-semibold group-hover:text-[#e3e1e1] hover:text-[13px] transition-all duration-300"
+    >
+      Nitish Chandra Singha
+    </a>
+
+    {/* Underline animation */}
+    <span className="absolute left-0 bottom-[-5px] w-0 h-[2px] bg-[#f1f1f5] transition-all duration-500 group-hover:w-full"></span>
+
+    {/* Hover Text */}
+    <span className="absolute left-1/2 -translate-x-1/2 -bottom-6 text-[10px] text-[#e3e1e1] bg-transparent px-2 py-[2px] rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+     Click to visit portfolio
+    </span>
+  </span>
+</span>
+
+
+
         </div>
       </div>
     </footer>

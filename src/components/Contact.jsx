@@ -143,7 +143,7 @@ const Contact = () => {
               <div className="flex items-center gap-4">
                 <Mail className="text-yellow-500" size={35} />
                 <div>
-                  <span className="font-medium">Email :</span>
+                  <span className="font-medium">Email : </span>
                   <a href="mailto:info@Singhainfra-construction.com">
                     info@Singhainfra-construction.com
                   </a>
@@ -152,7 +152,7 @@ const Contact = () => {
               <div className="flex items-center gap-4">
                 <MapPin className="text-yellow-500" size={35} />
                 <div className="flex">
-                  <span className="font-medium">Office :Rd no 2, Sevoke More, Siliguri, West Bengal-7340011</span>
+                  <span className="font-medium">Office : Asian Highway 02, Kamrangaguri, Siliguri, Fulbari, West Bengal 734015</span>
                 </div>
               </div>
               <div className="flex items-center gap-4">

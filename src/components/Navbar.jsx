@@ -98,7 +98,7 @@ const Navbar = ({ user }) => {
   return (
     <nav
       ref={navRef}
-      className={`fixed left-0 top-[-60px] w-full px-4  sm:px-8 lg:px-[3%] lg:p-1 md:p-3 md:min-h-[70px] lg:min-h-[60px] transition-all duration-300 flex justify-between items-center z-50 ${
+      className={`fixed left-0 top-[-60px] w-full px-4  sm:px-8 lg:px-[3%] md:p-2 p-2 md:min-h-[70px] lg:min-h-[60px] transition-all duration-300 flex justify-between items-center z-50 ${
         isScrolled ? "bg-white shadow-md py-2" : "bg-transparent py-4"
       }`}
     >
@@ -106,7 +106,7 @@ const Navbar = ({ user }) => {
       <div>
         <a href="#" className="flex items-center gap-2 ">
           <Building className="text-primary" size={44} />
-          <span className="lg:text-4xl md:text-6xl text-4xl font-bold text-primary">
+          <span className="md:text-4xl text-4xl font-bold text-primary">
             Singha<span className="text-blue-900">Infra</span>
           </span>
         </a>
@@ -173,7 +173,7 @@ const Navbar = ({ user }) => {
             handlePlay();
           }}
         >
-          <Menu size={44} />
+          <Menu size={40} />
         </button>
       </div>
 
@@ -193,7 +193,7 @@ const Navbar = ({ user }) => {
               className="absolute top-5 right-6 text-black"
               onClick={handleReverse}
             >
-              <X size={44} />
+              <X size={42} />
             </button>
 
             <ul className="mt-16 flex flex-col gap-6 font-semibold text-black text-2xl">
