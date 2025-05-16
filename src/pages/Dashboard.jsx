@@ -32,15 +32,41 @@ function Dashboard() {
 
     return () => unsubscribe();
   }, [navigate]);
+if (loading) {
+  return (
+    <div className="h-screen w-screen flex flex-col justify-center items-center bg-white relative overflow-hidden">
+      <style>{`
+        @keyframes scanLine {
+          0% { top: 0%; opacity: 0.3; }
+          50% { top: 90%; opacity: 0.6; }
+          100% { top: 0%; opacity: 0.3; }
+        }
+        .animate-scan-line {
+          animation: scanLine 0.8s infinite linear;
+          position: absolute;
+          left: 0;
+          width: 100%;
+          height: 4px;
+          background-color: #22c55e; 
+        }
+      `}</style>
 
-  if (loading) {
-    return (
-      <div style={{ textAlign: "center", marginTop: "100px" }}>
-        <h2>Loading...</h2>
-        {/* Replace with spinner if you have one */}
+      <div className="relative w-32 h-32 mb-6 border border-gray-300 rounded-md overflow-hidden">
+        <img
+          src="singhainfra-logo.png"
+          alt="logo"
+          className="w-full h-full object-contain p-2"
+        />
+        <div className="animate-scan-line"></div>
       </div>
-    );
-  }
+
+      <div className="text-center text-gray-700 font-medium space-y-1 mt-2">
+               <h2 className="text-2xl font-bold whitespace-nowrap">Building Excellence, Crafting Futures</h2>
+      </div>
+    </div>
+  );
+}
+
 
   return (
     <>

@@ -155,7 +155,7 @@ const handleDeleteClick = async (commentItem) => {
                 </span>
               ))}
             </div>
-            <p className="text-gray-600 text-4xl sm:text-xl">
+            <p className="text-gray-600 text-xl md:text-2xl font-semibold sm:text-xl">
               {averageRating}/5 Based on {comments.length} reviews
             </p>
           </div>

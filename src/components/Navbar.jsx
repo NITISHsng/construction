@@ -99,7 +99,7 @@ const Navbar = ({ user }) => {
     <nav
       ref={navRef}
       className={`fixed left-0 top-[-60px] w-full px-4  sm:px-8 lg:px-[3%] md:p-2 p-2 md:min-h-[70px] lg:min-h-[60px] transition-all duration-300 flex justify-between items-center z-50 ${
-        isScrolled ? "bg-white shadow-md py-2" : "bg-transparent py-4"
+        isScrolled ? "bg-white shadow-md py-2" : "bg-transparent py-2"
       }`}
     >
       {/* Logo */}
