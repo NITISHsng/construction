@@ -10,7 +10,7 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <div className="flex items-center gap-2 mb-6">
-              <Building className=" text-yellow-500" size={12}/>
+              <Building className=" text-yellow-500" size={40}/>
               <span className="  font-bold text-primary">Singha<span className="text-blue-900">Infra</span></span>
 
             </div>

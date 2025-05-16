@@ -134,19 +134,24 @@ const Navbar = ({ user }) => {
       <div className="gap-3 hidden lg:flex">
         {user ? (
           <Link to="/login">
-            <button
-              onClick={() => {
-                auth
-                  .signOut()
-                  .then(() => console.log("User logged out successfully!"));
-              }}
-              className={`${buttonStyles} bg-red-600 hover:bg-red-500`}
-            >
-              <div className="flex items-center gap-1">
-                <LogIn className="h-4 w-4" />
-                Logout
-              </div>
-            </button>
+   <button
+  onClick={() => {
+    const confirmed = window.confirm("Are you sure you want to log out?");
+    if (confirmed) {
+      auth
+        .signOut()
+        .then(() => console.log("User logged out successfully!"))
+        .catch((error) => console.error("Error during logout:", error));
+    }
+  }}
+  className={`${buttonStyles} bg-red-600 hover:bg-red-500`}
+>
+  <div className="flex items-center gap-1">
+    <LogIn className="h-4 w-4" />
+    Logout
+  </div>
+</button>
+
           </Link>
         ) : (
           <Link to="/login">
@@ -217,19 +222,24 @@ const Navbar = ({ user }) => {
           <div className="gap-3 flex relative top-[-40px]">
             {user ? (
               <Link to="/login" className="w-full">
-                <button
-                  onClick={() => {
-                    auth
-                      .signOut()
-                      .then(() => console.log("User logged out successfully!"));
-                  }}
-                  className={`${buttonStyles} bg-red-600 hover:bg-red-500 w-full`}
-                >
-                  <div className="flex items-center justify-center gap-1">
-                    <LogIn className="h-4 w-4" />
-                    Logout
-                  </div>
-                </button>
+             <button
+  onClick={() => {
+    const confirmed = window.confirm("Are you sure you want to log out?");
+    if (confirmed) {
+      auth
+        .signOut()
+        .then(() => console.log("User logged out successfully!"))
+        .catch((error) => console.error("Error during logout:", error));
+    }
+  }}
+  className={`${buttonStyles} bg-red-600 hover:bg-red-500`}
+>
+  <div className="flex items-center gap-1">
+    <LogIn className="h-4 w-4" />
+    Logout
+  </div>
+</button>
+
               </Link>
             ) : (
               <Link to="/login" className="w-full">

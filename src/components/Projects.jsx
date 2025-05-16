@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 const ProjectCard = ({ project }) => (
   <div className="overflow-hidden group h-full bg-white shadow-lg rounded-lg">
     <div className="relative h-64 overflow-hidden">
+      <p className="bg-black/40 rounded-sm py-1 px-2 absolute bottom-0 left-0 text-white font-semibold ">{project.title}</p>
       <img src={project.image} alt={project.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
     </div>
     <div className="p-6">
@@ -40,9 +41,9 @@ const Projects = () => {
         </div>
 
         {/* Filter Buttons */}
-        <div className="flex text-xl lg:text-xl justify-center gap-4 mb-12">
+        <div className="flex text-xl justify-center gap-2 md:gap-4 mb-12">
           {["all", "residential", "commercial"].map((category) => (
-            <button key={category} onClick={() => setFilter(category)} className={`px-4 py-2 border rounded-md ${filter === category ? "bg-primary text-gray-600" : "hover:scale-105"}`}>
+            <button key={category} onClick={() => setFilter(category)} className={`px-2 py-1 border rounded-md ${filter === category ? "bg-primary text-gray-600" : "hover:scale-105"}`}>
               {category.charAt(0).toUpperCase() + category.slice(1)}
             </button>
           ))}
