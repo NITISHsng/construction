@@ -150,7 +150,9 @@ const Contact = () => {
                 </div>
               </div>
               <div className="flex items-center gap-4">
-                <MapPin className="text-yellow-500" size={35} />
+                <div>
+                  <MapPin className="text-yellow-500" size={35} />
+                </div>
                 <div className="flex">
                   <span className="font-medium">Office : Asian Highway 02, Kamrangaguri, Siliguri, Fulbari, West Bengal 734015</span>
                 </div>

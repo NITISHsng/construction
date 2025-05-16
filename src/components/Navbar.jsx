@@ -98,15 +98,15 @@ const Navbar = ({ user }) => {
   return (
     <nav
       ref={navRef}
-      className={`fixed left-0 top-[-60px] w-full px-4  sm:px-8 lg:px-[3%] md:p-2 p-2 md:min-h-[70px] lg:min-h-[60px] transition-all duration-300 flex justify-between items-center z-50 ${
-        isScrolled ? "bg-white shadow-md py-2" : "bg-transparent py-2"
+      className={`fixed left-0 top-[-60px] w-full px-4  lg:px-[3%] md:p-2 p-2 md:min-h-[50px] lg:min-h-[60px] h-[45px] transition-all duration-300 flex justify-between items-center z-50 ${
+        isScrolled ? "bg-white shadow-md " : "bg-transparent "
       }`}
     >
       {/* Logo */}
       <div>
         <a href="#" className="flex items-center gap-2 ">
-          <Building className="text-primary" size={44} />
-          <span className="md:text-4xl text-4xl font-bold text-primary">
+          <Building className="text-primary" size={40} />
+          <span className="md:text-4xl text-3xl font-bold text-primary">
             Singha<span className="text-blue-900">Infra</span>
           </span>
         </a>
@@ -178,7 +178,7 @@ const Navbar = ({ user }) => {
             handlePlay();
           }}
         >
-          <Menu size={40} />
+          <Menu size={36} />
         </button>
       </div>
 
