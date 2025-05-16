@@ -160,7 +160,7 @@ const handleDeleteClick = async (commentItem) => {
             </p>
           </div>
 
-          <h1 className="text-4xl font-semibold sm:text-3xl text-gray-800 mb-4">
+          <h1 className="text-2xl font-semibold md:text-3xl text-gray-800 mb-4">
             What Our Clients Say
           </h1>
           <p className="text-xl md:text-2xl text-gray-600">
@@ -294,7 +294,7 @@ const handleDeleteClick = async (commentItem) => {
           {!showCommentBox && (
             <div className="text-center mt-12">
               <button
-                className="px-6 text-4xl py-3 border border-gray-300 rounded-md transition-all duration-300 hover:bg-[rgb(25,25,120)] hover:text-white"
+                className="px-6 text-2xl md:text-3xl py-3 border border-gray-300 rounded-md transition-all duration-300 hover:bg-[rgb(25,25,120)] hover:text-white"
                 onClick={() => {
                   if (user) {
                     setShowCommentBox(true);
@@ -321,7 +321,7 @@ const handleDeleteClick = async (commentItem) => {
                 {[1, 2, 3, 4, 5].map((star) => (
                   <span
                     key={star}
-                    className={`text-5xl cursor-pointer ${
+                    className={`text-2xl md:text-3xl cursor-pointer ${
                       star <= rating ? "text-yellow-500" : "text-gray-300"
                     }`}
                     onClick={() => setRating(star)}
@@ -333,23 +333,23 @@ const handleDeleteClick = async (commentItem) => {
 
               <textarea
                 value={comment}
-                className="w-full p-2 h-50 border rounded text-3xl"
+                className="w-full p-2 h-30 md:h-40 border rounded text-xl md:text-2xl"
                 onChange={(e) => setComment(e.target.value)}
                 placeholder="Share your thoughts..."
                 rows="3"
               />
 
               <button
-                className="mt-2 bg-gray-500 text-4xl text-white px-4 py-3 rounded hover:bg-gray-600"
+                className="mt-2 bg-gray-500 text-xl md:text-2xl text-white px-2 py-1 rounded hover:bg-gray-600"
                 onClick={handleCancel}
               >
                 Cancel
               </button>
               <button
                 onClick={handleAddComment}
-                className="m-2 bg-green-500 text-4xl text-white px-4 py-3 rounded hover:bg-green-600"
+                className="m-2 bg-green-500 text-xl md:text-2xl text-white px-2 py-1 rounded hover:bg-green-600"
               >
-                Post Comment
+                Submit Comment
               </button>
             </div>
           )}
