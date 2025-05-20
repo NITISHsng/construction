@@ -133,6 +133,7 @@ const Login = () => {
           {isSignUp ? "Create a New Account" : "Login to Your Account"} |
           SinghInfra
         </title>
+            <meta name="author" content="SinghaInfra" />
         <meta
           name="description"
           content={`${

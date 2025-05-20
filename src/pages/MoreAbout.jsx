@@ -32,13 +32,13 @@ const About = () => {
         />
         <meta
           name="keywords"
-          content="SinghaInfra, construction company, infrastructure, Fulbari, Siliguri, residential construction, commercial construction, infrastructure projects, building services, best construction company in Fulbari, best construction company in Siliguri"
+          content="SinghaInfra, construction company,siliguri construction company, islampur construction company infrastructure, Fulbari, Siliguri, residential construction, commercial construction, infrastructure projects, building services, best construction company in Fulbari, best construction company in Siliguri"
         />
         <meta name="author" content="SinghaInfra" />
         <meta property="og:url" content="https://www.singhainfra.in/about" />
         <meta
           property="og:description"
-          content="SinghaInfra is a trusted construction company based in Fulbari, Siliguri, West Bengal, specializing in high-quality infrastructure projects. Building Excellence, Crafting Futures with SinghaInfra."
+          content="SinghaInfra is a trusted construction company based in Fulbari, Siliguri, West Bengal, islampur, specializing in high-quality infrastructure projects. Building Excellence, Crafting Futures with SinghaInfra."
         />
         <meta
           property="og:image"

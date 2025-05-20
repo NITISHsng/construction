@@ -104,6 +104,7 @@ const ProjectDetails = () => {
             <Helmet>
         <meta charSet="utf-8" />
         <title>{projectTitle} || {category} | SinghaInfra | Best Construction Company in Siliguri & Islampur</title>
+            <meta name="author" content="SinghaInfra"/>
        <meta
   name="description"
   content={fullDescription}

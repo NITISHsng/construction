@@ -25,7 +25,7 @@ const About = () => {
           name="keywords"
           content="SinghaInfra, admin dashboard, construction management, client data, project tracking, construction company, project reports"
         />
-        <meta name="author" content="SinghaInfra Admin" />
+        <meta name="author" content="SinghaInfra" />
         <meta property="og:title" content="SinghaInfra Admin Dashboard" />
         <meta
           property="og:description"

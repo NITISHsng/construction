@@ -303,7 +303,8 @@ const handleDeleteClick = async (commentItem) => {
                   }
                 }}
               >
-                Write a Comment
+              
+                Share your Feedback
               </button>
             </div>
           )}
