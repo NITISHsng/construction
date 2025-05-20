@@ -317,7 +317,8 @@ const About = () => {
             <li className="flex items-start gap-3">
               <Mail className="text-yellow-400 mt-1" size={20} />
               <span>
-                <strong>Email</strong>: info@Singhainfra-construction.com
+                <strong>Email</strong>:  <a href="mailto:support@singhainfra.in?subject=Hello%20SinghInfra&body=Hello%2C%0A%0AI%20would%20like%20to%20know%20more%20about%20your%20services.">support@singhainfra.in</a>
+
               </span>
             </li>
             <li className="flex items-start gap-3">

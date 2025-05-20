@@ -63,7 +63,10 @@ const Footer = () => {
             <h3 className=" font-bold mb-4">Contact Info</h3>
             <ul className="space-y-3 text-gray-400 text-xl md:2xl">
               <li> Asian Highway 02, Kamrangaguri, Siliguri, Fulbari, West Bengal 734015</li>
-              <li>info@Singhainfra-construction.com</li>
+              <li>
+  <a href="mailto:support@singhainfra.in?subject=Hello%20SinghInfra&body=Hello%2C%0A%0AI%20would%20like%20to%20know%20more%20about%20your%20services.">support@singhainfra.in</a>
+</li>
+
               <li>(+91)9635868211</li>
               <li>Mon-Fri: 9:30am - 9:30pm</li>
             </ul>

@@ -10,7 +10,6 @@ const ProjectCard = ({ project }) => (
     </div>
     <div className="p-6">
       <h3 className="text-xl font-semibold mb-2">
-      {/* {project.description.split(" ").slice(0, 6).join(" ")}{project.description.split(" ").length > 6 && "..."} */}
   {project.description}
       </h3>
       <Link
