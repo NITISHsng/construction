@@ -243,18 +243,18 @@ const About = () => {
           viewport={{ once: true, amount: 0.3 }}
           className="mb-16"
         >
-          <h3 className="text-3xl font-bold mb-8 text-gray-800 text-center">
+          <h2 className="text-3xl font-bold mb-8 text-gray-800 text-center">
             Why Trust Singhainfra?
-          </h3>
+          </h2>
 
           <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-blue-100">
               <div className="mb-4 inline-block p-3 bg-blue-100 rounded-xl text-blue-700">
                 <Award size={24} />
               </div>
-              <h4 className="text-xl font-bold mb-3 text-blue-800">
+              <h3 className="text-xl font-bold mb-3 text-blue-800">
                 Proven Track Record
-              </h4>
+              </h3>
               <p className="text-gray-600">
                 With 30+ completed projects and high ratings, we consistently
                 deliver what we promise on time and within budget.
@@ -265,9 +265,9 @@ const About = () => {
               <div className="mb-4 inline-block p-3 bg-blue-100 rounded-xl text-blue-700">
                 <CheckCircle size={24} />
               </div>
-              <h4 className="text-xl font-bold mb-3 text-blue-800">
+              <h3 className="text-xl font-bold mb-3 text-blue-800">
                 Transparent Process
-              </h4>
+              </h3>
               <p className="text-gray-600">
                 From consultation to delivery, we maintain open communication
                 and clear pricing with no hidden costs.

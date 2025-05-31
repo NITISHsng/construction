@@ -70,7 +70,7 @@ const Services = () => {
               <div className="mb-4 inline-block p-3 bg-blue-100 rounded-xl">
                 <Award size={24} />
               </div>
-              <h4 className="text-xl font-bold mb-3 ">Proven Track Record</h4>
+              <h2 className="text-xl font-bold mb-3 ">Proven Track Record</h2>
               <p className="text-gray-600">
                 With 30+ completed projects and high ratings, we consistently deliver what we promise on time and within budget.
               </p>

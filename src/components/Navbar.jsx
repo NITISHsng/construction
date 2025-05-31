@@ -172,13 +172,14 @@ const Navbar = ({ user }) => {
         }`}
       >
         <button
-          className="text-foreground"
+          className="text-foreground" 
+          aria-label="..."
           onClick={() => {
             setIsOpen(!isOpen);
             handlePlay();
           }}
         >
-          <Menu size={36} />
+          <Menu size={36}  />
         </button>
       </div>
 

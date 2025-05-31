@@ -55,11 +55,16 @@ const Projects = () => {
           ))}
         </div>
 
-        <div className="text-center mt-12">
-          <button className="px-6 py-3 text-xl md:text-2xl border rounded-md transition-colors hover:bg-[rgb(25,25,120)] hover:text-white">
-            <a href="#contact">Request a Custom Project</a>
-          </button>
-        </div>
+   <div className="text-center mt-12">
+  <a
+    href="#contact"
+    className="inline-block px-6 py-4 text-xl md:text-2xl border rounded-md transition-colors hover:bg-[rgb(25,25,120)] hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+    aria-label="Request a Custom Project"
+  >
+    Request a Custom Project
+  </a>
+</div>
+
       </div>
     </section>
   );
