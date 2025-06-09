@@ -245,8 +245,8 @@ const About = () => {
                     </h4>
                     <p className="text-gray-700">
                       <span className="font-medium">Phone:</span>{" "}
-                      <a href="tel:+919635868211" className="text-blue-600 ">
-                        (+91) 9635868211
+                      <a href="tel:+917679526642" className="text-blue-600 ">
+                        (+91) 7679526642
                       </a>
                     </p>
                     <p className="text-gray-700">
@@ -372,14 +372,26 @@ const About = () => {
               <li className="flex items-start gap-3">
                 <Phone className="text-yellow-400 mt-1" size={20} />
                 <span>
-                  <strong>Phone</strong>: (+91) 9635868211
+                  <strong>Phone</strong>:
+                         <a
+          href="tel:+917679526642"
+          aria-label="Call +91 76795 26642"
+        >
+         (+91)76795 26642
+        </a>
                 </span>
               </li>
               <li className="flex items-start gap-3">
                 <FaWhatsapp className="text-yellow-500 text-2xl" />
 
                 <span>
-                  <strong>Whatsapp</strong>: 9635868211
+                  <strong>Whatsapp</strong>: <a
+                        href="https://wa.me/919635868211?text=Hello%20WowInfra%0A"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        9635868211
+                      </a>
                 </span>
               </li>
               <li className="flex items-start gap-3">

@@ -108,7 +108,7 @@ const Hero = () => {
   className="relative min-h-screen flex items-center p-10"
   style={{
     backgroundImage:
-      "linear-gradient(rgba(0, 0, 0, 0.6) 70%, rgba(255, 255, 255, 0.3) 100%), url('https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80')",
+      "linear-gradient(rgba(0, 0, 0, 0) 70%, rgba(255, 255, 255, 0) 80%), url('https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80')",
     backgroundSize: "cover",
     backgroundPosition: "center",
   }}
@@ -120,7 +120,7 @@ const Hero = () => {
       {showPopup && (
         <div className="fixed inset-0 bg-[rgba(10,10,10,0.6)] backdrop-blur-sm flex items-center justify-center z-50 px-4">
           <div className="bg-white p-6 rounded-2xl shadow-2xl max-w-md w-full text-center text-black">
-            <h2 className="text-2xl font-semibold mb-6 text-red-500">
+            <h2 className="text-2xl font-semibold mb-6 text-black">
               Submit Your Query
             </h2>
             <div className="space-y-4 text-left">
@@ -144,7 +144,6 @@ const Hero = () => {
                     className="border border-gray-300 focus:border-blue-500 focus:outline-none p-3 rounded-md w-full"
                     aria-label="Select query type"
                   >
-                    <option value="">What type of query?</option>
                     <option value="Renovation">Renovation</option>
                     <option value="Remodeling">Remodeling</option>
                     <option value="Commercial">Commercial</option>
@@ -171,7 +170,7 @@ const Hero = () => {
                 className="px-6 py-3 bg-green-500 hover:bg-green-600 transition text-white font-medium rounded-md"
                 aria-label="Submit Query"
               >
-                Confirm
+                Submit
               </button>
               <button
                 onClick={() => setShowPopup(false)}
@@ -186,11 +185,11 @@ const Hero = () => {
       )}
 
       {/* Hero Text */}
-      <h1 className="text-3xl md:text-3xl sm:text-3xl font-bold mb-6">
-        Building <span className="text-yellow-500">Excellence</span>,
+      <h1 className="text-3xl md:text-3xl sm:text-3xl font-bold mb-6 text-black">
+        Building <span className="text-blue-900">Excellence</span>,
         Crafting Futures
       </h1>
-      <p className="text-xl md:text-xl mb-8 opacity-90">
+      <p className="text-xl md:text-xl mb-8 opacity-90 text-black">
         With 3+ years of experience in the construction industry, we deliver
         quality craftsmanship and innovative solutions for residential and
         commercial projects.
@@ -211,7 +210,7 @@ const Hero = () => {
           className="bg-[#1a1a8c] text-white font-semibold py-2 px-4 rounded-md shadow-md hover:bg-[#2a2aaa] focus:outline-none focus:ring-2 focus:ring-opacity-50 mt-2 text-center"
           aria-label="Call +91 76795 26642"
         >
-          +91 76795 26642
+          ( +91 ) 76795 26642
         </a>
 
         <a
@@ -226,7 +225,7 @@ const Hero = () => {
   </div>
 
   {/* Gradient Overlay */}
-  <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-gray-800 to-transparent" />
+  <div className="absolute bottom-0 left-0 right-0 h-90 bg-gradient-to-t from-gray-500 to-transparent" />
 </section>
 
   );

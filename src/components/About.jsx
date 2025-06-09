@@ -1,34 +1,25 @@
-import { CheckCircle } from "lucide-react";
 import React from "react";
-import Counter from "../components/Counter";
-import { useInView } from "react-intersection-observer";
+import { CheckCircle } from "lucide-react";
+import Counter from "../components/Counter"; // Optional: can be removed if not used
 
 const About = () => {
-  const { ref, inView } = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-
   return (
     <section id="about" className="py-16 bg-gray-100 mt-[10px]">
-      {/* Helmet for SEO */}
- 
-
       <div className="container mx-auto px-6">
         <div className="grid text-2xl grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
           {/* Text Section */}
           <div className="animate-slide-up">
-            <div className="inline-block text-4xl font-semibold py-2 bg-secondary/20 text-secondary-foreground rounded-full mb-6">
+            <h2 className="inline-block text-4xl font-semibold py-2 bg-secondary/20 text-secondary-foreground rounded-full mb-6">
               About{" "}
-              <span className=" lg:text-4xl md:text-4xl sm:text-4xl font-bold text-primary">
+              <span className="lg:text-4xl md:text-4xl sm:text-4xl font-bold text-primary">
                 Singha<span className="text-blue-600">Infra</span>
               </span>
-            </div>
+            </h2>
 
             <p className="text-2xl text-gray-700 mb-8">
-              <span className=" font-bold text-primary">
+              <strong className="text-primary">
                 Singha<span className="text-blue-600">Infra </span>
-              </span>
+              </strong>
               Construction is a leading construction company specializing in
               residential and commercial projects. Building Excellence Since{" "}
               <span className="text-blue-600">2021</span>. With over two decades
@@ -37,7 +28,7 @@ const About = () => {
             </p>
 
             {/* List of Features */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
               {[
                 "Quality Craftsmanship",
                 "On-Time Delivery",
@@ -46,40 +37,37 @@ const About = () => {
                 "Sustainable Building",
                 "Long-term Warranty",
               ].map((item, index) => (
-                <div key={index} className="flex items-center gap-2">
+                <li key={index} className="flex items-center gap-2">
                   <CheckCircle className="text-primary h-5 w-5 flex-shrink-0" />
                   <span>{item}</span>
-                </div>
+                </li>
               ))}
-            </div>
+            </ul>
 
             {/* Contact Button */}
-            <button className="bg-[rgb(25,25,140)] text-white font-semibold py-2 px-4 rounded-md shadow-md hover:bg-[rgb(25,25,160)] focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 mt-2">
-              <a href="#contact">Get In Touch</a>
-            </button>
+            <a
+              href="#contact"
+              className="inline-block bg-[rgb(25,25,140)] text-white font-semibold py-2 px-4 rounded-md shadow-md hover:bg-[rgb(25,25,160)] focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 mt-2"
+            >
+              Get In Touch
+            </a>
           </div>
 
-          {/* Image Section */}
+          {/* Image & Counters Section */}
           <div
-            className="relative rounded-xl overflow-hidden h-[500px] transition-all duration-500 opacity-100"
+            className="relative rounded-xl overflow-hidden h-[500px] transition-all duration-500 opacity-100 bg-cover bg-center"
             style={{
-              backgroundImage: `url(https://images.unsplash.com/photo-1459767129954-1b1c1f9b9ace?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80)`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
+              backgroundImage:
+                "url('https://images.unsplash.com/photo-1459767129954-1b1c1f9b9ace?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80')",
             }}
           >
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
             <div className="absolute bottom-0 left-0 right-0 p-8">
-              <div
-                ref={ref}
-                className="flex flex-col gap-2 sm:flex-row sm:gap-6"
-              >
+              <div className="flex flex-col gap-2 sm:flex-row sm:gap-6">
                 <div className="bg-primary/90 p-4 rounded-lg backdrop-blur-sm">
                   <div className="flex text-white justify-center items-center text-4xl font-bold text-primary-foreground">
-                    <span>
-                      {inView ? <Counter target={3} duration={1000} /> : 0}
-                    </span>
-                    <span className="ml-1 ">+</span>
+                    <span>3</span>
+                    <span className="ml-1">+</span>
                   </div>
                   <div className="flex justify-center text-primary-foreground/80 text-white text-sm">
                     Years Experience
@@ -88,9 +76,7 @@ const About = () => {
 
                 <div className="bg-yellow-300 p-4 rounded-lg backdrop-blur-sm text-center">
                   <div className="flex justify-center items-center text-4xl font-bold text-primary-foreground">
-                    <span>
-                      {inView ? <Counter target={30} duration={1000} /> : 0}
-                    </span>
+                    <span>30</span>
                     <span className="ml-1">+</span>
                   </div>
                   <div className="text-primary-foreground/80 text-sm">
@@ -100,9 +86,7 @@ const About = () => {
 
                 <div className="bg-white/90 p-4 rounded-lg backdrop-blur-sm">
                   <div className="flex justify-center items-center text-4xl font-bold text-primary-foreground">
-                    <span>
-                      {inView ? <Counter target={98} duration={1000} /> : 0}
-                    </span>
+                    <span>98</span>
                     <span className="ml-1">%</span>
                   </div>
                   <div className="flex justify-center text-primary-foreground/80 text-sm">
@@ -115,6 +99,7 @@ const About = () => {
         </div>
       </div>
 
+      {/* More About Button */}
       <div className="text-center mt-12">
         <a
           href="/about"

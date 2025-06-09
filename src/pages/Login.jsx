@@ -11,87 +11,74 @@ import {
 } from "firebase/auth";
 import { doc, setDoc, getDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "../firebase/firebase";
-import { Helmet } from "react-helmet-async"; // Import Helmet
+import { Helmet } from "react-helmet-async"; 
 
 const Login = () => {
   const [user, setUser] = useState(null);
-  const [isSignUp, setIsSignUp] = useState(false); // Toggle for sign in/up
+  const [isSignUp, setIsSignUp] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((currentUser) => {
-      if (currentUser) {
-        setUser(currentUser);
-        navigate("/");
-      }
-    });
+  // useEffect(() => {
+  //   const unsubscribe = auth.onAuthStateChanged((currentUser) => {
+  //     if (currentUser) {
+  //       setUser(currentUser);
+  //       navigate("/");
+  //     }
+  //   });
 
-    return () => unsubscribe();
-  }, []);
+  //   return () => unsubscribe();
+  // }, []);
+  
+const handleEmailAuth = async (e) => {
+  e.preventDefault();
+  setIsLoading(true);
 
-  const handleEmailAuth = async (e) => {
-    e.preventDefault();
-    setIsLoading(true);
+  try {
+    let userCredential;
 
-    try {
-      let userCredential;
-
-      if (isSignUp) {
-        userCredential = await createUserWithEmailAndPassword(
-          auth,
-          email,
-          password
-        );
-      } else {
-        userCredential = await signInWithEmailAndPassword(
-          auth,
-          email,
-          password
-        );
-      }
-
-      const user = userCredential.user;
-      const userRef = doc(db, "users", user.uid);
-      const userSnap = await getDoc(userRef);
-
-      if (!userSnap.exists()) {
-        let userName = user.displayName;
-        if (!userName) {
-          userName = prompt("Please enter your name:");
-        }
-
-        await setDoc(userRef, {
-          email: user.email,
-          name: userName || "Not set Name",
-          createdAt: serverTimestamp(),
-          lastLogin: serverTimestamp(),
-        });
-      } else {
-        await setDoc(
-          userRef,
-          { lastLogin: serverTimestamp() },
-          { merge: true }
-        );
-      }
-
-      navigate("/");
-    } catch (error) {
-      if (error) {
-        toast.error(
-          `${isSignUp ? "Sign Up" : "Login"} failed: ${error.message}`
-        );
-        console.error(error);
-      } else {
-        toast.success(`${isSignUp ? "Sign Up" : "Login"} successful!`);
-        console.log(`${isSignUp ? "Sign Up" : "Login"} successful`);
-      }
-    } finally {
-      setIsLoading(false);
+    if (isSignUp) {
+      userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    } else {
+      userCredential = await signInWithEmailAndPassword(auth, email, password);
     }
-  };
+
+    const user = userCredential.user;
+    const userRef = doc(db, "users", user.uid);
+    const userSnap = await getDoc(userRef);
+
+    if (!userSnap.exists()) {
+      let userName = user.displayName;
+      if (!userName) {
+        userName = prompt("Please enter your name:");
+      }
+
+      await setDoc(userRef, {
+        email: user.email,
+        name: userName || "Not set Name",
+        createdAt: serverTimestamp(),
+        lastLogin: serverTimestamp(),
+      });
+    } else {
+      await setDoc(
+        userRef,
+        { lastLogin: serverTimestamp() },
+        { merge: true }
+      );
+    }
+
+    toast.success(`${isSignUp ? "Sign Up" : "Login"} successful!`);
+    navigate("/"); 
+  } catch (error) {
+    toast.error(`${isSignUp ? "Sign Up" : "Login"} failed: ${error.message}`);
+    console.error(error);
+  } finally {
+    setIsLoading(false);
+  }
+};
+
 
   const handleGoogleSignIn = async () => {
     try {
