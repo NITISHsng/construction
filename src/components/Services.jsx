@@ -1,8 +1,7 @@
 import React from "react";
 import { Building, Home, Hammer, Truck, Wrench ,ShieldCheck} from "lucide-react";
 import { CheckCircle, Award, Users } from 'lucide-react';
-import gsap from "gsap";
-import { useEffect } from "react";
+
 const servicesData = [
   {
     icon: <Home className="h-12 w-12 text-primary" />,
@@ -37,64 +36,7 @@ const servicesData = [
 ];
 
 
-
-
-
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 const Services = () => {
-
-useEffect(() => {
-  const serviceItems = gsap.utils.toArray("#serviceOption .serviceItem");
-  const trustItems = gsap.utils.toArray("#whySinghaInfra .singhaInfraItem");
-
-  serviceItems.forEach((item, i) => {
-    gsap.fromTo(
-      item,
-      { y: 100, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.7,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: item,
-          start: "top 95%",
-          end: "top 80%",
-          toggleActions: "play none none none",
-          // markers: true, // for debugging only
-        },
-      }
-    );
-  });
-
-  trustItems.forEach((item, i) => {
-    gsap.fromTo(
-      item,
-      { y: 80, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.7,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: item,
-          start: "top 95%",
-          end: "top 80%",
-          toggleActions: "play none none none",
-          // markers: true,
-        },
-      }
-    );
-  });
-
-  return () => {
-    ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-  };
-}, []);
-
-
   return (
     <section id="services" className="py-16 bg-gray-100 p-7">
 
@@ -107,24 +49,24 @@ useEffect(() => {
  We offer a comprehensive range of construction services to meet all your building needs</p>
         </div>
 
-        <div id="serviceOption" className="grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
           {servicesData.map((service, index) => (
-            <div  key={index} className="serviceItem opacity-0 p-6 bg-white rounded-2xl hover:shadow-lg transition-shadow group">
+            <div key={index} className="p-6 bg-white rounded-2xl hover:shadow-lg transition-shadow group">
               <div className="mb-4">{service.icon}</div>
-              <h3 className="text-xl font-bold mb-2">{service.title}</h3>
+              <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
               <p className="text-gray-600">{service.description}</p>
             </div>
           ))}
         </div>
 
         {/* Why Trust Section */}
-        <div className="mt-24 mb-0">
+        <div className="mt-24 mb-16">
           <h1 className="text-2xl md:text-4xl mt-5 font-bold mb-8 text-gray-800 text-center">
             Why Trust Singhainfra?
           </h1>
 
-          <div id="whySinghaInfra" className=" grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
-            <div className="singhaInfraItem  bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-blue-100">
+          <div className="grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+            <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-blue-100">
               <div className="mb-4 inline-block p-3 bg-blue-100 rounded-xl">
                 <Award size={24} />
               </div>
@@ -134,7 +76,7 @@ useEffect(() => {
               </p>
             </div>
 
-            <div className="singhaInfraItem bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-blue-100">
+            <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-blue-100">
               <div className="mb-4 inline-block p-3 bg-blue-100 rounded-xl">
                 <CheckCircle size={24} />
               </div>
@@ -144,7 +86,7 @@ useEffect(() => {
               </p>
             </div>
 
-            <div className="singhaInfraItem bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-blue-100">
+            <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-blue-100">
               <div className="mb-4 inline-block p-3 bg-blue-100 rounded-xl">
                 <Users size={24} />
               </div>
