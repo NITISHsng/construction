@@ -196,7 +196,7 @@ const Hero = () => {
       </p>
 
       {/* CTA Buttons */}
-      <div className="flex w-full md:text-2xl lg:text-2xl flex-col sm:flex-row gap-4">
+      <div className="flex w-full md:text-2xl z-40 lg:text-2xl flex-col sm:flex-row gap-4">
         <button
           onClick={handleQueryClick}
           className="bg-[#1a1a8c] text-white font-semibold py-2 px-4 rounded-md shadow-md hover:bg-[#2a2aaa] focus:outline-none focus:ring-2 focus:ring-opacity-50 mt-2"
@@ -224,8 +224,6 @@ const Hero = () => {
     </div>
   </div>
 
-  {/* Gradient Overlay */}
-  <div className="absolute bottom-0 left-0 right-0 h-90 bg-gradient-to-t from-gray-500 to-transparent" />
 </section>
 
   );

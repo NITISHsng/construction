@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState,useRef } from "react";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { db } from "../firebase/firebase";
 import { collection, addDoc } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 import { FaWhatsapp } from "react-icons/fa";
 import { toast } from "react-toastify";
-
+import emailjs from "@emailjs/browser"
 const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -13,7 +13,7 @@ const Contact = () => {
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
-
+ const form=useRef();
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -21,7 +21,8 @@ const Contact = () => {
     try {
       const auth = getAuth();
       const user = auth.currentUser;
-
+      
+      // Save to Firestore
       await addDoc(collection(db, "messages"), {
         userId: user ? user.uid : null,
         name,
@@ -33,7 +34,18 @@ const Contact = () => {
         timestamp: new Date(),
       });
 
+      // Send with EmailJS
+      await emailjs.sendForm(
+        "service_s2q3avz",
+        "template_s87f8xo",
+        form.current,
+        {
+          publicKey: "x_7TcaAOE52g2_Qc_",
+        }
+      );
+
       toast.success("Your message has been sent successfully!");
+      form.current.reset();
       setName("");
       setEmail("");
       setPhone("");
@@ -61,7 +73,7 @@ const Contact = () => {
 
         <div className="grid grid-cols-1 text-xl lg:grid-cols-2 gap-12">
           {/* Contact Form */}
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} ref={form} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <input
                 className="p-1 pl-3 bg-blue-800 border border-blue-700 rounded-md w-full"
