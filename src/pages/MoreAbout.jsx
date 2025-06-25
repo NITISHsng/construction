@@ -245,19 +245,19 @@ const About = () => {
                     </h4>
                     <p className="text-gray-700">
                       <span className="font-medium">Phone:</span>{" "}
-                      <a href="tel:+917679526642" className="text-blue-600 ">
-                        (+91) 7679526642
+                      <a href="tel:+919635868211" className="text-blue-600 ">
+                        (+91) 9635868211
                       </a>
                     </p>
                     <p className="text-gray-700">
                       <span className="font-medium">WhatsApp:</span>{" "}
                       <a
-                        href="https://wa.me/919635868211?text=Hello%20WowInfra%0A"
+                        href="https://wa.me/917679526642?text=Hello%20WowInfra%0A"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-green-600 "
                       >
-                        9635868211
+                        7679526642
                       </a>
                     </p>
                     <p className="text-gray-700">
@@ -374,10 +374,10 @@ const About = () => {
                 <span>
                   <strong>Phone</strong>:
                          <a
-          href="tel:+917679526642"
-          aria-label="Call +91 76795 26642"
+          href="tel:+919635868211"
+          aria-label="Call +91 9635868211"
         >
-         (+91)76795 26642
+         (+91)9635868211
         </a>
                 </span>
               </li>
@@ -386,11 +386,11 @@ const About = () => {
 
                 <span>
                   <strong>Whatsapp</strong>: <a
-                        href="https://wa.me/919635868211?text=Hello%20WowInfra%0A"
+                        href="https://wa.me/917679526642?text=Hello%20WowInfra%0A"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        9635868211
+                        7679526642
                       </a>
                 </span>
               </li>
@@ -420,7 +420,7 @@ const About = () => {
             <div className="mt-6">
               <p className="text-lg font-semibold text-yellow-400">
                 Emergency Service :{" "}
-                <span className="text-yellow-300">(+91) 7679526642</span>
+                <span className="text-yellow-300">(+91) 9635868211</span>
               </p>
               <p className="text-sm text-white mt-1">
                 Need urgent construction support? Our emergency team is

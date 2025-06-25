@@ -208,9 +208,9 @@ const Hero = () => {
         <a
           href="tel:+917679526642"
           className="bg-[#1a1a8c] text-white font-semibold py-2 px-4 rounded-md shadow-md hover:bg-[#2a2aaa] focus:outline-none focus:ring-2 focus:ring-opacity-50 mt-2 text-center"
-          aria-label="Call +91 76795 26642"
+          aria-label="Call +91 9635868211"
         >
-          ( +91 ) 76795 26642
+          ( +91 ) 9635868211
         </a>
 
         <a

@@ -143,12 +143,12 @@ const Contact = () => {
                 <div>
                   <span className="font-medium">WhatsApp :</span>
                   <a
-                    href="https://wa.me/919635868211?text=Hello!"
+                    href="https://wa.me/917679526642?text=Hello!"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="ml-2 text-white no-underline"
                   >
-                    9635868211
+                   76795 26642
                   </a>
                 </div>
               </div>
@@ -177,8 +177,8 @@ const Contact = () => {
             <div className="mt-3">
               <span className="font-semibold">Emergency Service :</span>{" "}
               <span className="font-bold text-yellow-500">
-                <a href="tel:+917679526642" className="ml-2">
-                  (+91) 7679526642
+                <a href="tel:+919635868211" className="ml-2">
+                  (+91) 9635868211
                 </a>
               </span>
               <p>
